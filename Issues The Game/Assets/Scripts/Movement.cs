@@ -73,6 +73,8 @@ public class Movement : MonoBehaviour
             rb.transform.localScale = new Vector3(-1, 1, 1); //Hard Code
         }
         // When speed is greater than 0, stickman faces right. Else, faces left.
+
+
         #endregion
 
         #region Friction
@@ -120,10 +122,18 @@ public class Movement : MonoBehaviour
         if(raycastHit.collider != null)
         {
             rayColor = Color.green;
+
+            #region Animation
+            animator.SetBool("isJumping", false);
+            #endregion
         }
         else
         {
             rayColor = Color.red;
+
+            #region Animation
+            animator.SetBool("isJumping", true); //Triggers jump animation when not Grounded
+            #endregion
         }
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + extraHeight), rayColor);
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + extraHeight), rayColor);
