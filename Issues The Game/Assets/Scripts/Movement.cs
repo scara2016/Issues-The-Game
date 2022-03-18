@@ -49,8 +49,9 @@ public class Movement : MonoBehaviour
     {
         #region Movement
         float moveInput = playerControls.Main.Move.ReadValue<float>();
+        
         float jumpInput = playerControls.Main.Jump.ReadValue<float>();
-
+        Debug.Log(IsGrounded());
         float targetSpeed = moveInput * moveSpeed;
         float speedDif = targetSpeed - rb.velocity.x;
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
