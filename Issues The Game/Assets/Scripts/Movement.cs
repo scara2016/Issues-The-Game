@@ -61,6 +61,20 @@ public class Movement : MonoBehaviour
         rb.AddForce(movement * Vector2.right);
         #endregion
 
+        #region Animation
+        // For Animator
+        animator.SetFloat("Speed", Mathf.Abs(targetSpeed)); //When speed is greater than greater than in state's settings, triggers animation
+        if (targetSpeed > 0)
+        {
+            rb.transform.localScale = new Vector3(1, 1, 1); //Hard code
+        }
+        else if (targetSpeed < 0)
+        {
+            rb.transform.localScale = new Vector3(-1, 1, 1); //Hard Code
+        }
+        // When speed is greater than 0, stickman faces right. Else, faces left.
+        #endregion
+
         #region Friction
         if (Mathf.Abs(moveInput) < 0.01f)
         {
