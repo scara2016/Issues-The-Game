@@ -119,7 +119,7 @@ public class Movement : MonoBehaviour
         float extraHeight = 0.1f;
         Color rayColor;
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, extraHeight, platformLayerMask);
-        if(raycastHit.collider != null)
+        if(raycastHit.collider != null) //When grounded
         {
             rayColor = Color.green;
 
@@ -127,7 +127,7 @@ public class Movement : MonoBehaviour
             animator.SetBool("isJumping", false);
             #endregion
         }
-        else
+        else //When not grounded
         {
             rayColor = Color.red;
 
