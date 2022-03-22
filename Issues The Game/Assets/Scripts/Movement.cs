@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     public float acceleration = 7f;
     public float moveSpeed = 10f;
+    private float targetSpeed;
     public float decceleration = 7f;
     public float velPower = 0.9f;
     public float frictionAmount = 0.1f;
@@ -22,11 +23,15 @@ public class Movement : MonoBehaviour
     private float jumpCooldownTimer = 0f;
     public float jumpVelocity = 1f;
 
+    public Animator animator;
+    private AnimationController controller;
+
     private void Awake()
     {
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
+        controller = GetComponent<AnimationController>();
     }
 
     private void OnEnable()
@@ -52,7 +57,7 @@ public class Movement : MonoBehaviour
         
         float jumpInput = playerControls.Main.Jump.ReadValue<float>();
         Debug.Log(IsGrounded());
-        float targetSpeed = moveInput * moveSpeed;
+        targetSpeed = moveInput * moveSpeed;
         float speedDif = targetSpeed - rb.velocity.x;
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
@@ -101,18 +106,31 @@ public class Movement : MonoBehaviour
         float extraHeight = 0.1f;
         Color rayColor;
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, extraHeight, platformLayerMask);
-        if(raycastHit.collider != null)
+        if(raycastHit.collider != null) //When grounded
         {
             rayColor = Color.green;
+
+            #region Animation
+            controller.isJumping(false); //Sets parameter in state to false when grounded
+            #endregion
         }
-        else
+        else //When not grounded
         {
             rayColor = Color.red;
+
+            #region Animation
+            controller.isJumping(true); //Triggers jump animation when not Grounded
+            #endregion
         }
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + extraHeight), rayColor);
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + extraHeight), rayColor);
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(0,boxCollider.bounds.extents.y), Vector2.right * (boxCollider.bounds.extents.x), rayColor);
 
         return raycastHit.collider != null;
+    }
+
+    public float GetSpeed()
+    {
+        return targetSpeed; //Public Getter to obtain speed while keeping targetSpeed private
     }
 }
