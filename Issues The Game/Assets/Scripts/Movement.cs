@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     public float acceleration = 7f;
     public float moveSpeed = 10f;
+    private float targetSpeed;
     public float decceleration = 7f;
     public float velPower = 0.9f;
     public float frictionAmount = 0.1f;
@@ -23,12 +24,14 @@ public class Movement : MonoBehaviour
     public float jumpVelocity = 1f;
 
     public Animator animator;
+    private AnimationController controller;
 
     private void Awake()
     {
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
+        controller = GetComponent<AnimationController>();
     }
 
     private void OnEnable()
@@ -54,27 +57,11 @@ public class Movement : MonoBehaviour
         
         float jumpInput = playerControls.Main.Jump.ReadValue<float>();
         Debug.Log(IsGrounded());
-        float targetSpeed = moveInput * moveSpeed;
+        targetSpeed = moveInput * moveSpeed;
         float speedDif = targetSpeed - rb.velocity.x;
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
         rb.AddForce(movement * Vector2.right);
-        #endregion
-
-        #region Animation
-        // For Animator
-        animator.SetFloat("Speed", Mathf.Abs(targetSpeed)); //When speed is greater than greater than in state's settings, triggers animation
-        if (targetSpeed > 0)
-        {
-            rb.transform.localScale = new Vector3(1, 1, 1); //Hard code
-        }
-        else if (targetSpeed < 0)
-        {
-            rb.transform.localScale = new Vector3(-1, 1, 1); //Hard Code
-        }
-        // When speed is greater than 0, stickman faces right. Else, faces left.
-
-
         #endregion
 
         #region Friction
@@ -124,7 +111,7 @@ public class Movement : MonoBehaviour
             rayColor = Color.green;
 
             #region Animation
-            animator.SetBool("isJumping", false);
+            controller.isJumping(false); //Sets parameter in state to false when grounded
             #endregion
         }
         else //When not grounded
@@ -132,7 +119,7 @@ public class Movement : MonoBehaviour
             rayColor = Color.red;
 
             #region Animation
-            animator.SetBool("isJumping", true); //Triggers jump animation when not Grounded
+            controller.isJumping(true); //Triggers jump animation when not Grounded
             #endregion
         }
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + extraHeight), rayColor);
@@ -140,5 +127,10 @@ public class Movement : MonoBehaviour
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(0,boxCollider.bounds.extents.y), Vector2.right * (boxCollider.bounds.extents.x), rayColor);
 
         return raycastHit.collider != null;
+    }
+
+    public float GetSpeed()
+    {
+        return targetSpeed; //Public Getter to obtain speed while keeping targetSpeed private
     }
 }
