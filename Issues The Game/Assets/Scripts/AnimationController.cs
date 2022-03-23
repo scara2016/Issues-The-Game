@@ -14,7 +14,7 @@ public class AnimationController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // For Animator
         animator.SetFloat("Speed", Mathf.Abs(movement.GetSpeed())); //When speed is greater than greater than in state's settings, triggers animation
