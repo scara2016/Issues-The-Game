@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-    public Animator animator;
+    private Animator animator;
     private Movement movement;
     private Rigidbody2D rb;
 
@@ -12,6 +12,7 @@ public class AnimationController : MonoBehaviour
     {
         movement = GetComponent<Movement>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()

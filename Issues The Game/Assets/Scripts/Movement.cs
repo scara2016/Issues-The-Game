@@ -23,7 +23,6 @@ public class Movement : MonoBehaviour
     private float jumpCooldownTimer = 0f;
     public float jumpVelocity = 1f;
 
-    public Animator animator;
     private AnimationController controller;
 
     private void Awake()
