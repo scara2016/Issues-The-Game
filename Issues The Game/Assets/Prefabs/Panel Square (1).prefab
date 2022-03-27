@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2621988407647636731}
   - component: {fileID: 2621988407647636728}
   - component: {fileID: 2621988407647636729}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Platform (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 2621988407973798497}
   - component: {fileID: 2621988407973798502}
   - component: {fileID: 2621988407973798503}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Platform (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2621988408091749782}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Panel Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 2621988409199627946}
   - component: {fileID: 2621988409199627947}
   - component: {fileID: 2621988409199627944}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Platform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

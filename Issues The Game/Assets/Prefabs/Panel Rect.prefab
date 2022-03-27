@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 77180285976433837}
   - component: {fileID: 77180285976433836}
   - component: {fileID: 77180285976433839}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Platform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 77180286380193566}
   - component: {fileID: 77180286380193561}
   - component: {fileID: 77180286380193560}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 77180286746079410}
   - component: {fileID: 77180286746079437}
   - component: {fileID: 77180286746079436}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Platform (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 77180287256602299}
   - component: {fileID: 77180287256602298}
   - component: {fileID: 77180287256602293}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Platform (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 77180287427073316}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Panel Rect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
