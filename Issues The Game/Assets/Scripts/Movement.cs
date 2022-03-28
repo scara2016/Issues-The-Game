@@ -56,7 +56,6 @@ public class Movement : MonoBehaviour
         float moveInput = playerControls.Main.Move.ReadValue<float>();
         
         float jumpInput = playerControls.Main.Jump.ReadValue<float>();
-        Debug.Log(IsGrounded());
         targetSpeed = moveInput * moveSpeed;
         float speedDif = targetSpeed - rb.velocity.x;
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
@@ -87,7 +86,6 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(Vector2.up* jumpVelocity, ForceMode2D.Impulse);
             jumpCooldownStart = true;
-            Debug.Log("Called");
         }
         if (rb.velocity.y < 0)
         {
