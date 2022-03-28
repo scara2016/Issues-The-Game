@@ -25,10 +25,11 @@ public class Movement : MonoBehaviour
 
     private AnimationController controller;
 
-    //Animation States
+    //Animation States - Name in quotes should equal state name in Animator
     const string PLAYER_IDLE = "Idle";
     const string PLAYER_RUN = "Run";
     const string PLAYER_JUMP = "Jump";
+    const string PLAYER_FALL = "Fall";
 
     private void Awake()
     {
@@ -143,7 +144,16 @@ public class Movement : MonoBehaviour
         else //When not grounded
         {
             rayColor = Color.red;
-            controller.ChangeAnimationState(PLAYER_JUMP); //Plays Jump State
+
+            if (rb.velocity.y > 0)
+            {
+                controller.ChangeAnimationState(PLAYER_JUMP); //Plays Jump State
+            }
+
+            if (rb.velocity.y < 0)
+            {
+                controller.ChangeAnimationState(PLAYER_FALL); //Plays Fall State when velocity is less than 0.
+            }
         }
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + extraHeight), rayColor);
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + extraHeight), rayColor);
