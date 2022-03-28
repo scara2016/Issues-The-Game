@@ -25,6 +25,11 @@ public class Movement : MonoBehaviour
 
     private AnimationController controller;
 
+    //Animation States
+    const string PLAYER_IDLE = "Idle";
+    const string PLAYER_RUN = "Run";
+    const string PLAYER_JUMP = "Jump";
+
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -45,7 +50,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -53,7 +58,7 @@ public class Movement : MonoBehaviour
     {
         #region Movement
         float moveInput = playerControls.Main.Move.ReadValue<float>();
-        
+
         float jumpInput = playerControls.Main.Jump.ReadValue<float>();
         Debug.Log(IsGrounded());
         targetSpeed = moveInput * moveSpeed;
@@ -61,6 +66,31 @@ public class Movement : MonoBehaviour
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
         rb.AddForce(movement * Vector2.right);
+        #endregion
+
+        #region AnimateMovement
+        // Reads Input Value to change state
+        if (IsGrounded())
+        {
+            if (moveInput != 0) //When input is given
+            {
+                controller.ChangeAnimationState(PLAYER_RUN);
+            }
+            else //When no input is given
+            {
+                controller.ChangeAnimationState(PLAYER_IDLE);
+            }
+        }
+
+        if (moveInput > 0) //When running to the right
+        {
+            rb.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (moveInput < 0) //When running to the left
+        {
+            rb.transform.localScale = new Vector3(-1, 1, 1);
+        }
+
         #endregion
 
         #region Friction
@@ -82,16 +112,17 @@ public class Movement : MonoBehaviour
                 jumpCooldownTimer = 0f;
             }
         }
-        if(jumpInput != 0 && IsGrounded() && !jumpCooldownStart)
+        if (jumpInput != 0 && IsGrounded() && !jumpCooldownStart)
         {
-            rb.AddForce(Vector2.up* jumpVelocity, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
             jumpCooldownStart = true;
             Debug.Log("Called");
         }
         if (rb.velocity.y < 0)
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime ;
-        } else if(rb.velocity.y>0 && jumpInput == 0)
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb.velocity.y > 0 && jumpInput == 0)
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
 
@@ -105,25 +136,18 @@ public class Movement : MonoBehaviour
         float extraHeight = 0.1f;
         Color rayColor;
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, extraHeight, platformLayerMask);
-        if(raycastHit.collider != null) //When grounded
+        if (raycastHit.collider != null) //When grounded
         {
             rayColor = Color.green;
-
-            #region Animation
-            controller.isJumping(false); //Sets parameter in state to false when grounded
-            #endregion
         }
         else //When not grounded
         {
             rayColor = Color.red;
-
-            #region Animation
-            controller.isJumping(true); //Triggers jump animation when not Grounded
-            #endregion
+            controller.ChangeAnimationState(PLAYER_JUMP); //Plays Jump State
         }
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + extraHeight), rayColor);
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + extraHeight), rayColor);
-        Debug.DrawRay(boxCollider.bounds.center + new Vector3(0,boxCollider.bounds.extents.y), Vector2.right * (boxCollider.bounds.extents.x), rayColor);
+        Debug.DrawRay(boxCollider.bounds.center + new Vector3(0, boxCollider.bounds.extents.y), Vector2.right * (boxCollider.bounds.extents.x), rayColor);
 
         return raycastHit.collider != null;
     }
