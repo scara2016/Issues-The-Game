@@ -73,24 +73,13 @@ public class Movement : MonoBehaviour
         // Reads Input Value to change state
         if (IsGrounded())
         {
-            /* 
-            Case depends on player's input. When no input is given (0),
-            state is in Idle. When an input is given (-1, 1), state is in the running state.
-            */
-            switch (moveInput)
+            if (moveInput != 0) //when Input is Given
             {
-                case 0:
-                    controller.ChangeAnimationState(PLAYER_IDLE);
-                    break;
-                case 1:
-                    controller.ChangeAnimationState(PLAYER_RUN);
-                    break;
-                case -1:
-                    controller.ChangeAnimationState(PLAYER_RUN);
-                    break;
-                default:
-                    controller.ChangeAnimationState(PLAYER_IDLE);
-                    break;
+                controller.ChangeAnimationState(PLAYER_RUN);
+            }
+            else
+            {
+                controller.ChangeAnimationState(PLAYER_IDLE);
             }
         }
 
