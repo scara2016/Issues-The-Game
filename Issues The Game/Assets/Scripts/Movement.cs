@@ -11,7 +11,6 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     public float acceleration = 7f;
     public float moveSpeed = 10f;
-    private float targetSpeed;
     public float decceleration = 7f;
     public float velPower = 0.9f;
     public float frictionAmount = 0.1f;
@@ -24,12 +23,6 @@ public class Movement : MonoBehaviour
     public float jumpVelocity = 1f;
 
     private AnimationController controller;
-
-    //Animation States - Name in quotes should equal state name in Animator
-    const string PLAYER_IDLE = "Idle";
-    const string PLAYER_RUN = "Run";
-    const string PLAYER_JUMP = "Jump";
-    const string PLAYER_FALL = "Fall";
 
     private void Awake()
     {
@@ -62,7 +55,7 @@ public class Movement : MonoBehaviour
 
         float jumpInput = playerControls.Main.Jump.ReadValue<float>();
         Debug.Log(IsGrounded());
-        targetSpeed = moveInput * moveSpeed;
+        float targetSpeed = moveInput * moveSpeed;
         float speedDif = targetSpeed - rb.velocity.x;
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
@@ -73,13 +66,25 @@ public class Movement : MonoBehaviour
         // Reads Input Value to change state
         if (IsGrounded())
         {
-            if (moveInput != 0) //when Input is Given
+            if (moveInput != 0)
             {
-                controller.ChangeAnimationState(PLAYER_RUN);
+                controller.RunState();
             }
             else
             {
-                controller.ChangeAnimationState(PLAYER_IDLE);
+                controller.IdleState();
+            }
+        }
+        else if (!IsGrounded())
+        {
+            if (rb.velocity.y > 0)
+            {
+                controller.JumpState();
+            }
+
+            if (rb.velocity.y < 0)
+            {
+                controller.FallState(); 
             }
         }
 
@@ -132,7 +137,7 @@ public class Movement : MonoBehaviour
 
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         float extraHeight = 0.1f;
         Color rayColor;
@@ -144,26 +149,11 @@ public class Movement : MonoBehaviour
         else //When not grounded
         {
             rayColor = Color.red;
-
-            if (rb.velocity.y > 0)
-            {
-                controller.ChangeAnimationState(PLAYER_JUMP); //Plays Jump State
-            }
-
-            if (rb.velocity.y < 0)
-            {
-                controller.ChangeAnimationState(PLAYER_FALL); //Plays Fall State when velocity is less than 0.
-            }
         }
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + extraHeight), rayColor);
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + extraHeight), rayColor);
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(0, boxCollider.bounds.extents.y), Vector2.right * (boxCollider.bounds.extents.x), rayColor);
 
         return raycastHit.collider != null;
-    }
-
-    public float GetSpeed()
-    {
-        return targetSpeed; //Public Getter to obtain speed while keeping targetSpeed private
     }
 }
