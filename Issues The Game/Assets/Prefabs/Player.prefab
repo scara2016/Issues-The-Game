@@ -114,6 +114,8 @@ MonoBehaviour:
   jumpCooldown: 1
   jumpVelocity: 5
   animator: {fileID: 8786989015115453864}
+  swordLeft: {fileID: 0}
+  swordRight: {fileID: 0}
 --- !u!50 &8786989015115453861
 Rigidbody2D:
   serializedVersion: 4

@@ -7,8 +7,18 @@ public class WeaponPickup : MonoBehaviour {
     public GameObject[] weapons;
     public GameObject weaponHere;
     void Start () {
-        weaponHere = weapons [Random.Range (0, weapons.Length)];
-        GetComponent<SpriteRenderer> ().sprite = weaponHere.GetComponent<SpriteRenderer> ().sprite;
+        // weaponHere = weapons [Random.Range (0, weapons.Length)];
+        // GetComponent<SpriteRenderer> ().sprite = weaponHere.GetComponent<SpriteRenderer> ().sprite;
 
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        PickUp();
+    }
+
+    void PickUp()
+    {
+        Destroy(gameObject);
     }
 }
