@@ -1239,6 +1239,10 @@ PrefabInstance:
       value: 12.77
       objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: wallDistance
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: platformLayerMask.m_Bits
       value: 8
       objectReference: {fileID: 0}
