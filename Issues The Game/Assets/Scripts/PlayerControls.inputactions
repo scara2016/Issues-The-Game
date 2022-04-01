@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PickUp",
+                    "type": "PassThrough",
+                    "id": "66e2aac1-01b3-4dbf-914e-d243835bd26d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -39,7 +48,7 @@
                 {
                     "name": "negative",
                     "id": "f076799d-47ed-4db0-92c3-cbb5d8170ad4",
-                    "path": "<Joystick>/stick/left",
+                    "path": "<XInputController>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -50,7 +59,7 @@
                 {
                     "name": "positive",
                     "id": "951d98cd-8bde-4106-b503-d8ec46224b3a",
-                    "path": "<Joystick>/stick/right",
+                    "path": "<XInputController>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -61,11 +70,22 @@
                 {
                     "name": "",
                     "id": "1091c934-9dd1-4618-9ee9-9bff0b740f3e",
-                    "path": "<HID::8BitDo 8BitDo Pro 2>/trigger",
+                    "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3ae5a621-a7b7-4249-9641-a332bcdd844c",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
