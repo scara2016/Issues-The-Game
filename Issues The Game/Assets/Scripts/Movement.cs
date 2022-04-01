@@ -23,6 +23,13 @@ public class Movement : MonoBehaviour
     private float jumpCooldownTimer = 0f;
     public float jumpVelocity = 1f;
 
+    public float wallJumpTime = 0.2f;
+    public float wallSlideSpeed = 0.3f;
+    public float wallDistance = 0.5f;
+    private bool isWallSliding = false;
+    RaycastHit2D wallCheckHit;
+    private float jumpTime;
+
     public Animator animator;
     private AnimationController controller;
 
@@ -82,7 +89,7 @@ public class Movement : MonoBehaviour
                 jumpCooldownTimer = 0f;
             }
         }
-        if(jumpInput != 0 && IsGrounded() && !jumpCooldownStart)
+        if(jumpInput != 0 && IsGrounded() && !jumpCooldownStart || (isWallSliding && jumpInput!=0))
         {
             rb.AddForce(Vector2.up* jumpVelocity, ForceMode2D.Impulse);
             jumpCooldownStart = true;
@@ -95,6 +102,25 @@ public class Movement : MonoBehaviour
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
 
         }
+
+        #region WallJump
+
+        wallCheckHit = Physics2D.Raycast(transform.position + Vector3.left, 2 * Vector3.right, wallDistance, platformLayerMask);
+        Debug.DrawRay(transform.position+Vector3.left, 2*Vector3.right, Color.blue);
+        if (wallCheckHit && !IsGrounded())
+        {
+            isWallSliding = true;
+            jumpTime = Time.time + wallJumpTime;
+        }
+        else if (jumpTime < Time.time)
+        {
+            isWallSliding = false;
+        }
+        if (isWallSliding)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, wallSlideSpeed, float.MaxValue));
+        }
+        #endregion
 
 
     }
