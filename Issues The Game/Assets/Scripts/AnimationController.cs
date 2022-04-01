@@ -14,7 +14,7 @@ public class AnimationController : MonoBehaviour
     const string PLAYER_JUMP = "Jump";
     const string PLAYER_FALL = "Fall";
 
-    void Start()
+    void Awake()
     {
         animator = GetComponent<Animator>();
         move = GetComponent<Movement>();
