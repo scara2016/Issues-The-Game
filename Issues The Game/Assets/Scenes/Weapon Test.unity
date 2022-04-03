@@ -511,9 +511,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2101425124226408200, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4105030698027596699, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: m_Name
       value: Sizzle Sword Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105030698027596700, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105030698027596700, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105030698027596700, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4105030698027596701, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: m_RootOrder
