@@ -8,18 +8,18 @@ public class AnimationController : MonoBehaviour
     private Movement movement;
     private Rigidbody2D rb;
 
-    private WeaponPickup wp;
+    // private WeaponPickup wp;
 
     // Sprite color
-    private SpriteRenderer sprite;
+    // private SpriteRenderer sprite;
 
     void Awake()
     {
         movement = GetComponent<Movement>();
         rb = GetComponent<Rigidbody2D>();
-        wp = GetComponent<WeaponPickup>();
+        // wp = GetComponent<WeaponPickup>();
         // for colour change
-        sprite = GetComponent<SpriteRenderer>();
+        // sprite = GetComponent<SpriteRenderer>();
         // wp.itemPicked = false;
     }
 
@@ -38,10 +38,10 @@ public class AnimationController : MonoBehaviour
         // When speed is greater than 0, stickman faces right. Else, faces left.
 
         // When weapon is picked up, appearance changes
-        if(wp.itemPicked == true) 
-        {
-            sprite.color = new Color(1,0,0,1);
-        }
+        // if(wp.itemPicked == true) 
+        // {
+        //     sprite.color = new Color(1,0,0,1);
+        // }
     }
 
     public void isJumping(bool jump)

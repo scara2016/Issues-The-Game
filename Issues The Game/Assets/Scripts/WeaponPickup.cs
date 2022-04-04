@@ -9,16 +9,19 @@ public class WeaponPickup : MonoBehaviour {
     private PlayerControls playerControls;
 
     public bool pickUpAllowed;
-    public bool itemPicked;
+    // public bool itemPicked;
     
     private float pickUpInput;
+
+    [SerializeField]
+    private Weapon weapon;
 
     // private SpriteRenderer sprite;
 
 
     void Start () {
         pickUpAllowed = false;
-        itemPicked = false;
+        // itemPicked = false;
         // weaponHere = weapons [Random.Range (0, weapons.Length)];
         // GetComponent<SpriteRenderer> ().sprite = weaponHere.GetComponent<SpriteRenderer> ().sprite;
     }
@@ -43,6 +46,7 @@ public class WeaponPickup : MonoBehaviour {
         if(pickUpAllowed && pickUpInput != 0) {
             PickUp();
             pickUpAllowed = false;
+            Weapon.Instance.GetWeapon();
         }
     }
     
@@ -76,7 +80,8 @@ public class WeaponPickup : MonoBehaviour {
         // makes item dissapear after pickup
         Destroy(gameObject);
         // statement to say that an item has been picked up
-        itemPicked = true;
+        // itemPicked = true;
+        Debug.Log("PickedUp");
 
     }
 }
