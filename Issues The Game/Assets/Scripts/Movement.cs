@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     public float acceleration = 7f;
     public float moveSpeed = 10f;
+    private float targetSpeed;
     public float decceleration = 7f;
     public float velPower = 0.9f;
     public float frictionAmount = 0.1f;
@@ -82,7 +83,7 @@ public class Movement : MonoBehaviour
                 controller.IdleState();
             }
         }
-        else if (!IsGrounded())
+        else if (!IsGrounded() && !isWallSliding)
         {
             if (rb.velocity.y > 0)
             {
@@ -157,7 +158,6 @@ public class Movement : MonoBehaviour
             slideCooldownStart = true;
             isWallSliding = true;
             jumpCooldownTimer = float.MaxValue;
-           
         }
         else if (slideTimer > slideCooldown)
         {
@@ -168,6 +168,8 @@ public class Movement : MonoBehaviour
         if (isWallSliding)
         {
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlideSpeed, float.MaxValue));
+            controller.IdleState();
+            Debug.Log("Wall Sliding: " + isWallSliding);
         }
         #endregion
 
