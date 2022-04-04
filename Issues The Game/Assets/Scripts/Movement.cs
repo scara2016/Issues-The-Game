@@ -74,7 +74,7 @@ public class Movement : MonoBehaviour
         // Reads Input Value to change state
         if (IsGrounded())
         {
-            if (moveInput != 0)
+            if (moveInput != 0 && !isWallSliding)
             {
                 controller.RunState();
             }
@@ -85,7 +85,7 @@ public class Movement : MonoBehaviour
         }
         else if (!IsGrounded() && !isWallSliding)
         {
-            if (rb.velocity.y > 0)
+            if (rb.velocity.y > 0 || jumpInput != 0)
             {
                 controller.JumpState();
             }
@@ -93,7 +93,13 @@ public class Movement : MonoBehaviour
             if (rb.velocity.y < 0)
             {
                 controller.FallState(); 
+                Debug.Log("Falling");
             }
+        }
+
+        if (!IsGrounded() && isWallSliding)
+        {
+            controller.WallSlideState();
         }
 
         if (moveInput > 0) //When running to the right
@@ -168,7 +174,6 @@ public class Movement : MonoBehaviour
         if (isWallSliding)
         {
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlideSpeed, float.MaxValue));
-            controller.IdleState();
             Debug.Log("Wall Sliding: " + isWallSliding);
         }
         #endregion

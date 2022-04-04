@@ -13,6 +13,7 @@ public class AnimationController : MonoBehaviour
     const string PLAYER_RUN = "Run";
     const string PLAYER_JUMP = "Jump";
     const string PLAYER_FALL = "Fall";
+    const string PLAYER_WALLSLIDE = "WallSlide";
 
     void Awake()
     {
@@ -53,6 +54,11 @@ public class AnimationController : MonoBehaviour
     public void FallState()
     {
         ChangeAnimationState(PLAYER_FALL);
+    }
+
+    public void WallSlideState()
+    {
+        ChangeAnimationState(PLAYER_WALLSLIDE);
     }
 
 }
