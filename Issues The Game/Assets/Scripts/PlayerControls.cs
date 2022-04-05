@@ -53,6 +53,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""887b5068-9f6f-4bc0-aa62-bc9f9fdeeb9c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,6 +119,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""PickUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ceada642-62ac-4042-b8f7-8292717acc8f"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -121,6 +141,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Main_Move = m_Main.FindAction("Move", throwIfNotFound: true);
         m_Main_Jump = m_Main.FindAction("Jump", throwIfNotFound: true);
         m_Main_PickUp = m_Main.FindAction("PickUp", throwIfNotFound: true);
+        m_Main_Attack = m_Main.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -183,6 +204,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Main_Move;
     private readonly InputAction m_Main_Jump;
     private readonly InputAction m_Main_PickUp;
+    private readonly InputAction m_Main_Attack;
     public struct MainActions
     {
         private @PlayerControls m_Wrapper;
@@ -190,6 +212,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Main_Move;
         public InputAction @Jump => m_Wrapper.m_Main_Jump;
         public InputAction @PickUp => m_Wrapper.m_Main_PickUp;
+        public InputAction @Attack => m_Wrapper.m_Main_Attack;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -208,6 +231,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @PickUp.started -= m_Wrapper.m_MainActionsCallbackInterface.OnPickUp;
                 @PickUp.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnPickUp;
                 @PickUp.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnPickUp;
+                @Attack.started -= m_Wrapper.m_MainActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnAttack;
             }
             m_Wrapper.m_MainActionsCallbackInterface = instance;
             if (instance != null)
@@ -221,6 +247,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @PickUp.started += instance.OnPickUp;
                 @PickUp.performed += instance.OnPickUp;
                 @PickUp.canceled += instance.OnPickUp;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
             }
         }
     }
@@ -230,5 +259,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnPickUp(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
 }
