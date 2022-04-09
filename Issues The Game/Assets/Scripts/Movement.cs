@@ -23,6 +23,17 @@ public class Movement : MonoBehaviour
     private float jumpCooldownTimer = 0f;
     public float jumpVelocity = 1f;
 
+    public float wallJumpTime = 0.2f;
+    public float wallSlideSpeed = 0.3f;
+    public float wallDistance = 0.5f;
+    private float slideTimer = 0f;
+    public float slideCooldown = 0.5f;
+    private bool slideCooldownStart = false;
+    private bool isWallSliding = false;
+    RaycastHit2D wallCheckHit;
+    
+
+    public Animator animator;
     private AnimationController controller;
 
     private void Awake()
@@ -43,10 +54,7 @@ public class Movement : MonoBehaviour
         playerControls.Disable();
     }
 
-    void Start()
-    {
-        
-    }
+ 
 
     // Update is called once per frame
     void Update()
@@ -55,7 +63,6 @@ public class Movement : MonoBehaviour
         float moveInput = playerControls.Main.Move.ReadValue<float>();
         
         float jumpInput = playerControls.Main.Jump.ReadValue<float>();
-        Debug.Log(IsGrounded());
         targetSpeed = moveInput * moveSpeed;
         float speedDif = targetSpeed - rb.velocity.x;
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
@@ -82,11 +89,10 @@ public class Movement : MonoBehaviour
                 jumpCooldownTimer = 0f;
             }
         }
-        if(jumpInput != 0 && IsGrounded() && !jumpCooldownStart)
+        if(jumpInput != 0 && IsGrounded() && !jumpCooldownStart || (isWallSliding && jumpInput!=0 && !jumpCooldownStart))
         {
             rb.AddForce(Vector2.up* jumpVelocity, ForceMode2D.Impulse);
             jumpCooldownStart = true;
-            Debug.Log("Called");
         }
         if (rb.velocity.y < 0)
         {
@@ -96,6 +102,37 @@ public class Movement : MonoBehaviour
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
 
         }
+
+        #region WallJump
+
+        wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(wallDistance, 0), wallDistance, platformLayerMask);
+        wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), wallDistance, platformLayerMask);
+
+        Debug.DrawRay(transform.position, new Vector2(wallDistance, 0), Color.blue);
+        Debug.DrawRay(transform.position, new Vector2(-wallDistance, 0), Color.blue);
+        if (slideCooldownStart)
+        {
+            slideTimer += Time.deltaTime;
+        }
+      
+        if (wallCheckHit && !IsGrounded() && moveInput!=0 && !isWallSliding)
+        {
+            slideCooldownStart = true;
+            isWallSliding = true;
+            jumpCooldownTimer = float.MaxValue;
+           
+        }
+        else if (slideTimer > slideCooldown)
+        {
+            slideTimer = 0;
+            slideCooldownStart = false;
+            isWallSliding = false;
+        }
+        if (isWallSliding)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlideSpeed, float.MaxValue));
+        }
+        #endregion
 
 
     }
