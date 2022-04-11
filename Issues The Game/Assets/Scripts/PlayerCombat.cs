@@ -7,6 +7,13 @@ public class PlayerCombat : MonoBehaviour
     private PlayerControls playerControls;
     private float attackInput;
 
+    // private Movement movement;
+
+    //Weapon hit area
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayer;
+
     [SerializeField]
     private Weapon weapon;
     // Start is called before the first frame update
@@ -18,6 +25,7 @@ public class PlayerCombat : MonoBehaviour
     void Awake()
     {
         playerControls = new PlayerControls();
+        movement = GetComponent<Movement>();
     }
 
     void OnEnable() {
@@ -34,9 +42,11 @@ public class PlayerCombat : MonoBehaviour
     {
         attackInput = playerControls.Main.Attack.ReadValue<float>();
 
+
+
         if(attackInput != 0 && weapon.Equiped == true)
         {
-            Attack();
+           SwordAttack();
         }
     }
 
@@ -44,6 +54,20 @@ public class PlayerCombat : MonoBehaviour
     {
         // play animation
         //Detect enemies in range 
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,attackRange, enemyLayer);
         //Damage them 
+        foreach(Collider2D enemy in hitEnemies)
+        {
+            Debug.Log("We hit" + enemy.name);
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if(attackPoint == null)
+        {
+            return;
+        }
+        OnDrawGizmosSelected.DrawWireSphere(attackPoint, position, attackRange);
     }
 }

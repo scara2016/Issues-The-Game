@@ -26,10 +26,6 @@ public class Movement : MonoBehaviour
     public Animator animator;
     private AnimationController controller;
 
-    //Weapon hit area
-    public GameObject swordLeft;
-    public GameObject swordRight;
-
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -138,31 +134,16 @@ public class Movement : MonoBehaviour
         return targetSpeed; //Public Getter to obtain speed while keeping targetSpeed private
     }
 
-    //Sword attack event
-    void SwordAttack()
-    {
-        //when facing right
-        if(GetSpeed() > 0)
-        {
-            swordRight.SetActive(true);
-        }
-        //when facing left
-        else
-        {
-            swordLeft.SetActive(true);
-        }
-    }
-
-    void SwordAttackDOne() 
-    {
-        if(GetSpeed() > 0)
-        {
-            swordRight.SetActive(false);
-        }
-        //when facing left
-        else
-        {
-            swordLeft.SetActive(false);
-        }
-    }
+    // void SwordAttackDOne() 
+    // {
+    //     if(GetSpeed() > 0)
+    //     {
+    //         swordRight.SetActive(false);
+    //     }
+    //     //when facing left
+    //     else
+    //     {
+    //         swordLeft.SetActive(false);
+    //     }
+    // }
 }

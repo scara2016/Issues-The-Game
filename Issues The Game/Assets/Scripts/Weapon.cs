@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour
     public void GetWeapon()
     {
         equiped = true;
-        changeLook();
+        // changeLook();
     }
 
     public void changeLook() 

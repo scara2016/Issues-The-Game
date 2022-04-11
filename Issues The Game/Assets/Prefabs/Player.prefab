@@ -116,8 +116,6 @@ MonoBehaviour:
   jumpCooldown: 1
   jumpVelocity: 5
   animator: {fileID: 8786989015115453864}
-  swordLeft: {fileID: 0}
-  swordRight: {fileID: 0}
 --- !u!50 &8786989015115453861
 Rigidbody2D:
   serializedVersion: 4
@@ -224,3 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbbfb2a4afa2c6743a7b37f9aa103cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordLeft: {fileID: 9155581652876275147, guid: b1ad58c176b1c55469dd8935f7a9fecc, type: 3}
+  swordRight: {fileID: 1797494094157799809, guid: 80fa753c6854c4143a7d899c864128b2, type: 3}
+  weapon: {fileID: 0}
