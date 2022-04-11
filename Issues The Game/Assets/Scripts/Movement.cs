@@ -74,25 +74,30 @@ public class Movement : MonoBehaviour
         // Reads Input Value to change state
         if (IsGrounded())
         {
+            controller.AirState(false);
+            controller.JumpState(false);
             if (moveInput != 0 && !isWallSliding)
             {
-                controller.RunState();
+                controller.RunState(true);
             }
             else
             {
-                controller.IdleState();
+                controller.RunState(false);
             }
         }
         else if (!IsGrounded() && !isWallSliding)
         {
             if (rb.velocity.y > 0 || jumpInput != 0)
             {
-                controller.JumpState();
+                controller.JumpState(true);
+                controller.AirState(true);
             }
 
             if (rb.velocity.y < 0)
             {
-                controller.FallState(); 
+
+                controller.JumpState(false);
+                controller.AirState(true); 
                 Debug.Log("Falling");
             }
         }

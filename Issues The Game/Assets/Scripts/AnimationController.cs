@@ -10,7 +10,7 @@ public class AnimationController : MonoBehaviour
 
     //Animation States - Name in quotes should equal state name in Animator
     const string PLAYER_IDLE = "Idle";
-    const string PLAYER_RUN = "Run";
+    //const string PLAYER_RUN = "Run";
     const string PLAYER_JUMP = "Jump";
     const string PLAYER_FALL = "Fall";
     const string PLAYER_WALLSLIDE = "WallSlide";
@@ -36,24 +36,19 @@ public class AnimationController : MonoBehaviour
         currentState = newState;
     }
 
-    public void RunState()
+    public void RunState(bool run)
     {
-        ChangeAnimationState(PLAYER_RUN);
+        animator.SetBool("isRunning", run);
     }
 
-    public void IdleState()
+    public void JumpState(bool jump)
     {
-        ChangeAnimationState(PLAYER_IDLE);
+        animator.SetBool("isJumping", jump);
     }
 
-    public void JumpState()
+    public void AirState(bool fall)
     {
-        ChangeAnimationState(PLAYER_JUMP);
-    }
-
-    public void FallState()
-    {
-        ChangeAnimationState(PLAYER_FALL);
+        animator.SetBool("isMidAir", fall);
     }
 
     public void WallSlideState()
