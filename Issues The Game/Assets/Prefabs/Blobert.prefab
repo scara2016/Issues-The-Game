@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2449227307252442}
   - component: {fileID: 3995379216834914111}
   - component: {fileID: 8243288324827025532}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blobert
   m_TagString: Untagged
   m_Icon: {fileID: 0}

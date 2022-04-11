@@ -25,7 +25,7 @@ public class PlayerCombat : MonoBehaviour
     void Awake()
     {
         playerControls = new PlayerControls();
-        movement = GetComponent<Movement>();
+        weapon = GetComponent<Weapon>();
     }
 
     void OnEnable() {
@@ -46,7 +46,7 @@ public class PlayerCombat : MonoBehaviour
 
         if(attackInput != 0 && weapon.Equiped == true)
         {
-           SwordAttack();
+           Attack();
         }
     }
 
@@ -65,9 +65,7 @@ public class PlayerCombat : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         if(attackPoint == null)
-        {
             return;
-        }
-        OnDrawGizmosSelected.DrawWireSphere(attackPoint, position, attackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
