@@ -51,9 +51,9 @@ public class AnimationController : MonoBehaviour
         animator.SetBool("isMidAir", fall);
     }
 
-    public void WallSlideState()
+    public void WallSlideState(bool wallslide)
     {
-        ChangeAnimationState(PLAYER_WALLSLIDE);
+        animator.SetBool("isWallSliding", wallslide);
     }
 
 }

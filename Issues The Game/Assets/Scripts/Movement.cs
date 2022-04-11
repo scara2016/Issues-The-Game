@@ -72,9 +72,10 @@ public class Movement : MonoBehaviour
 
         #region AnimateMovement
         // Reads Input Value to change state
-        if (IsGrounded())
+        if (IsGrounded() && !isWallSliding)
         {
-            if (moveInput != 0 && !isWallSliding)
+            controller.WallSlideState(false);
+            if (moveInput != 0)
             {
                 controller.RunState(true);
             }
@@ -106,10 +107,10 @@ public class Movement : MonoBehaviour
             controller.JumpState(false);
         }
 
-        /* if (!IsGrounded() && isWallSliding)
+        if (!IsGrounded() && isWallSliding)
         {
-            controller.WallSlideState();
-        } */
+            controller.WallSlideState(true);
+        }
 
         if (moveInput > 0) //When running to the right
         {
