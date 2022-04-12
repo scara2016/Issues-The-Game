@@ -16,6 +16,8 @@ public class PlayerCombat : MonoBehaviour
 
     [SerializeField]
     private Weapon weapon;
+
+    private Collider2D[] hitEnemies;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +56,7 @@ public class PlayerCombat : MonoBehaviour
     {
         // play animation
         //Detect enemies in range 
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,attackRange, enemyLayer);
+        hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,attackRange, enemyLayer);
         //Damage them 
         foreach(Collider2D enemy in hitEnemies)
         {
