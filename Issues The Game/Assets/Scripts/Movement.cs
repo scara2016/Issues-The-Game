@@ -30,8 +30,8 @@ public class Movement : MonoBehaviour
     public float slideCooldown = 0.5f;
     private bool slideCooldownStart = false;
     private bool isWallSliding = false;
-    RaycastHit2D wallCheckHit;
-    
+    RaycastHit2D wallCheckHitLeft;
+    RaycastHit2D wallCheckHitRight;
 
     public Animator animator;
     private AnimationController controller;
@@ -60,12 +60,12 @@ public class Movement : MonoBehaviour
     void Update()
     {
         #region Movement
-        float moveInput = playerControls.Main.Move.ReadValue<float>();
-
-        float jumpInput = playerControls.Main.Jump.ReadValue<float>();
-        targetSpeed = moveInput * moveSpeed;
-        float speedDif = targetSpeed - rb.velocity.x;
-        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
+        float moveInput = playerControls.Main.Move.ReadValue<float>(); // Reads and stores movement input from inputManager
+        
+        float jumpInput = playerControls.Main.Jump.ReadValue<float>(); // Reads and stores movement input from inputManager
+        targetSpeed = moveInput * moveSpeed; // when the player wants to move then the target speed is 1*movespeed and when they want to stop it is 0*moveSpeed
+        float speedDif = targetSpeed - rb.velocity.x; //finds difference between current velocity and target velocity
+        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration; // calculates if accel needs to be applied positive or negative
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
         rb.AddForce(movement * Vector2.right);
         #endregion
@@ -124,16 +124,16 @@ public class Movement : MonoBehaviour
         #endregion
 
         #region Friction
-        if (Mathf.Abs(moveInput) < 0.01f)
+        if (Mathf.Abs(moveInput) < 0.01f) //custom friction as we need engine friction to be 0 for wall slides
         {
             float amount = Mathf.Min(Mathf.Abs(rb.velocity.x), Mathf.Abs(frictionAmount));
 
             amount *= Mathf.Sign(rb.velocity.x);
-            rb.AddForce(Vector2.right * -amount, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * -amount, ForceMode2D.Impulse);  
 
         }
         #endregion
-        if (jumpCooldownStart)
+        if (jumpCooldownStart) // so the player cannot jump in rapid succsesion
         {
             jumpCooldownTimer += Time.deltaTime;
             if (jumpCooldownTimer >= jumpCooldown)
@@ -142,46 +142,45 @@ public class Movement : MonoBehaviour
                 jumpCooldownTimer = 0f;
             }
         }
-        if(jumpInput != 0 && IsGrounded() && !jumpCooldownStart || (isWallSliding && jumpInput!=0 && !jumpCooldownStart))
+        if(jumpInput != 0 && IsGrounded() && !jumpCooldownStart || (isWallSliding && jumpInput!=0 && !jumpCooldownStart)) //true if player is going to jump
         {
-            rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
-            jumpCooldownStart = true;
+            rb.AddForce(Vector2.up* jumpVelocity, ForceMode2D.Impulse);
+            jumpCooldownStart = true; //cooldown has started
         }
-        if (rb.velocity.y < 0)
+        if (rb.velocity.y < 0) // if the player has started to fall then we apply the fall multiplier
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        }
-        else if (rb.velocity.y > 0 && jumpInput == 0)
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime ;
+        } 
+        else if(rb.velocity.y>0 && jumpInput == 0) // if the player hasd let go early of jump button then we increase
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
-
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime; 
         }
 
         #region WallJump
 
-        wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(wallDistance, 0), wallDistance, platformLayerMask);
-        wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), wallDistance, platformLayerMask);
+        wallCheckHitRight = Physics2D.Raycast(transform.position, new Vector2(wallDistance, 0), wallDistance, platformLayerMask);
+        wallCheckHitLeft = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), wallDistance, platformLayerMask);
 
         Debug.DrawRay(transform.position, new Vector2(wallDistance, 0), Color.blue);
         Debug.DrawRay(transform.position, new Vector2(-wallDistance, 0), Color.blue);
-        if (slideCooldownStart)
+        if (slideCooldownStart) // cooldown timer
         {
             slideTimer += Time.deltaTime;
         }
       
-        if (wallCheckHit && !IsGrounded() && moveInput!=0 && !isWallSliding)
+        if ((wallCheckHitLeft || wallCheckHitRight) && !IsGrounded() && moveInput!=0 && !isWallSliding) // if either ray is triggered and the player is set to start sliding
         {
             slideCooldownStart = true;
             isWallSliding = true;
             jumpCooldownTimer = float.MaxValue;
         }
-        else if (slideTimer > slideCooldown)
+        else if (slideTimer > slideCooldown) //ends the slide
         {
             slideTimer = 0;
             slideCooldownStart = false;
             isWallSliding = false;
         }
-        if (isWallSliding)
+        if (isWallSliding) // movement condition for sliding
         {
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlideSpeed, float.MaxValue));
             Debug.Log("Wall Sliding: " + isWallSliding);
