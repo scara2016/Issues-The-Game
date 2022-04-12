@@ -90,7 +90,6 @@ public class Movement : MonoBehaviour
             if (rb.velocity.y > 0 || jumpInput != 0)
             {
                 controller.JumpState(true);
-                //controller.AirState(true);
             }
 
             if (rb.velocity.y < 0)
