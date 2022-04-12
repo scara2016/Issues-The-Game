@@ -77,11 +77,12 @@ public class Movement : MonoBehaviour
             controller.WallSlideState(false);
             if (moveInput != 0)
             {
-                controller.RunState(true);
+                controller.WalkState(true);
             }
             else
             {
                 controller.RunState(false);
+                controller.WalkState(false);
             }
         }
 

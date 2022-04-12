@@ -21,24 +21,19 @@ public class AnimationController : MonoBehaviour
         move = GetComponent<Movement>();
     }
 
-    private void ChangeAnimationState(string newState)
+    public void ChangeAnimationState(string stateName, bool stateBool)
     {
-        //stop the same animation from interrupting itself
-        if (currentState == newState)
-        {
-            return;
-        }
-
-        //simply plays the animation
-        animator.Play(newState);
-
-        //reassigns the current state
-        currentState = newState;
+        animator.SetBool(stateName, stateBool);
     }
 
     public void RunState(bool run)
     {
         animator.SetBool("isRunning", run);
+    }
+
+    public void WalkState(bool walk)
+    {
+        animator.SetBool("isWalking", walk);   
     }
 
     public void JumpState(bool jump)
