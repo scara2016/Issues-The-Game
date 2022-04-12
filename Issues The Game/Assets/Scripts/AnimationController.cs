@@ -36,9 +36,9 @@ public class AnimationController : MonoBehaviour
         to true or false. Called within isGrounded in Movement.cs
         */
         
-        if (jump == true)
-        {
-            Debug.Log("Jumped"); //Debugging
-        }
+ //       if (jump == true)
+ //       {
+ //           Debug.Log("Jumped"); //Debugging
+ //       }
     }
 }
