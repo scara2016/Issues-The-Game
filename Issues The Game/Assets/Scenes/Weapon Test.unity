@@ -339,7 +339,7 @@ PrefabInstance:
       objectReference: {fileID: 880171629355757980}
     - target: {fileID: 2339204883490925889, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: attackRange
-      value: 0.53
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: swordLeft
@@ -424,7 +424,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4592865566976253500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.63, y: 0.17, z: 0}
+  m_LocalPosition: {x: 0.465, y: 0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

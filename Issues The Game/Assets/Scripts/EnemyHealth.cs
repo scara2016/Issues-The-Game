@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public float maxHealth = 25;
+    public float maxHealth = 100;
     private float health;
     // Start is called before the first frame update
     void Start()
@@ -18,10 +18,20 @@ public class EnemyHealth : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
-        health -= damage*Time.deltaTime;
+        health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    void Die()
+    {
+        Debug.Log("Enemy Died");
+        // die animation
+
+        // disable enemy
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
     }
 }

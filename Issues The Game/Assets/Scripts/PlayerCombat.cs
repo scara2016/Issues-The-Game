@@ -7,6 +7,8 @@ public class PlayerCombat : MonoBehaviour
     private PlayerControls playerControls;
     private float attackInput;
 
+    public float attackDamage = 2;
+
     // private Movement movement;
 
     //Weapon hit area
@@ -44,8 +46,6 @@ public class PlayerCombat : MonoBehaviour
     {
         attackInput = playerControls.Main.Attack.ReadValue<float>();
 
-
-
         if(attackInput != 0 && weapon.Equiped == true)
         {
            Attack();
@@ -60,7 +60,7 @@ public class PlayerCombat : MonoBehaviour
         //Damage them 
         foreach(Collider2D enemy in hitEnemies)
         {
-            Debug.Log("We hit" + enemy.name);
+            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
         }
     }
 
