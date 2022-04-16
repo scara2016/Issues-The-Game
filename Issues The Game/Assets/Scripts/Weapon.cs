@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    // public GameObject[] weapons;
+
+    // public LayerMask weaponLayer;
+    // public GameObject weaponHolder;
+    // public GameObject currentWeapon;
+
+    // private int totalWeapons = 0;
 
     private static Weapon instance;
 
@@ -26,6 +33,8 @@ public class Weapon : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         instance = this;
+
+
     }
 
     public void GetWeapon()

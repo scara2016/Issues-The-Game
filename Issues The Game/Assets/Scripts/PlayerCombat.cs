@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+
+    public Collider2D[] weaponsList;
     private PlayerControls playerControls;
     private float attackInput;
 
-    public int attackDamage = 10;
+    public int swordAttackDamage = 10;
 
     public float attackRate = 2f;
     private float nextAttackTime = 0f;
@@ -19,8 +21,11 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
 
+
     [SerializeField]
     private Weapon weapon;
+
+    private WeaponPickup wpnPickup;
 
     private Collider2D[] hitEnemies;
     // Start is called before the first frame update
@@ -33,6 +38,8 @@ public class PlayerCombat : MonoBehaviour
     {
         playerControls = new PlayerControls();
         weapon = GetComponent<Weapon>();
+        weaponsList = new Collider2D[1];
+        wpnPickup = GetComponent<WeaponPickup>();
     }
 
     void OnEnable() {
@@ -59,16 +66,41 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // if(weapon.Equiped == true)
+        // {
+            // add weapon to array when picked up
+            if(other.CompareTag("Sword"))
+            {
+                weaponsList[0] = other;
+                Debug.Log("We have " + other.name);
+            }
+
+            if(other.CompareTag("Boots"))
+            {
+                weaponsList[0] = other;
+                Debug.Log("We have " + other.name);
+            }
+        // }
+    }
+
     void Attack()
     {
         // play animation
         //Detect enemies in range 
-        hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,attackRange, enemyLayer);
+        
         //Damage them 
-        foreach(Collider2D enemy in hitEnemies)
-        {
-            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
-        }
+        hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,attackRange, enemyLayer);
+
+        // if(wpn.CompareTag("Sword"))
+        // {
+            foreach(Collider2D enemy in hitEnemies)
+            {
+                Debug.Log("We hit " + enemy.name);
+                enemy.GetComponent<EnemyHealth>().TakeDamage(swordAttackDamage);
+            }
+        // }
     }
 
     void OnDrawGizmosSelected()

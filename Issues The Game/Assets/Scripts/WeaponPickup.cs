@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour {
     
-    // public GameObject[] weapons;
+
     // public GameObject weaponHere;
+
+    // List<GameObject> allWeapons = new List<GameObject>();
+    // List<GameObject> weapons = new List<GameObject>();
     private PlayerControls playerControls;
 
     public bool pickUpAllowed;
@@ -55,6 +58,11 @@ public class WeaponPickup : MonoBehaviour {
     // Pickup activates
     void OnTriggerEnter2D(Collider2D other)
     {
+
+        // foreach(Collider2D wpn in weaponsList)
+        // {
+        //     Debug.Log(wpn.name);
+        // }
         // float pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
         if(other.CompareTag("Player"))
         {
@@ -76,6 +84,10 @@ public class WeaponPickup : MonoBehaviour {
         // sprite = player.GetComponent<SpriteRenderer>();
         // Equip weapon to player
         // sprite.color = new Color(1,0,0,1);
+
+        // store weapon in an array
+        // weapons.Add(weapon);
+        // allWeapons.Add(weapon);
 
         // makes item dissapear after pickup
         Destroy(gameObject);
