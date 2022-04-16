@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8786989015115453865}
   - component: {fileID: 8786989015115453864}
   - component: {fileID: 8786989015115453871}
-  - component: {fileID: 1803942982354842547}
   - component: {fileID: 2339204883490925889}
   m_Layer: 0
   m_Name: Player
@@ -196,20 +195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8786989015115453864}
---- !u!114 &1803942982354842547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8786989015115453862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88ee08d88f271584d9c1b35e4eccf21b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  equiped: 0
 --- !u!114 &2339204883490925889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbbfb2a4afa2c6743a7b37f9aa103cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 10
+  weaponsList: []
+  swordAttackDamage: 10
   attackRate: 2
   attackPoint: {fileID: 880171628853846206, guid: 74e205443892c9e449d57b79f111a1a4, type: 3}
   attackRange: 0.23

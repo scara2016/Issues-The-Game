@@ -58,7 +58,7 @@ public class PlayerCombat : MonoBehaviour
 
         if(Time.time >= nextAttackTime)
         {
-            if(attackInput != 0 && weapon.Equiped == true)
+            if(attackInput != 0 && Weapon.Instance.Equiped == true)
             {
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
@@ -66,24 +66,24 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        // if(weapon.Equiped == true)
-        // {
-            // add weapon to array when picked up
-            if(other.CompareTag("Sword"))
-            {
-                weaponsList[0] = other;
-                Debug.Log("We have " + other.name);
-            }
+    // void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     // if(weapon.Equiped == true)
+    //     // {
+    //         // add weapon to array when picked up
+    //         if(other.CompareTag("Sword"))
+    //         {
+    //             weaponsList[0] = other;
+    //             Debug.Log("We have " + other.name);
+    //         }
 
-            if(other.CompareTag("Boots"))
-            {
-                weaponsList[0] = other;
-                Debug.Log("We have " + other.name);
-            }
-        // }
-    }
+    //         if(other.CompareTag("Boots"))
+    //         {
+    //             weaponsList[0] = other;
+    //             Debug.Log("We have " + other.name);
+    //         }
+    //     // }
+    // }
 
     void Attack()
     {

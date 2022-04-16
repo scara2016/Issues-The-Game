@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour {
+
+    public Weapon[] weaponsList;
     
 
     // public GameObject weaponHere;
@@ -15,6 +17,7 @@ public class WeaponPickup : MonoBehaviour {
     // public bool itemPicked;
     
     private float pickUpInput;
+    
 
     [SerializeField]
     private Weapon weapon;
@@ -31,6 +34,7 @@ public class WeaponPickup : MonoBehaviour {
 
     void Awake (){
         playerControls = new PlayerControls();
+        weaponsList = new Weapon[1];
         // sprite = new SpriteRenderer();
     }
 
@@ -58,16 +62,22 @@ public class WeaponPickup : MonoBehaviour {
     // Pickup activates
     void OnTriggerEnter2D(Collider2D other)
     {
+        if(other.CompareTag("Player"))
+            {
+                weaponsList[0] = Weapon.Instance;
+                Debug.Log("We have " + Weapon.Instance.name);
+                pickUpAllowed = true;
+            }
 
         // foreach(Collider2D wpn in weaponsList)
         // {
         //     Debug.Log(wpn.name);
         // }
         // float pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
-        if(other.CompareTag("Player"))
-        {
-            pickUpAllowed = true;
-        }
+        // if(other.CompareTag("Player"))
+        // {
+            
+        // }
     }
 
     void OnTriggerExit2D(Collider2D other)
