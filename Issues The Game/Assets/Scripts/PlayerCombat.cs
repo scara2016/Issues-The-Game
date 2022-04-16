@@ -7,7 +7,7 @@ public class PlayerCombat : MonoBehaviour
     private PlayerControls playerControls;
     private float attackInput;
 
-    public float attackDamage = 2;
+    public int attackDamage = 2;
 
     // private Movement movement;
 
