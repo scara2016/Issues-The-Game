@@ -7,7 +7,10 @@ public class PlayerCombat : MonoBehaviour
     private PlayerControls playerControls;
     private float attackInput;
 
-    public int attackDamage = 2;
+    public int attackDamage = 10;
+
+    public float attackRate = 2f;
+    private float nextAttackTime = 0f;
 
     // private Movement movement;
 
@@ -46,9 +49,13 @@ public class PlayerCombat : MonoBehaviour
     {
         attackInput = playerControls.Main.Attack.ReadValue<float>();
 
-        if(attackInput != 0 && weapon.Equiped == true)
+        if(Time.time >= nextAttackTime)
         {
-           Attack();
+            if(attackInput != 0 && weapon.Equiped == true)
+            {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
     }
 

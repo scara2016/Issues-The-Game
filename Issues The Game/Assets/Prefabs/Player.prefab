@@ -222,7 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbbfb2a4afa2c6743a7b37f9aa103cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 5
+  attackDamage: 10
+  attackRate: 2
   attackPoint: {fileID: 880171628853846206, guid: 74e205443892c9e449d57b79f111a1a4, type: 3}
   attackRange: 0.23
   enemyLayer:
