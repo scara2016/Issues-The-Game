@@ -9,12 +9,12 @@ public class PlayerCombat : MonoBehaviour
     private PlayerControls playerControls;
     private float attackInput;
 
-    public int swordAttackDamage = 10;
+    public int attackDamage = 10;
 
     public float attackRate = 2f;
     private float nextAttackTime = 0f;
 
-    // private Movement movement;
+    private Movement movement;
 
     //Weapon hit area
     public Transform attackPoint;
@@ -37,9 +37,10 @@ public class PlayerCombat : MonoBehaviour
     void Awake()
     {
         playerControls = new PlayerControls();
-        weapon = GetComponent<Weapon>();
+        // weapon = GetComponent<Weapon>();
         weaponsList = new Collider2D[1];
-        wpnPickup = GetComponent<WeaponPickup>();
+        // wpnPickup = GetComponent<WeaponPickup>();
+        movement.GetComponent<Movement>();
     }
 
     void OnEnable() {
@@ -48,6 +49,23 @@ public class PlayerCombat : MonoBehaviour
 
     void OnDisable() {
         playerControls.Disable();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // wpnPickup.GetComponent<WeaponPickup>().pickUpAllowed = true;
+        if(other.CompareTag("Sword"))
+        {
+            weaponsList[0] = other;
+            Debug.Log("We have " + other.name);
+            attackDamage = 20;
+        } else if(other.CompareTag("Boots"))
+        {
+            weaponsList[0] = other;
+            Debug.Log("We have " + other.name);
+            attackDamage = 5;
+            movement.moveSpeed = 15f;
+        }
     }
 
 
@@ -98,7 +116,7 @@ public class PlayerCombat : MonoBehaviour
             foreach(Collider2D enemy in hitEnemies)
             {
                 Debug.Log("We hit " + enemy.name);
-                enemy.GetComponent<EnemyHealth>().TakeDamage(swordAttackDamage);
+                enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
             }
         // }
     }

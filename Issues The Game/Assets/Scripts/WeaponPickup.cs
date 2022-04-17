@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour {
 
-    public Weapon[] weaponsList;
+    // public Weapon[] weaponsList;
     
 
-    // public GameObject weaponHere;
+    public GameObject weaponHolder;
 
     // List<GameObject> allWeapons = new List<GameObject>();
     // List<GameObject> weapons = new List<GameObject>();
     private PlayerControls playerControls;
+
+    private PlayerCombat combat;
+
+    private Movement movement;
 
     public bool pickUpAllowed;
     // public bool itemPicked;
@@ -22,7 +26,9 @@ public class WeaponPickup : MonoBehaviour {
     [SerializeField]
     private Weapon weapon;
 
-    // private SpriteRenderer sprite;
+    
+
+    private SpriteRenderer sprite;
 
 
     void Start () {
@@ -34,8 +40,10 @@ public class WeaponPickup : MonoBehaviour {
 
     void Awake (){
         playerControls = new PlayerControls();
-        weaponsList = new Weapon[1];
-        // sprite = new SpriteRenderer();
+        // weaponsList = new Weapon[1];
+        combat = GetComponent<PlayerCombat>();
+        movement = GetComponent<Movement>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void OnEnable() {
@@ -62,12 +70,22 @@ public class WeaponPickup : MonoBehaviour {
     // Pickup activates
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
-            {
-                weaponsList[0] = Weapon.Instance;
-                Debug.Log("We have " + Weapon.Instance.name);
-                pickUpAllowed = true;
-            }
+        // if(other.CompareTag("Player"))
+        // {
+        //     combat.weaponsList[0] = Weapon.Instance;
+        //     Debug.Log("We have " + Weapon.Instance.name);
+            pickUpAllowed = true;
+        //     if(gameObject.CompareTag("Sword"))
+        //     {
+        //         Debug.Log("We have " + Weapon.Instance.name);
+        //         combat.attackDamage = 20;
+        //     } else if(gameObject.CompareTag("Boots"))
+        //     {
+        //         Debug.Log("We have " + Weapon.Instance.name);
+        //         combat.attackDamage = 5;
+        //         movement.moveSpeed = 15f;
+        //     }
+        // }
 
         // foreach(Collider2D wpn in weaponsList)
         // {
@@ -100,7 +118,10 @@ public class WeaponPickup : MonoBehaviour {
         // allWeapons.Add(weapon);
 
         // makes item dissapear after pickup
-        Destroy(gameObject);
+        gameObject.transform.parent = weaponHolder.transform;
+        // Destroy(gameObject);
+        GetComponent<Collider2D>().enabled = false;
+        this.sprite.enabled = false;
         // statement to say that an item has been picked up
         // itemPicked = true;
         Debug.Log("PickedUp");

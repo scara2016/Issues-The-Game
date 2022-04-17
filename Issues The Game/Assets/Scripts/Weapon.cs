@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
     {
         get { return instance; }
     }
-    public SpriteRenderer sprite;
+    // public SpriteRenderer sprite;
 
     [SerializeField]
     private bool equiped;
@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        // sprite = GetComponent<SpriteRenderer>();
         instance = this;
 
 
@@ -43,10 +43,10 @@ public class Weapon : MonoBehaviour
         // changeLook();
     }
 
-    public void changeLook() 
-    {
-        sprite.color = new Color(1,0,0,0);
-    }
+    // public void changeLook() 
+    // {
+    //     sprite.color = new Color(1,0,0,0);
+    // }
 
     // Update is called once per frame
     void Update()

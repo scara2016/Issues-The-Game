@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ee08d88f271584d9c1b35e4eccf21b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 81b8e8766e296d74fbba86dba46bbeaa, type: 3}
   equiped: 0
 --- !u!114 &3787261000913849659
 MonoBehaviour:
@@ -113,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91de9017ce9b83b44849790e4a01de6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponHolder: {fileID: 1605183361221117232, guid: 62b0bfcb43031a7428a503096feb2354, type: 3}
   pickUpAllowed: 0
   weapon: {fileID: 0}
 --- !u!61 &5686173940864069281
