@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8786989015115453871}
   - component: {fileID: 5602571141979214129}
   - component: {fileID: 17981653690571560}
+  - component: {fileID: 8786989015115453860}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -84,7 +85,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.45, y: 1.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -129,7 +130,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.45, y: 1.2}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.45, y: 1.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -210,3 +211,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31486c1128f2c47448855c4e27cf9b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8786989015115453860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8786989015115453862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a53b530517cf6142bdbe8bca2310864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  acceleration: 7
+  moveSpeed: 6
+  decceleration: 7
+  velPower: 0.9
+  frictionAmount: 0.8
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
+  jumpCooldown: 1
+  jumpVelocity: 5
+  wallJumpTime: 0.2
+  wallSlideSpeed: 0.3
+  wallDistance: 0.5
+  slideCooldown: 0.5
+  animator: {fileID: 8786989015115453864}

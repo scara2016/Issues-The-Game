@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6700584ce2971474e8c3bfd5d3eb8719
+guid: feb4f4d3ab1eb134da7ddb0d995ee818
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,54 +100,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -166,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 020c371773332e94f97f103f7f0d7b8d
-      internalID: 1015676627
+      spriteID: ea5382eaae82559458b4eae3ec3834ef
+      internalID: -1727346757
       vertices: []
       indices: 
       edges: []
@@ -187,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45209a5baa7b6f64eaf6eb05e730300b
-      internalID: 2014094118
+      spriteID: 972f43cfdc3823c47afa96a379d4cd4f
+      internalID: -680362188
       vertices: []
       indices: 
       edges: []
@@ -208,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d40a8f860bd4abe47816bd0c84a70e00
-      internalID: 1178259538
+      spriteID: 99e05ac5a79433843ad05ed0576ca7ed
+      internalID: -1886271323
       vertices: []
       indices: 
       edges: []
@@ -229,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 072d6caf3400c574998f414d1f4a3bf0
-      internalID: 1681355527
+      spriteID: f87102925d5632947b6997a77be4cd1c
+      internalID: -1773481566
       vertices: []
       indices: 
       edges: []
@@ -250,8 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffa6f902395fdb244a0bc16bcba817dd
-      internalID: 243792968
+      spriteID: 19b8b62141cfa38478c679138f5ed24b
+      internalID: 1112949362
       vertices: []
       indices: 
       edges: []
@@ -271,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0d7d08b414c35046ad5287c718887a8
-      internalID: 1678032804
+      spriteID: 02a65affbc58ea241af8a12f713115f5
+      internalID: 2064926689
       vertices: []
       indices: 
       edges: []
@@ -292,8 +244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a14dd55b9bd2b3478e940e6e3204be1
-      internalID: 1665213120
+      spriteID: ce94006ce1d036548a6b7449c93547ca
+      internalID: -1951431882
       vertices: []
       indices: 
       edges: []
@@ -309,13 +261,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Jumping Sprite 2_5: 1678032804
-      Jumping Sprite 2_3: 1681355527
-      Jumping Sprite 2_2: 1178259538
-      Jumping Sprite 2_0: 1015676627
-      Jumping Sprite 2_1: 2014094118
-      Jumping Sprite 2_6: 1665213120
-      Jumping Sprite 2_4: 243792968
+      Jumping Sprite 2_5: 2064926689
+      Jumping Sprite 2_3: -1773481566
+      Jumping Sprite 2_2: -1886271323
+      Jumping Sprite 2_0: -1727346757
+      Jumping Sprite 2_1: -680362188
+      Jumping Sprite 2_6: -1951431882
+      Jumping Sprite 2_4: 1112949362
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
