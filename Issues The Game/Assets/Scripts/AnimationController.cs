@@ -5,41 +5,50 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     private Animator animator;
-    private Movement movement;
-    private Rigidbody2D rb;
+    private Movement move;
+    private string currentState;
+
+    //Animation States - Name in quotes should equal state name in Animator
+    const string PLAYER_IDLE = "Idle";
+    //const string PLAYER_RUN = "Run";
+    const string PLAYER_JUMP = "Jump";
+    const string PLAYER_FALL = "Fall";
+    const string PLAYER_WALLSLIDE = "WallSlide";
 
     void Awake()
     {
-        movement = GetComponent<Movement>();
-        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        move = GetComponent<Movement>();
     }
 
-    void FixedUpdate()
+    public void ChangeAnimationState(string stateName, bool stateBool)
     {
-        // For Animator
-        animator.SetFloat("Speed", Mathf.Abs(movement.GetSpeed())); //When speed is greater than greater than in state's settings, triggers animation
-        if (movement.GetSpeed() > 0)
-        {
-            rb.transform.localScale = new Vector3(1, 1, 1); //Hard code
-        }
-        else if (movement.GetSpeed() < 0)
-        {
-            rb.transform.localScale = new Vector3(-1, 1, 1); //Hard Code
-        }
-        // When speed is greater than 0, stickman faces right. Else, faces left.
+        animator.SetBool(stateName, stateBool);
     }
 
-    public void isJumping(bool jump)
+    public void RunState(bool run)
+    {
+        animator.SetBool("isRunning", run);
+    }
+
+    public void WalkState(bool walk)
+    {
+        animator.SetBool("isWalking", walk);   
+    }
+
+    public void JumpState(bool jump)
     {
         animator.SetBool("isJumping", jump);
-        /* When called, sets the bool parameter in the state
-        to true or false. Called within isGrounded in Movement.cs
-        */
-        
-        if (jump == true)
-        {
-            Debug.Log("Jumped"); //Debugging
-        }
     }
+
+    public void AirState(bool fall)
+    {
+        animator.SetBool("isMidAir", fall);
+    }
+
+    public void WallSlideState(bool wallslide)
+    {
+        animator.SetBool("isWallSliding", wallslide);
+    }
+
 }

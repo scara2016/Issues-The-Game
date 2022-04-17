@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4244eeb52cb036840a319a97d9101344
+guid: d3679ca5d874e5d4690ce4b9f8e11180
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,6 +100,54 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -118,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 736de72805a19404c8ed12797052dd46
-      internalID: 456476080
+      spriteID: c77bd786fc8eb9c4ebb260f31a43e38d
+      internalID: 2051319524
       vertices: []
       indices: 
       edges: []
@@ -139,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 997cb4724166ed64b86265745af7bb46
-      internalID: -1001214789
+      spriteID: 4c0295a8ca95fc246b3eb12621aafebc
+      internalID: -890541468
       vertices: []
       indices: 
       edges: []
@@ -160,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c451bc223ed4fd040839edfc2251f7d7
-      internalID: 1943307061
+      spriteID: bd54a600fcda3cf41827b9c0e32ce150
+      internalID: 916903395
       vertices: []
       indices: 
       edges: []
@@ -181,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bad8bd2589914474b95ead159f70c5b9
-      internalID: 229497065
+      spriteID: 5348fa9ca62a2ea4e936a280d53870e1
+      internalID: 1231282512
       vertices: []
       indices: 
       edges: []
@@ -202,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3254f9a2965d8fd41bf382f8faca6d3e
-      internalID: -236330860
+      spriteID: 110ecb71e7921ca48ad4eb641a535e39
+      internalID: -1502828798
       vertices: []
       indices: 
       edges: []
@@ -223,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 594f34a02aaeff5468aeaf34b6bdd692
-      internalID: 1625225526
+      spriteID: e0c1d7b7f14bc8d4ea791fd692ae8923
+      internalID: -1499223082
       vertices: []
       indices: 
       edges: []
@@ -240,12 +288,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Falling Sprite_1: -1001214789
-      Falling Sprite_3: 229497065
-      Falling Sprite_4: -236330860
-      Falling Sprite_0: 456476080
-      Falling Sprite_2: 1943307061
-      Falling Sprite_5: 1625225526
+      Falling Sprite_1: -890541468
+      Falling Sprite_3: 1231282512
+      Falling Sprite_4: -1502828798
+      Falling Sprite_0: 2051319524
+      Falling Sprite_2: 916903395
+      Falling Sprite_5: -1499223082
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
