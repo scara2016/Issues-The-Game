@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8786989015115453865}
   - component: {fileID: 8786989015115453864}
   - component: {fileID: 8786989015115453871}
-  - component: {fileID: 5602571141979214129}
   - component: {fileID: 17981653690571560}
   - component: {fileID: 8786989015115453860}
   m_Layer: 0
@@ -170,35 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b3977d6f3f8f3478642b31ee893171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5602571141979214129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8786989015115453862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a53b530517cf6142bdbe8bca2310864, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platformLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  acceleration: 7
-  moveSpeed: 10
-  decceleration: 7
-  velPower: 0.9
-  frictionAmount: 0.1
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 2
-  jumpCooldown: 1
-  jumpVelocity: 7
-  wallJumpTime: 0.2
-  wallSlideSpeed: 0.3
-  wallDistance: 0.55
-  slideCooldown: 0.5
-  animator: {fileID: 8786989015115453864}
 --- !u!114 &17981653690571560
 MonoBehaviour:
   m_ObjectHideFlags: 0
