@@ -40,7 +40,7 @@ public class PlayerCombat : MonoBehaviour
         // weapon = GetComponent<Weapon>();
         weaponsList = new Collider2D[1];
         // wpnPickup = GetComponent<WeaponPickup>();
-        movement.GetComponent<Movement>();
+        movement = this.GetComponent<Movement>();
     }
 
     void OnEnable() {
@@ -54,11 +54,13 @@ public class PlayerCombat : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // wpnPickup.GetComponent<WeaponPickup>().pickUpAllowed = true;
+        // once sword is in contact, with player, sword is added in array
         if(other.CompareTag("Sword"))
         {
             weaponsList[0] = other;
             Debug.Log("We have " + other.name);
             attackDamage = 20;
+            // once boots is in contact, with player, boots is added in array
         } else if(other.CompareTag("Boots"))
         {
             weaponsList[0] = other;
