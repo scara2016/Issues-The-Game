@@ -108,7 +108,7 @@ public class Movement : MonoBehaviour
             controller.WallSlideState(false);
             if (moveInput != 0)
             {
-                controller.WalkState(true);
+                controller.RunState(true);
             }
             else
             {
@@ -122,14 +122,14 @@ public class Movement : MonoBehaviour
             if (rb.velocity.y > 0 || jumpInput != 0)
             {
                 controller.JumpState(true);
+                controller.WallSlideState(false);
             }
 
             if (rb.velocity.y < 0)
             {
-
                 controller.JumpState(false);
                 controller.AirState(true); 
-                Debug.Log("Falling");
+                controller.WallSlideState(false);
             }
         }
         else
@@ -217,7 +217,7 @@ public class Movement : MonoBehaviour
         if (isWallSliding) // movement condition for sliding
         {
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlideSpeed, float.MaxValue));
-            Debug.Log("Wall Sliding: " + isWallSliding);
+            Debug.Log("Wall Sliding: " + isWallSliding); 
         }
     }
 }

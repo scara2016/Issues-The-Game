@@ -107,12 +107,12 @@ TextureImporter:
       name: WallSliding_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 22
         y: 409
         width: 70
         height: 103
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,7 +128,7 @@ TextureImporter:
       name: WallSliding_1
       rect:
         serializedVersion: 2
-        x: 70
+        x: 92
         y: 409
         width: 70
         height: 103
@@ -149,7 +149,7 @@ TextureImporter:
       name: WallSliding_2
       rect:
         serializedVersion: 2
-        x: 140
+        x: 162
         y: 409
         width: 70
         height: 103
@@ -170,7 +170,7 @@ TextureImporter:
       name: WallSliding_3
       rect:
         serializedVersion: 2
-        x: 210
+        x: 232
         y: 409
         width: 70
         height: 103
@@ -191,7 +191,7 @@ TextureImporter:
       name: WallSliding_4
       rect:
         serializedVersion: 2
-        x: 280
+        x: 302
         y: 409
         width: 70
         height: 103
@@ -212,7 +212,7 @@ TextureImporter:
       name: WallSliding_5
       rect:
         serializedVersion: 2
-        x: 350
+        x: 372
         y: 409
         width: 70
         height: 103
@@ -233,7 +233,7 @@ TextureImporter:
       name: WallSliding_6
       rect:
         serializedVersion: 2
-        x: 420
+        x: 442
         y: 409
         width: 70
         height: 103
@@ -254,7 +254,7 @@ TextureImporter:
       name: WallSliding_7
       rect:
         serializedVersion: 2
-        x: 0
+        x: 22
         y: 306
         width: 70
         height: 103
@@ -275,7 +275,7 @@ TextureImporter:
       name: WallSliding_8
       rect:
         serializedVersion: 2
-        x: 70
+        x: 92
         y: 306
         width: 70
         height: 103
@@ -296,7 +296,7 @@ TextureImporter:
       name: WallSliding_9
       rect:
         serializedVersion: 2
-        x: 140
+        x: 162
         y: 306
         width: 70
         height: 103
@@ -317,7 +317,7 @@ TextureImporter:
       name: WallSliding_10
       rect:
         serializedVersion: 2
-        x: 210
+        x: 232
         y: 306
         width: 70
         height: 103
@@ -338,7 +338,7 @@ TextureImporter:
       name: WallSliding_11
       rect:
         serializedVersion: 2
-        x: 280
+        x: 302
         y: 306
         width: 70
         height: 103
@@ -359,7 +359,7 @@ TextureImporter:
       name: WallSliding_12
       rect:
         serializedVersion: 2
-        x: 350
+        x: 372
         y: 306
         width: 70
         height: 103
@@ -380,7 +380,7 @@ TextureImporter:
       name: WallSliding_13
       rect:
         serializedVersion: 2
-        x: 420
+        x: 442
         y: 306
         width: 70
         height: 103
@@ -398,73 +398,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallSliding_14
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 204
-        width: 70
-        height: 102
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a67ece92a6e5df646b2e32eb3cb8021a
-      internalID: -4318075
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WallSliding_15
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 204
-        width: 70
-        height: 102
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0222d7590ab26de4c9f5e034263fdaf6
-      internalID: 94926734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WallSliding_16
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 204
-        width: 70
-        height: 102
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 50ac1136d1588574989e111390ac0a8d
-      internalID: -748438040
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: WallSliding_17
       rect:
         serializedVersion: 2
-        x: 210
+        x: 232
         y: 204
         width: 70
         height: 102
@@ -477,6 +414,69 @@ TextureImporter:
       bones: []
       spriteID: d772c60ffbea7734dbf71140de18b58e
       internalID: -667226342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallSliding_18
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 204
+        width: 70
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c91de318636124d9e0e929a50a5938
+      internalID: -1865808402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallSliding_19
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 204
+        width: 70
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aad98e4b2313bc428a17b5f378aeeae
+      internalID: 1172849742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallSliding_20
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 204
+        width: 70
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f25ed00c12ef1f8488d20b90c000cc5d
+      internalID: -345132762
       vertices: []
       indices: 
       edges: []
@@ -494,7 +494,9 @@ TextureImporter:
     nameFileIdTable:
       WallSliding_14: -4318075
       WallSliding_11: 1962076701
+      WallSliding_20: -345132762
       WallSliding_16: -748438040
+      WallSliding_18: -1865808402
       WallSliding_2: -1045942426
       WallSliding_7: 1401377102
       WallSliding_12: -2015431529
@@ -502,6 +504,7 @@ TextureImporter:
       WallSliding_10: 792691642
       WallSliding_0: -960510359
       WallSliding_8: 1582498957
+      WallSliding_19: 1172849742
       WallSliding_5: -1165303135
       WallSliding_9: -2106171551
       WallSliding_15: 94926734
