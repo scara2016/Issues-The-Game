@@ -28,6 +28,8 @@ public class PlayerCombat : MonoBehaviour
     private WeaponPickup wpnPickup;
 
     private Collider2D[] hitEnemies;
+
+    private AnimationController controller;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class PlayerCombat : MonoBehaviour
         weaponsList = new Collider2D[1];
         // wpnPickup = GetComponent<WeaponPickup>();
         movement = this.GetComponent<Movement>();
+        controller = GetComponent<AnimationController>();
     }
 
     void OnEnable() {
@@ -108,6 +111,7 @@ public class PlayerCombat : MonoBehaviour
     void Attack()
     {
         // play animation
+        controller.SwingAttack();
         //Detect enemies in range 
         
         //Damage them 
