@@ -118,9 +118,9 @@ public class WeaponPickup : MonoBehaviour {
         // allWeapons.Add(weapon);
 
         // makes item dissapear after pickup
-        gameObject.transform.parent = weaponHolder.transform;
         // Destroy(gameObject);
         GetComponent<Collider2D>().enabled = false;
+        gameObject.transform.parent = weaponHolder.transform;
         this.sprite.enabled = false;
         // statement to say that an item has been picked up
         // itemPicked = true;

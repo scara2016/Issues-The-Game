@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
 
+    public Transform weaponHolder;
+
     public Collider2D[] weaponsList;
     private PlayerControls playerControls;
     private float attackInput;
@@ -15,6 +17,8 @@ public class PlayerCombat : MonoBehaviour
     private float nextAttackTime = 0f;
 
     private Movement movement;
+
+    private float pickUpInput;
 
     //Weapon hit area
     public Transform attackPoint;
@@ -41,6 +45,7 @@ public class PlayerCombat : MonoBehaviour
         weaponsList = new Collider2D[1];
         // wpnPickup = GetComponent<WeaponPickup>();
         movement = this.GetComponent<Movement>();
+        // wpnPickup = GetComponent<WeaponPickup>();
     }
 
     void OnEnable() {
@@ -68,12 +73,29 @@ public class PlayerCombat : MonoBehaviour
             attackDamage = 5;
             movement.moveSpeed = 15f;
         }
+
+        // if(other.transform.parent == weaponHolder)
+        // {
+        //     if(other.CompareTag("Sword"))
+        //     {
+        //         weaponsList[0] = other;
+        //         Debug.Log("We have " + other.name);
+        //         attackDamage = 20;
+        //     } else if(other.CompareTag("Boots") && pickUpInput != 0)
+        //     {
+        //         weaponsList[0] = other;
+        //         Debug.Log("We have " + other.name);
+        //         attackDamage = 5;
+        //         movement.moveSpeed = 15f;
+        //     }
+        // }
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
         attackInput = playerControls.Main.Attack.ReadValue<float>();
 
         if(Time.time >= nextAttackTime)
