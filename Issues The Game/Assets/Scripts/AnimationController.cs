@@ -15,6 +15,11 @@ public class AnimationController : MonoBehaviour
     const string PLAYER_FALL = "Fall";
     const string PLAYER_WALLSLIDE = "WallSlide";
 
+    // private WeaponPickup wp;
+
+    // Sprite color
+    // private SpriteRenderer sprite;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
