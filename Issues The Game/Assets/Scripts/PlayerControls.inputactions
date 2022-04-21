@@ -22,6 +22,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PickUp",
+                    "type": "PassThrough",
+                    "id": "66e2aac1-01b3-4dbf-914e-d243835bd26d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "PassThrough",
+                    "id": "887b5068-9f6f-4bc0-aa62-bc9f9fdeeb9c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -39,7 +57,7 @@
                 {
                     "name": "negative",
                     "id": "f076799d-47ed-4db0-92c3-cbb5d8170ad4",
-                    "path": "<Keyboard>/a",
+                    "path": "<XInputController>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -50,7 +68,7 @@
                 {
                     "name": "positive",
                     "id": "951d98cd-8bde-4106-b503-d8ec46224b3a",
-                    "path": "<Keyboard>/d",
+                    "path": "<XInputController>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -61,11 +79,33 @@
                 {
                     "name": "",
                     "id": "1091c934-9dd1-4618-9ee9-9bff0b740f3e",
-                    "path": "<Keyboard>/space",
+                    "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3ae5a621-a7b7-4249-9641-a332bcdd844c",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ceada642-62ac-4042-b8f7-8292717acc8f",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

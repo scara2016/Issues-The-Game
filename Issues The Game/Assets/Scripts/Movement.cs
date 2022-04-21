@@ -220,4 +220,17 @@ public class Movement : MonoBehaviour
             Debug.Log("Wall Sliding: " + isWallSliding); 
         }
     }
+
+    // void SwordAttackDOne() 
+    // {
+    //     if(GetSpeed() > 0)
+    //     {
+    //         swordRight.SetActive(false);
+    //     }
+    //     //when facing left
+    //     else
+    //     {
+    //         swordLeft.SetActive(false);
+    //     }
+    // }
 }
