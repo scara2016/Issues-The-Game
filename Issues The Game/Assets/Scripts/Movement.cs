@@ -35,7 +35,6 @@ public class Movement : MonoBehaviour
     RaycastHit2D wallCheckHitLeft;
     RaycastHit2D wallCheckHitRight;
 
-    public Animator animator;
     private AnimationController controller;
 
     private void Awake()

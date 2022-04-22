@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1496381696006606972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4266020287998800678}
+  m_Layer: 0
+  m_Name: Attack Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4266020287998800678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496381696006606972}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.465, y: 0.17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8786989015115453866}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8786989015115453862
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,6 +66,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4266020287998800678}
   - {fileID: 9053813936372881042}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -115,6 +147,10 @@ MonoBehaviour:
   lowJumpMultiplier: 2
   jumpCooldown: 1
   jumpVelocity: 5
+  wallJumpTime: 0.2
+  wallSlideSpeed: 0.3
+  wallDistance: 0.6
+  slideCooldown: 0.5
   animator: {fileID: 8786989015115453864}
 --- !u!50 &8786989015115453861
 Rigidbody2D:
@@ -195,7 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b3977d6f3f8f3478642b31ee893171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 8786989015115453864}
 --- !u!114 &2339204883490925889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +246,7 @@ MonoBehaviour:
   weaponsList: []
   attackDamage: 10
   attackRate: 2
-  attackPoint: {fileID: 880171628853846206, guid: 74e205443892c9e449d57b79f111a1a4, type: 3}
+  attackPoint: {fileID: 4266020287998800678}
   attackRange: 0.23
   enemyLayer:
     serializedVersion: 2
@@ -226,7 +261,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1143308371327210441, guid: 62b0bfcb43031a7428a503096feb2354, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1143308371327210441, guid: 62b0bfcb43031a7428a503096feb2354, type: 3}
       propertyPath: m_LocalPosition.x
