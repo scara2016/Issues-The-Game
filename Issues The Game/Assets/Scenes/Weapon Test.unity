@@ -362,6 +362,10 @@ PrefabInstance:
       propertyPath: swordRight
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: wallDistance
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453862, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_Name
       value: Player
