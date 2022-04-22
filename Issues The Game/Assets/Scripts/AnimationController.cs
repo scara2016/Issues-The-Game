@@ -31,7 +31,7 @@ public class AnimationController : MonoBehaviour
 
     public void WalkState(bool walk)
     {
-        animator.SetBool("isWalking", walk);   
+        animator.SetBool("isWalking", walk);
     }
 
     public void JumpState(bool jump)
@@ -51,8 +51,16 @@ public class AnimationController : MonoBehaviour
 
     public void SwingAttack()
     {
-        animator.ResetTrigger("Attack");
-        animator.SetTrigger("Attack");
+        if (move.IsGrounded())
+        {
+            animator.ResetTrigger("Attack");
+            animator.SetTrigger("Attack");
+        }
+        if (move.IsGrounded() == false)
+        {
+            animator.ResetTrigger("AirAttack");
+            animator.SetTrigger("AirAttack");
+        }
     }
 
 }
