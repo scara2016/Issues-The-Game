@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 8786989015115453864}
   - component: {fileID: 8786989015115453871}
   - component: {fileID: 2339204883490925889}
+  - component: {fileID: 2396290644679489913}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -151,7 +152,6 @@ MonoBehaviour:
   wallSlideSpeed: 0.3
   wallDistance: 0.6
   slideCooldown: 0.5
-  animator: {fileID: 8786989015115453864}
 --- !u!50 &8786989015115453861
 Rigidbody2D:
   serializedVersion: 4
@@ -252,6 +252,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   weapon: {fileID: 0}
+--- !u!114 &2396290644679489913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8786989015115453862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31486c1128f2c47448855c4e27cf9b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8248416563826050395
 PrefabInstance:
   m_ObjectHideFlags: 0
