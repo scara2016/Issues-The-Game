@@ -62,6 +62,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""81f74847-c231-4e90-88f0-a18ab9e36b0d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -130,6 +139,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b33929a-d7c0-4cae-81a8-ac550b3047ba"",
+                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -142,6 +162,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Main_Jump = m_Main.FindAction("Jump", throwIfNotFound: true);
         m_Main_PickUp = m_Main.FindAction("PickUp", throwIfNotFound: true);
         m_Main_Attack = m_Main.FindAction("Attack", throwIfNotFound: true);
+        m_Main_Crouch = m_Main.FindAction("Crouch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -205,6 +226,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Main_Jump;
     private readonly InputAction m_Main_PickUp;
     private readonly InputAction m_Main_Attack;
+    private readonly InputAction m_Main_Crouch;
     public struct MainActions
     {
         private @PlayerControls m_Wrapper;
@@ -213,6 +235,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Main_Jump;
         public InputAction @PickUp => m_Wrapper.m_Main_PickUp;
         public InputAction @Attack => m_Wrapper.m_Main_Attack;
+        public InputAction @Crouch => m_Wrapper.m_Main_Crouch;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -234,6 +257,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_MainActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnAttack;
+                @Crouch.started -= m_Wrapper.m_MainActionsCallbackInterface.OnCrouch;
+                @Crouch.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnCrouch;
+                @Crouch.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnCrouch;
             }
             m_Wrapper.m_MainActionsCallbackInterface = instance;
             if (instance != null)
@@ -250,6 +276,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @Crouch.started += instance.OnCrouch;
+                @Crouch.performed += instance.OnCrouch;
+                @Crouch.canceled += instance.OnCrouch;
             }
         }
     }
@@ -260,5 +289,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnPickUp(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnCrouch(InputAction.CallbackContext context);
     }
 }
