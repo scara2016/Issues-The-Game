@@ -5,9 +5,14 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour {
 
     // public Weapon[] weaponsList;
+    public GameObject[] weaponsList;
     
 
     public GameObject weaponHolder;
+    public GameObject sizzleSword;
+    public GameObject zapBoots;
+
+    public GameObject player;
 
     // List<GameObject> allWeapons = new List<GameObject>();
     // List<GameObject> weapons = new List<GameObject>();
@@ -41,7 +46,8 @@ public class WeaponPickup : MonoBehaviour {
     void Awake (){
         playerControls = new PlayerControls();
         // weaponsList = new Weapon[1];
-        combat = GetComponent<PlayerCombat>();
+        weaponsList = new GameObject[1];
+        combat = player.GetComponent<PlayerCombat>();
         movement = GetComponent<Movement>();
         sprite = GetComponent<SpriteRenderer>();
     }
@@ -57,9 +63,25 @@ public class WeaponPickup : MonoBehaviour {
     void Update (){
         pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
         Debug.Log(pickUpInput);
+        Debug.Log(combat.attackDamage);
+        // combat.attackDamage = 60;
         
         if(pickUpAllowed && pickUpInput != 0) {
             PickUp();
+            // Debug.Log(sizzleSword.transform.parent);
+            // when picked up and in weapon holder, change stats
+            // if (sizzleSword.transform.parent == weaponHolder)
+            // {
+            //     // weaponsList[0] = sizzleSword;
+            //     combat.attackDamage = 20;
+            //     Debug.Log("We have " + this.name);
+            // }
+
+            if(sizzleSword.transform.parent.CompareTag(weaponHolder.tag) )
+            {
+                combat.attackDamage = 20;
+                Debug.Log("We have " + this.name);
+            }
             pickUpAllowed = false;
             Weapon.Instance.GetWeapon();
         }
@@ -115,16 +137,23 @@ public class WeaponPickup : MonoBehaviour {
 
         // store weapon in an array
         // weapons.Add(weapon);
-        // allWeapons.Add(weapon);
+        // allWeapons.Add(weapon);\
+
+        // if(combat.weaponsList[0] == this.gameObject)
+        // {
+        //     Debug.Log("We have " + this.name);
+        //     combat.attackDamage = 20;
+        // }
 
         // makes item dissapear after pickup
         // Destroy(gameObject);
-        GetComponent<Collider2D>().enabled = false;
         gameObject.transform.parent = weaponHolder.transform;
+        GetComponent<Collider2D>().enabled = false;
         this.sprite.enabled = false;
+
+        Debug.Log("PickedUp");
         // statement to say that an item has been picked up
         // itemPicked = true;
-        Debug.Log("PickedUp");
 
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
 
-    public Transform weaponHolder;
+    // public Transform weaponHolder;
 
     public Collider2D[] weaponsList;
     private PlayerControls playerControls;
@@ -60,13 +60,14 @@ public class PlayerCombat : MonoBehaviour
     {
         // wpnPickup.GetComponent<WeaponPickup>().pickUpAllowed = true;
         // once sword is in contact, with player, sword is added in array
-        if(other.CompareTag("Sword"))
-        {
-            weaponsList[0] = other;
-            Debug.Log("We have " + other.name);
-            attackDamage = 20;
-            // once boots is in contact, with player, boots is added in array
-        } else if(other.CompareTag("Boots"))
+        // if(other.CompareTag("Sword"))
+        // {
+        //     weaponsList[0] = other;
+        //     Debug.Log("We have " + other.name);
+        //     attackDamage = 20;
+        //     // once boots is in contact, with player, boots is added in array
+        // } 
+        if(other.CompareTag("Boots"))
         {
             weaponsList[0] = other;
             Debug.Log("We have " + other.name);
@@ -97,6 +98,7 @@ public class PlayerCombat : MonoBehaviour
     {
         pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
         attackInput = playerControls.Main.Attack.ReadValue<float>();
+        Debug.Log(attackDamage);
 
         if(Time.time >= nextAttackTime)
         {
