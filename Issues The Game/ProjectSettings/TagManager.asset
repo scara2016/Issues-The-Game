@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - panel
+  - Weapon
+  - Sword
+  - Boots
   layers:
   - Default
   - TransparentFX
@@ -12,8 +14,8 @@ TagManager:
   - Platform
   - Water
   - UI
-  - 
-  - 
+  - Enemy
+  - Weapon
   - 
   - 
   - 

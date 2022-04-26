@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     private float targetSpeed;
     private float moveInput;
     private float jumpInput;
+    private float crouchInput;
     public float decceleration = 7f;
     public float velPower = 0.9f;
     public float frictionAmount = 0.1f;
@@ -35,7 +36,6 @@ public class Movement : MonoBehaviour
     RaycastHit2D wallCheckHitLeft;
     RaycastHit2D wallCheckHitRight;
 
-    public Animator animator;
     private AnimationController controller;
 
     private void Awake()
@@ -66,6 +66,7 @@ public class Movement : MonoBehaviour
         Friction();
         Jump();
         WallJump();
+        Crouch();
     }
 
     public bool IsGrounded()
@@ -218,6 +219,36 @@ public class Movement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlideSpeed, float.MaxValue));
             Debug.Log("Wall Sliding: " + isWallSliding); 
+        }
+    }
+
+    // void SwordAttackDOne() 
+    // {
+    //     if(GetSpeed() > 0)
+    //     {
+    //         swordRight.SetActive(false);
+    //     }
+    //     //when facing left
+    //     else
+    //     {
+    //         swordLeft.SetActive(false);
+    //     }
+    // }
+
+    private void Crouch()
+    {
+        crouchInput = playerControls.Main.Crouch.ReadValue<float>();
+
+        if (crouchInput >= 0.5 && IsGrounded() && moveInput == 0)
+        {
+            Debug.Log("Crouching");
+            boxCollider.size = new Vector2(1, 0.7f);
+            boxCollider.offset = new Vector2(0, -0.2f);
+        }
+        else
+        {
+            boxCollider.size = new Vector2(1, 1);
+            boxCollider.offset = new Vector2(0, 0);
         }
     }
 }
