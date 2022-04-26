@@ -49,7 +49,7 @@ public class WeaponPickup : MonoBehaviour {
         // weaponsList = new Weapon[1];
         weaponsList = new GameObject[1];
         combat = player.GetComponent<PlayerCombat>();
-        movement = GetComponent<Movement>();
+        movement = player.GetComponent<Movement>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -65,22 +65,22 @@ public class WeaponPickup : MonoBehaviour {
         pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
         Debug.Log(pickUpInput);
         Debug.Log(combat.attackDamage);
+        Debug.Log(movement.moveSpeed);
         // combat.attackDamage = 60;
         
         if(pickUpAllowed && pickUpInput != 0) {
             PickUp();
-            // Debug.Log(sizzleSword.transform.parent);
-            // when picked up and in weapon holder, change stats
-            // if (sizzleSword.transform.parent == weaponHolder)
-            // {
-            //     // weaponsList[0] = sizzleSword;
-            //     combat.attackDamage = 20;
-            //     Debug.Log("We have " + this.name);
-            // }
 
             if(sizzleSword.transform.parent.CompareTag(weaponHolder.tag) )
             {
                 combat.attackDamage = 20;
+                Debug.Log("We have " + this.name);
+            } 
+            
+            else if(zapBoots.transform.parent.CompareTag(weaponHolder.tag) )
+            {
+                combat.attackDamage = 5;
+                movement.moveSpeed = 15f;
                 Debug.Log("We have " + this.name);
             }
             pickUpAllowed = false;

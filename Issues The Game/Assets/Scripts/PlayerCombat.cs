@@ -67,13 +67,13 @@ public class PlayerCombat : MonoBehaviour
         //     attackDamage = 20;
         //     // once boots is in contact, with player, boots is added in array
         // } 
-        if(other.CompareTag("Boots"))
-        {
-            weaponsList[0] = other;
-            Debug.Log("We have " + other.name);
-            attackDamage = 5;
-            movement.moveSpeed = 15f;
-        }
+        // if(other.CompareTag("Boots"))
+        // {
+        //     weaponsList[0] = other;
+        //     Debug.Log("We have " + other.name);
+        //     attackDamage = 5;
+        //     movement.moveSpeed = 15f;
+        // }
 
         // if(other.transform.parent == weaponHolder)
         // {
@@ -99,6 +99,7 @@ public class PlayerCombat : MonoBehaviour
         pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
         attackInput = playerControls.Main.Attack.ReadValue<float>();
         Debug.Log(attackDamage);
+        Debug.Log(movement.moveSpeed);
 
         if(Time.time >= nextAttackTime)
         {
