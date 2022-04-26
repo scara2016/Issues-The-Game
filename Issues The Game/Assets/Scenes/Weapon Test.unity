@@ -562,11 +562,11 @@ PrefabInstance:
     - target: {fileID: 3787261000913849659, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: zapBoots
       value: 
-      objectReference: {fileID: 2010959627}
+      objectReference: {fileID: 0}
     - target: {fileID: 3787261000913849659, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: sizzleSword
       value: 
-      objectReference: {fileID: 1765403253}
+      objectReference: {fileID: 0}
     - target: {fileID: 3787261000913849659, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: weaponHolder
       value: 

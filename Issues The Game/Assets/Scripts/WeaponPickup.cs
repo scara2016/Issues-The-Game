@@ -45,6 +45,8 @@ public class WeaponPickup : MonoBehaviour {
 
     void Awake (){
         player = GameObject.FindGameObjectWithTag("Player");
+        zapBoots = GameObject.FindGameObjectWithTag("Boots");
+        sizzleSword = GameObject.FindGameObjectWithTag("Sword");
         playerControls = new PlayerControls();
         // weaponsList = new Weapon[1];
         weaponsList = new GameObject[1];

@@ -127,9 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponsList: []
   weaponHolder: {fileID: 1605183361221117232, guid: 62b0bfcb43031a7428a503096feb2354, type: 3}
-  sizzleSword: {fileID: 4105030698027596699, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
-  zapBoots: {fileID: 3720417827102285909}
-  player: {fileID: 8786989015115453862, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+  sizzleSword: {fileID: 0}
+  zapBoots: {fileID: 0}
   pickUpAllowed: 0
   weapon: {fileID: 2157661438299541236}
 --- !u!114 &2157661438299541236
