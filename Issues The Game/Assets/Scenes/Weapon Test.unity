@@ -234,11 +234,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1252447237 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7223354796076367979, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-  m_PrefabInstance: {fileID: 1887019048}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1801037848
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +501,7 @@ PrefabInstance:
     - target: {fileID: 5580023756563563904, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
       propertyPath: weaponHolder
       value: 
-      objectReference: {fileID: 1252447237}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
 --- !u!1001 &4105030699364583552
@@ -523,7 +518,7 @@ PrefabInstance:
     - target: {fileID: 3787261000913849659, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: weaponHolder
       value: 
-      objectReference: {fileID: 1252447237}
+      objectReference: {fileID: 0}
     - target: {fileID: 4105030698027596699, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: m_Name
       value: Sizzle Sword Weapon
