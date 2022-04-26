@@ -12,7 +12,7 @@ public class WeaponPickup : MonoBehaviour {
     public GameObject sizzleSword;
     public GameObject zapBoots;
 
-    public GameObject player;
+    private GameObject player;
 
     // List<GameObject> allWeapons = new List<GameObject>();
     // List<GameObject> weapons = new List<GameObject>();
@@ -44,6 +44,7 @@ public class WeaponPickup : MonoBehaviour {
     }
 
     void Awake (){
+        player = GameObject.FindGameObjectWithTag("Player");
         playerControls = new PlayerControls();
         // weaponsList = new Weapon[1];
         weaponsList = new GameObject[1];
