@@ -28,13 +28,21 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Issues The Game/Assets/Animations/Landing_0.controller
   m_Name: Landing_0
+=======
+  m_Name: Falling Sprite_0 1
+>>>>>>> Guri-Development:Issues The Game/Assets/Animations/Falling Sprite_0 1.controller
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
+<<<<<<< HEAD:Issues The Game/Assets/Animations/Landing_0.controller
     m_StateMachine: {fileID: -1513058914699053437}
+=======
+    m_StateMachine: {fileID: 8699549726043885919}
+>>>>>>> Guri-Development:Issues The Game/Assets/Animations/Falling Sprite_0 1.controller
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -44,14 +52,22 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+<<<<<<< HEAD:Issues The Game/Assets/Animations/Landing_0.controller
 --- !u!1102 &9118826596540878424
+=======
+--- !u!1102 &5837831749687470400
+>>>>>>> Guri-Development:Issues The Game/Assets/Animations/Falling Sprite_0 1.controller
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Issues The Game/Assets/Animations/Landing_0.controller
   m_Name: Land
+=======
+  m_Name: Jump
+>>>>>>> Guri-Development:Issues The Game/Assets/Animations/Falling Sprite_0 1.controller
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -64,9 +80,38 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
+<<<<<<< HEAD:Issues The Game/Assets/Animations/Landing_0.controller
   m_Motion: {fileID: 7400000, guid: 6237a6a59f39b6f4aaa3dd6998d4cf98, type: 2}
+=======
+  m_Motion: {fileID: 7400000, guid: f7eac1306ba9cb243bdbd467570659ff, type: 2}
+>>>>>>> Guri-Development:Issues The Game/Assets/Animations/Falling Sprite_0 1.controller
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+<<<<<<< HEAD:Issues The Game/Assets/Animations/Landing_0.controller
+=======
+--- !u!1107 &8699549726043885919
+AnimatorStateMachine:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Base Layer
+  m_ChildStates:
+  - serializedVersion: 1
+    m_State: {fileID: 5837831749687470400}
+    m_Position: {x: 200, y: 0, z: 0}
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: 5837831749687470400}
+>>>>>>> Guri-Development:Issues The Game/Assets/Animations/Falling Sprite_0 1.controller
