@@ -66,6 +66,7 @@ public class Movement : MonoBehaviour
         Friction();
         Jump();
         WallJump();
+        Debug.Log(moveSpeed);
     }
 
     public bool IsGrounded()

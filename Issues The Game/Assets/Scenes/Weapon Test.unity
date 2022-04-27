@@ -234,20 +234,10 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1121510961 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7223354796076367979, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-  m_PrefabInstance: {fileID: 1887019048}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1121510962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9053813936372881042, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
   m_PrefabInstance: {fileID: 1887019048}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1765403253 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4105030698027596699, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
-  m_PrefabInstance: {fileID: 4105030699364583552}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1801037848
 GameObject:
@@ -459,22 +449,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
---- !u!1 &2010959627 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3720417827102285909, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
-  m_PrefabInstance: {fileID: 3720417826219163833}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2010959628 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2157661438299541236, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
-  m_PrefabInstance: {fileID: 3720417826219163833}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010959627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88ee08d88f271584d9c1b35e4eccf21b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3720417826219163833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -533,19 +507,19 @@ PrefabInstance:
     - target: {fileID: 5580023756563563904, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 2010959628}
+      objectReference: {fileID: 0}
     - target: {fileID: 5580023756563563904, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
       propertyPath: zapBoots
       value: 
-      objectReference: {fileID: 2010959627}
+      objectReference: {fileID: 0}
     - target: {fileID: 5580023756563563904, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
       propertyPath: sizzleSword
       value: 
-      objectReference: {fileID: 1765403253}
+      objectReference: {fileID: 0}
     - target: {fileID: 5580023756563563904, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
       propertyPath: weaponHolder
       value: 
-      objectReference: {fileID: 1121510961}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
 --- !u!1001 &4105030699364583552
@@ -570,10 +544,10 @@ PrefabInstance:
     - target: {fileID: 3787261000913849659, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: weaponHolder
       value: 
-      objectReference: {fileID: 1121510961}
+      objectReference: {fileID: 0}
     - target: {fileID: 4105030698027596699, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: m_Name
-      value: Sizzle Sword Weapon
+      value: 'Sizzle Sword '
       objectReference: {fileID: 0}
     - target: {fileID: 4105030698027596700, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: m_Color.b

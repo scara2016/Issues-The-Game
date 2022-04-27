@@ -99,7 +99,7 @@ public class PlayerCombat : MonoBehaviour
         pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
         attackInput = playerControls.Main.Attack.ReadValue<float>();
         Debug.Log(attackDamage);
-        Debug.Log(movement.moveSpeed);
+        // Debug.Log(movement.moveSpeed);
 
         if(Time.time >= nextAttackTime)
         {
