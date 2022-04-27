@@ -63,4 +63,9 @@ public class AnimationController : MonoBehaviour
         }
     }
 
+    public void CrouchState(bool crouch)
+    {
+        animator.SetBool("isCrouching", crouch);
+    }
+
 }

@@ -244,11 +244,13 @@ public class Movement : MonoBehaviour
             Debug.Log("Crouching");
             boxCollider.size = new Vector2(1, 0.7f);
             boxCollider.offset = new Vector2(0, -0.2f);
+            controller.CrouchState(true);
         }
         else
         {
             boxCollider.size = new Vector2(1, 1);
             boxCollider.offset = new Vector2(0, 0);
+            controller.CrouchState(false);
         }
     }
 }
