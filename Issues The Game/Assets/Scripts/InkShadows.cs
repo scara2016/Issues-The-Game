@@ -9,11 +9,12 @@ public class InkShadows : MonoBehaviour
     public float timeTillDrop = 1f;
     public InkDrops inkDrop;
     public Vector3 finalScale = new Vector3(3f,3f,3f);
+    public float initialScaleSize;
     private Vector3 initialScale;
-
     void Start()
     {
-        initialScale = transform.localScale;
+        initialScale = new Vector3(initialScaleSize, initialScaleSize, initialScaleSize);
+        transform.localScale = initialScale;
     }
 
     // Update is called once per frame
