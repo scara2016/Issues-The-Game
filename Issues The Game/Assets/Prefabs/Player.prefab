@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 2339204883490925889}
   - component: {fileID: 3882388170554263251}
   - component: {fileID: 8786989015115453860}
+  - component: {fileID: 6217983382483752865}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -259,6 +260,27 @@ MonoBehaviour:
   wallSlideSpeed: 0.3
   wallDistance: 0.5
   slideCooldown: 0.5
+--- !u!114 &6217983382483752865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8786989015115453862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbbfb2a4afa2c6743a7b37f9aa103cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponsList: []
+  attackDamage: 10
+  attackRate: 2
+  attackPoint: {fileID: 0}
+  attackRange: 0.5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  weapon: {fileID: 0}
 --- !u!1001 &7968779583915489958
 PrefabInstance:
   m_ObjectHideFlags: 0
