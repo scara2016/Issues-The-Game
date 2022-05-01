@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 814129135}
   - component: {fileID: 814129134}
   - component: {fileID: 814129136}
+  - component: {fileID: 814129137}
   m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
@@ -234,20 +235,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1121510961 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7223354796076367979, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-  m_PrefabInstance: {fileID: 1887019048}
+--- !u!50 &814129137
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814129133}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!4 &1121510962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9053813936372881042, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
   m_PrefabInstance: {fileID: 1887019048}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1765403253 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4105030698027596699, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
-  m_PrefabInstance: {fileID: 4105030699364583552}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1801037848
 GameObject:
@@ -463,22 +475,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
---- !u!1 &2010959627 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3720417827102285909, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
-  m_PrefabInstance: {fileID: 3720417826219163833}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2010959628 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2157661438299541236, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
-  m_PrefabInstance: {fileID: 3720417826219163833}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010959627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88ee08d88f271584d9c1b35e4eccf21b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3720417826219163833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -537,19 +533,19 @@ PrefabInstance:
     - target: {fileID: 5580023756563563904, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 2010959628}
+      objectReference: {fileID: 0}
     - target: {fileID: 5580023756563563904, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
       propertyPath: zapBoots
       value: 
-      objectReference: {fileID: 2010959627}
+      objectReference: {fileID: 0}
     - target: {fileID: 5580023756563563904, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
       propertyPath: sizzleSword
       value: 
-      objectReference: {fileID: 1765403253}
+      objectReference: {fileID: 0}
     - target: {fileID: 5580023756563563904, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
       propertyPath: weaponHolder
       value: 
-      objectReference: {fileID: 1121510961}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
 --- !u!1001 &4105030699364583552
@@ -574,10 +570,10 @@ PrefabInstance:
     - target: {fileID: 3787261000913849659, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: weaponHolder
       value: 
-      objectReference: {fileID: 1121510961}
+      objectReference: {fileID: 0}
     - target: {fileID: 4105030698027596699, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: m_Name
-      value: Sizzle Sword Weapon
+      value: 'Sizzle Sword '
       objectReference: {fileID: 0}
     - target: {fileID: 4105030698027596700, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: m_Color.b
@@ -692,6 +688,18 @@ PrefabInstance:
     - target: {fileID: 3243516135121272976, guid: 4cd31e4891f21164592725b6176c619e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3995379216834914111, guid: 4cd31e4891f21164592725b6176c619e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238662374816229140, guid: 4cd31e4891f21164592725b6176c619e, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238662374816229140, guid: 4cd31e4891f21164592725b6176c619e, type: 3}
+      propertyPath: m_Constraints
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cd31e4891f21164592725b6176c619e, type: 3}
