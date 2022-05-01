@@ -28,10 +28,10 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy Died");
-        // die animation
-
         // disable enemy
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
+         // die animation
+        Destroy(gameObject);
     }
 }

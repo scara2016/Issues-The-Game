@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     private float targetSpeed;
     private float moveInput;
     private float jumpInput;
+    private float crouchInput;
     public float decceleration = 7f;
     public float velPower = 0.9f;
     public float frictionAmount = 0.1f;
@@ -24,7 +25,11 @@ public class Movement : MonoBehaviour
     public float jumpCooldown = 5f;
     private float jumpCooldownTimer = 0f;
     public float jumpVelocity = 1f;
-
+    
+    private bool wallJumpCooldownStart = false;
+    public float wallJumpCooldown = 5f;
+    private float wallJumpCooldownTimer = 0f;
+    
     public float wallJumpTime = 0.2f;
     public float wallSlideSpeed = 0.3f;
     public float wallDistance = 0.5f;
@@ -35,7 +40,6 @@ public class Movement : MonoBehaviour
     RaycastHit2D wallCheckHitLeft;
     RaycastHit2D wallCheckHitRight;
 
-    public Animator animator;
     private AnimationController controller;
 
     private void Awake()
@@ -66,7 +70,7 @@ public class Movement : MonoBehaviour
         Friction();
         Jump();
         WallJump();
-        Debug.Log(moveSpeed);
+        Crouch();
     }
 
     public bool IsGrounded()
@@ -92,13 +96,15 @@ public class Movement : MonoBehaviour
     private void PlayerMovement()
     {
         moveInput = playerControls.Main.Move.ReadValue<float>(); // Reads and stores movement input from inputManager
-        
-        jumpInput = playerControls.Main.Jump.ReadValue<float>(); // Reads and stores movement input from inputManager
-        float targetSpeed = moveInput * moveSpeed; // when the player wants to move then the target speed is 1*movespeed and when they want to stop it is 0*moveSpeed
-        float speedDif = targetSpeed - rb.velocity.x; //finds difference between current velocity and target velocity
-        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration; // calculates if accel needs to be applied positive or negative
-        float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
-        rb.AddForce(movement * Vector2.right);
+        if (!wallJumpCooldownStart)
+        {
+            jumpInput = playerControls.Main.Jump.ReadValue<float>(); // Reads and stores movement input from inputManager
+            float targetSpeed = moveInput * moveSpeed; // when the player wants to move then the target speed is 1*movespeed and when they want to stop it is 0*moveSpeed
+            float speedDif = targetSpeed - rb.velocity.x; //finds difference between current velocity and target velocity
+            float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration; // calculates if accel needs to be applied positive or negative
+            float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
+            rb.AddForce(movement * Vector2.right);
+        }
     }
 
     private void AnimateMovement()
@@ -176,10 +182,19 @@ public class Movement : MonoBehaviour
                 jumpCooldownTimer = 0f;
             }
         }
-        if(jumpInput != 0 && IsGrounded() && !jumpCooldownStart || (isWallSliding && jumpInput!=0 && !jumpCooldownStart)) //true if player is going to jump
+        if (!isWallSliding)
         {
-            rb.AddForce(Vector2.up* jumpVelocity, ForceMode2D.Impulse);
+            if (jumpInput != 0 && IsGrounded() && !jumpCooldownStart || (isWallSliding && jumpInput != 0 && !jumpCooldownStart)) //true if player is going to jump
+            {
+                rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
+                jumpCooldownStart = true; //cooldown has started
+            }
+        }
+        else if(isWallSliding && jumpInput!=0 && !wallJumpCooldownStart)
+        {
+            rb.AddForce(new Vector2(1,1) * jumpVelocity, ForceMode2D.Impulse);
             jumpCooldownStart = true; //cooldown has started
+            wallJumpCooldownStart = true;
         }
         if (rb.velocity.y < 0) // if the player has started to fall then we apply the fall multiplier
         {
@@ -202,8 +217,8 @@ public class Movement : MonoBehaviour
         {
             slideTimer += Time.deltaTime;
         }
-      
-        if ((wallCheckHitLeft || wallCheckHitRight) && !IsGrounded() && moveInput!=0 && !isWallSliding) // if either ray is triggered and the player is set to start sliding
+
+        if ((wallCheckHitLeft || wallCheckHitRight) && !IsGrounded() && moveInput != 0 && !isWallSliding) // if either ray is triggered and the player is set to start sliding
         {
             slideCooldownStart = true;
             isWallSliding = true;
@@ -218,7 +233,16 @@ public class Movement : MonoBehaviour
         if (isWallSliding) // movement condition for sliding
         {
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlideSpeed, float.MaxValue));
-            Debug.Log("Wall Sliding: " + isWallSliding); 
+            Debug.Log("Wall Sliding: " + isWallSliding);
+        }
+        if (wallJumpCooldownStart) // so the player cannot jump in rapid succsesion
+        {
+            wallJumpCooldownTimer += Time.deltaTime;
+            if (wallJumpCooldownTimer >= wallJumpCooldown)
+            {
+                wallJumpCooldownStart = false;
+                wallJumpCooldownTimer = 0f;
+            }
         }
     }
 
@@ -234,4 +258,23 @@ public class Movement : MonoBehaviour
     //         swordLeft.SetActive(false);
     //     }
     // }
+
+    private void Crouch()
+    {
+        crouchInput = playerControls.Main.Crouch.ReadValue<float>();
+
+        if (crouchInput >= 0.5 && IsGrounded() && moveInput == 0)
+        {
+            Debug.Log("Crouching");
+            boxCollider.size = new Vector2(1, 0.7f);
+            boxCollider.offset = new Vector2(0, -0.2f);
+            controller.CrouchState(true);
+        }
+        else
+        {
+            boxCollider.size = new Vector2(1, 1);
+            boxCollider.offset = new Vector2(0, 0);
+            controller.CrouchState(false);
+        }
+    }
 }

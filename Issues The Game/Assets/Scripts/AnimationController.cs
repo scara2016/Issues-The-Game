@@ -8,13 +8,6 @@ public class AnimationController : MonoBehaviour
     private Movement move;
     private string currentState;
 
-    //Animation States - Name in quotes should equal state name in Animator
-    const string PLAYER_IDLE = "Idle";
-    //const string PLAYER_RUN = "Run";
-    const string PLAYER_JUMP = "Jump";
-    const string PLAYER_FALL = "Fall";
-    const string PLAYER_WALLSLIDE = "WallSlide";
-
     // private WeaponPickup wp;
 
     // Sprite color
@@ -26,9 +19,9 @@ public class AnimationController : MonoBehaviour
         move = GetComponent<Movement>();
     }
 
-    public void ChangeAnimationState(string stateName, bool stateBool)
+    public void PlayState(string stateName)
     {
-        animator.SetBool(stateName, stateBool);
+        animator.Play(stateName);
     }
 
     public void RunState(bool run)
@@ -38,7 +31,7 @@ public class AnimationController : MonoBehaviour
 
     public void WalkState(bool walk)
     {
-        animator.SetBool("isWalking", walk);   
+        animator.SetBool("isWalking", walk);
     }
 
     public void JumpState(bool jump)
@@ -54,6 +47,25 @@ public class AnimationController : MonoBehaviour
     public void WallSlideState(bool wallslide)
     {
         animator.SetBool("isWallSliding", wallslide);
+    }
+
+    public void SwingAttack()
+    {
+        if (move.IsGrounded())
+        {
+            animator.ResetTrigger("Attack");
+            animator.SetTrigger("Attack");
+        }
+        if (move.IsGrounded() == false)
+        {
+            animator.ResetTrigger("AirAttack");
+            animator.SetTrigger("AirAttack");
+        }
+    }
+
+    public void CrouchState(bool crouch)
+    {
+        animator.SetBool("isCrouching", crouch);
     }
 
 }

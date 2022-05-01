@@ -256,11 +256,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!4 &1121510962 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9053813936372881042, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-  m_PrefabInstance: {fileID: 1887019048}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1801037848
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +352,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 985087319354571930, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1126811261814783415, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -388,7 +387,23 @@ PrefabInstance:
     - target: {fileID: 2339204883490925889, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: weaponHolder
       value: 
-      objectReference: {fileID: 1121510962}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611382454822247511, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217983382483752865, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 1895080161}
+    - target: {fileID: 6217983382483752865, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 1852178183}
+    - target: {fileID: 6217983382483752865, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 7223354796076367979, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_TagString
       value: WeaponHolder
@@ -404,6 +419,10 @@ PrefabInstance:
     - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: swordRight
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: wallDistance
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453862, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_Name
@@ -471,6 +490,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+--- !u!114 &1895080161 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2101425124226408200, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
+  m_PrefabInstance: {fileID: 4105030699364583552}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ee08d88f271584d9c1b35e4eccf21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3720417826219163833
 PrefabInstance:
   m_ObjectHideFlags: 0

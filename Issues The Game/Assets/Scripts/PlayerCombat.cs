@@ -32,6 +32,8 @@ public class PlayerCombat : MonoBehaviour
     private WeaponPickup wpnPickup;
 
     private Collider2D[] hitEnemies;
+
+    private AnimationController controller;
     // Start is called before the first frame update
     void Start()
     {
@@ -133,6 +135,7 @@ public class PlayerCombat : MonoBehaviour
     void Attack()
     {
         // play animation
+        controller.SwingAttack();
         //Detect enemies in range 
         
         //Damage them 
