@@ -39,9 +39,6 @@ public class InkGenerator : MonoBehaviour
         inkShadowList.Add(clone);
     }
 
-    private void GenInk()
-    {
-        GameObject clone = Instantiate(inkDrips, transform);
-    }
+    
 
 }

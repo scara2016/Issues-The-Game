@@ -192,7 +192,14 @@ public class Movement : MonoBehaviour
         }
         else if(isWallSliding && jumpInput!=0 && !wallJumpCooldownStart)
         {
-            rb.AddForce(new Vector2(1,1) * jumpVelocity, ForceMode2D.Impulse);
+            if (wallCheckHitLeft)
+            {
+                rb.AddForce(new Vector2(1, 1) * jumpVelocity, ForceMode2D.Impulse);
+            }
+            else if (wallCheckHitRight)
+            {
+                rb.AddForce(new Vector2(-1, 1) * jumpVelocity, ForceMode2D.Impulse);
+            }
             jumpCooldownStart = true; //cooldown has started
             wallJumpCooldownStart = true;
         }
