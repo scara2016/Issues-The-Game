@@ -556,6 +556,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3787261000913849659, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787261000913849659, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: zapBoots
       value: 
       objectReference: {fileID: 0}
