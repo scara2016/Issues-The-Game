@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100;
     public float health;
     public Rigidbody2D rb;
+    public Healthbar healthbar;
 
     void Start()
     {
