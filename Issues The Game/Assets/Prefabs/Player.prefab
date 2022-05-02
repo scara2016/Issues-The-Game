@@ -255,7 +255,7 @@ MonoBehaviour:
   lowJumpMultiplier: 2
   jumpCooldown: 1
   jumpVelocity: 5
-  wallJumpCooldown: 5
+  wallJumpCooldown: 0.2
   wallJumpTime: 0.2
   wallSlideSpeed: 0.3
   wallDistance: 0.5
