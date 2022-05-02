@@ -224,7 +224,7 @@ public class Movement : MonoBehaviour
             isWallSliding = true;
             jumpCooldownTimer = float.MaxValue;
         }
-        else if (slideTimer > slideCooldown) //ends the slide
+        else if (slideTimer > slideCooldown && !wallCheckHitLeft || !wallCheckHitRight) //ends the slide
         {
             slideTimer = 0;
             slideCooldownStart = false;
