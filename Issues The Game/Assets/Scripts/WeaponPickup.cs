@@ -5,9 +5,14 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour {
 
     // public Weapon[] weaponsList;
+    public GameObject[] weaponsList;
     
 
     public GameObject weaponHolder;
+    // public GameObject sizzleSword;
+    // public GameObject zapBoots;
+
+    private GameObject player;
 
     // List<GameObject> allWeapons = new List<GameObject>();
     // List<GameObject> weapons = new List<GameObject>();
@@ -39,10 +44,15 @@ public class WeaponPickup : MonoBehaviour {
     }
 
     void Awake (){
+        player = GameObject.FindGameObjectWithTag("Player");
+        // zapBoots = GameObject.FindGameObjectWithTag("Boots");
+        // sizzleSword = GameObject.FindGameObjectWithTag("Sword");
+        weaponHolder = GameObject.FindGameObjectWithTag("WeaponHolder");
         playerControls = new PlayerControls();
         // weaponsList = new Weapon[1];
-        combat = GetComponent<PlayerCombat>();
-        movement = GetComponent<Movement>();
+        weaponsList = new GameObject[1];
+        combat = player.GetComponent<PlayerCombat>();
+        movement = player.GetComponent<Movement>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -57,9 +67,45 @@ public class WeaponPickup : MonoBehaviour {
     void Update (){
         pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
         Debug.Log(pickUpInput);
+        Debug.Log(combat.attackDamage);
+        Debug.Log(movement.moveSpeed);
+        // combat.attackDamage = 60;
+        Debug.Log(weaponHolder);
         
         if(pickUpAllowed && pickUpInput != 0) {
             PickUp();
+            
+            if(this.transform.parent.CompareTag(weaponHolder.tag))
+            {
+                if(this.CompareTag("Sword")) 
+                {
+                    combat.attackDamage = 20;
+                    Debug.Log("We have " + this.name);
+                }
+                else if (this.CompareTag("Boots")) 
+                {
+                    combat.attackDamage = 5;
+                    movement.moveSpeed = 15f;
+                    Debug.Log("We have " + this.name);
+                }
+            }
+            // if(sizzleSword.transform.parent.CompareTag(weaponHolder.tag) )
+            // {
+            //     combat.attackDamage = 20;
+            //     Debug.Log("We have " + this.name);
+            // } 
+            // else {
+            //     combat.attackDamage = 5;
+            //     movement.moveSpeed = 15f;
+            //     Debug.Log("We have " + this.name);
+            // }
+            
+            // else if(zapBoots.transform.parent.CompareTag(weaponHolder.tag) )
+            // {
+            //     combat.attackDamage = 5;
+            //     movement.moveSpeed = 15f;
+            //     Debug.Log("We have " + this.name);
+            // }
             pickUpAllowed = false;
             Weapon.Instance.GetWeapon();
         }
@@ -70,32 +116,7 @@ public class WeaponPickup : MonoBehaviour {
     // Pickup activates
     void OnTriggerEnter2D(Collider2D other)
     {
-        // if(other.CompareTag("Player"))
-        // {
-        //     combat.weaponsList[0] = Weapon.Instance;
-        //     Debug.Log("We have " + Weapon.Instance.name);
-            pickUpAllowed = true;
-        //     if(gameObject.CompareTag("Sword"))
-        //     {
-        //         Debug.Log("We have " + Weapon.Instance.name);
-        //         combat.attackDamage = 20;
-        //     } else if(gameObject.CompareTag("Boots"))
-        //     {
-        //         Debug.Log("We have " + Weapon.Instance.name);
-        //         combat.attackDamage = 5;
-        //         movement.moveSpeed = 15f;
-        //     }
-        // }
-
-        // foreach(Collider2D wpn in weaponsList)
-        // {
-        //     Debug.Log(wpn.name);
-        // }
-        // float pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
-        // if(other.CompareTag("Player"))
-        // {
-            
-        // }
+        pickUpAllowed = true;
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -115,16 +136,23 @@ public class WeaponPickup : MonoBehaviour {
 
         // store weapon in an array
         // weapons.Add(weapon);
-        // allWeapons.Add(weapon);
+        // allWeapons.Add(weapon);\
+
+        // if(combat.weaponsList[0] == this.gameObject)
+        // {
+        //     Debug.Log("We have " + this.name);
+        //     combat.attackDamage = 20;
+        // }
 
         // makes item dissapear after pickup
-        gameObject.transform.parent = weaponHolder.transform;
         // Destroy(gameObject);
+        gameObject.transform.parent = weaponHolder.transform;
         GetComponent<Collider2D>().enabled = false;
         this.sprite.enabled = false;
+
+        Debug.Log("PickedUp");
         // statement to say that an item has been picked up
         // itemPicked = true;
-        Debug.Log("PickedUp");
 
     }
 }

@@ -143,7 +143,7 @@
                 {
                     "name": "",
                     "id": "3ae5a621-a7b7-4249-9641-a332bcdd844c",
-                    "path": "<XInputController>/buttonEast",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -154,7 +154,18 @@
                 {
                     "name": "",
                     "id": "d401119b-184e-4fa8-a3ee-e26de07b0703",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e739bcc4-e949-4692-85d6-55bbff1f921d",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -165,7 +176,7 @@
                 {
                     "name": "",
                     "id": "ceada642-62ac-4042-b8f7-8292717acc8f",
-                    "path": "<XInputController>/buttonEast",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -176,7 +187,18 @@
                 {
                     "name": "",
                     "id": "f751229c-b479-47ff-8f87-f6c7c7a9db30",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b035f298-b3bc-478d-93b5-7a42b4372fc5",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -187,7 +209,7 @@
                 {
                     "name": "",
                     "id": "5b33929a-d7c0-4cae-81a8-ac550b3047ba",
-                    "path": "<XInputController>/leftStick/down",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

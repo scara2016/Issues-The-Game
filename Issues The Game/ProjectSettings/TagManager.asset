@@ -7,7 +7,7 @@ TagManager:
   - Weapon
   - Sword
   - Boots
-  - panel
+  - WeaponHolder
   layers:
   - Default
   - TransparentFX
