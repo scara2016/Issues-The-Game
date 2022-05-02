@@ -209,7 +209,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5b33929a-d7c0-4cae-81a8-ac550b3047ba"",
-                    ""path"": ""<Keyboard>/ctrl"",
+                    ""path"": ""<XInputController>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
