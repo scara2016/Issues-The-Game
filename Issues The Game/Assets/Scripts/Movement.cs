@@ -42,12 +42,15 @@ public class Movement : MonoBehaviour
 
     private AnimationController controller;
 
+    private PlayerHealth pHealth;
+
     private void Awake()
     {
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         controller = GetComponent<AnimationController>();
+        pHealth = GetComponent<PlayerHealth>();
     }
 
     private void OnEnable()
