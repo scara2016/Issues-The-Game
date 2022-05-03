@@ -256,6 +256,78 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &852464248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 852464249}
+  m_Layer: 6
+  m_Name: GroundCheckPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &852464249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852464248}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.67, y: -1.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 906873043}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &906873037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1013285836429819169, guid: 4cd31e4891f21164592725b6176c619e, type: 3}
+  m_PrefabInstance: {fileID: 6258591842430835407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &906873038 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6238662374816229140, guid: 4cd31e4891f21164592725b6176c619e, type: 3}
+  m_PrefabInstance: {fileID: 6258591842430835407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &906873041 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3995379216834914111, guid: 4cd31e4891f21164592725b6176c619e, type: 3}
+  m_PrefabInstance: {fileID: 6258591842430835407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &906873043 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3243516135121272976, guid: 4cd31e4891f21164592725b6176c619e, type: 3}
+  m_PrefabInstance: {fileID: 6258591842430835407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &906873044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906873037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd9275581163a54c951fceb1fd5fe08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 50
+  mustPatrol: 0
+  mustTurn: 0
+  rb: {fileID: 906873038}
+  groundCheckPos: {fileID: 852464249}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  bodyCollider: {fileID: 906873041}
 --- !u!1 &1801037848
 GameObject:
   m_ObjectHideFlags: 0
