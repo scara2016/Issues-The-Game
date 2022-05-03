@@ -71,6 +71,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WallTransfer"",
+                    ""type"": ""Button"",
+                    ""id"": ""e5c4aa43-439c-445b-b694-8b4663367d5f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -249,6 +258,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6e59937d-40ad-40ec-8cfb-004abc5c715e"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WallTransfer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -262,6 +282,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Main_PickUp = m_Main.FindAction("PickUp", throwIfNotFound: true);
         m_Main_Attack = m_Main.FindAction("Attack", throwIfNotFound: true);
         m_Main_Crouch = m_Main.FindAction("Crouch", throwIfNotFound: true);
+        m_Main_WallTransfer = m_Main.FindAction("WallTransfer", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -326,6 +347,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Main_PickUp;
     private readonly InputAction m_Main_Attack;
     private readonly InputAction m_Main_Crouch;
+    private readonly InputAction m_Main_WallTransfer;
     public struct MainActions
     {
         private @PlayerControls m_Wrapper;
@@ -335,6 +357,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @PickUp => m_Wrapper.m_Main_PickUp;
         public InputAction @Attack => m_Wrapper.m_Main_Attack;
         public InputAction @Crouch => m_Wrapper.m_Main_Crouch;
+        public InputAction @WallTransfer => m_Wrapper.m_Main_WallTransfer;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -359,6 +382,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Crouch.started -= m_Wrapper.m_MainActionsCallbackInterface.OnCrouch;
                 @Crouch.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnCrouch;
                 @Crouch.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnCrouch;
+                @WallTransfer.started -= m_Wrapper.m_MainActionsCallbackInterface.OnWallTransfer;
+                @WallTransfer.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnWallTransfer;
+                @WallTransfer.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnWallTransfer;
             }
             m_Wrapper.m_MainActionsCallbackInterface = instance;
             if (instance != null)
@@ -378,6 +404,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Crouch.started += instance.OnCrouch;
                 @Crouch.performed += instance.OnCrouch;
                 @Crouch.canceled += instance.OnCrouch;
+                @WallTransfer.started += instance.OnWallTransfer;
+                @WallTransfer.performed += instance.OnWallTransfer;
+                @WallTransfer.canceled += instance.OnWallTransfer;
             }
         }
     }
@@ -389,5 +418,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnPickUp(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
+        void OnWallTransfer(InputAction.CallbackContext context);
     }
 }

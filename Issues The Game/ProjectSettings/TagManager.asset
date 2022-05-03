@@ -8,6 +8,8 @@ TagManager:
   - Sword
   - Boots
   - WeaponHolder
+  - panel
+  - PassableObject
   layers:
   - Default
   - TransparentFX
