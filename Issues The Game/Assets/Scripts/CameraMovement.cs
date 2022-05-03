@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    GameObject[] panelBounds;
     Collider2D currentPanelCollider;
     Camera cam;
     Vector3 startPos;
