@@ -40,6 +40,11 @@ public class Movement : MonoBehaviour
     RaycastHit2D wallCheckHitLeft;
     RaycastHit2D wallCheckHitRight;
 
+    public float wallTransferCooldownTime = 0.2f;
+    private float wallTransferCooldownTimer=0;
+    private bool wallTransferCooldownStart = false;
+
+
     private AnimationController controller;
 
     private void Awake()
@@ -71,6 +76,16 @@ public class Movement : MonoBehaviour
         Jump();
         WallJump();
         Crouch();
+
+        if (wallTransferCooldownStart) //cooldown for walltransfer added here so it runs everyframe;
+        {
+            wallTransferCooldownTimer += Time.deltaTime;
+        }
+        if (wallTransferCooldownTimer >= wallTransferCooldownTime)
+        {
+            wallTransferCooldownTimer = 0;
+            wallTransferCooldownStart = false;
+        }
     }
 
     public bool IsGrounded()
@@ -105,6 +120,8 @@ public class Movement : MonoBehaviour
             float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
             rb.AddForce(movement * Vector2.right);
         }
+
+        
     }
 
     private void AnimateMovement()
@@ -188,9 +205,10 @@ public class Movement : MonoBehaviour
             {
                 rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
                 jumpCooldownStart = true; //cooldown has started
+                wallJumpCooldownStart = true;
             }
         }
-        else if(isWallSliding && jumpInput!=0 && !wallJumpCooldownStart)
+        else if(isWallSliding && jumpInput!=0 && !wallJumpCooldownStart && !IsGrounded())
         {
             if (wallCheckHitLeft)
             {
@@ -265,6 +283,25 @@ public class Movement : MonoBehaviour
     //         swordLeft.SetActive(false);
     //     }
     // }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("PassableObject"))
+        {
+            wallTransfer(collision.gameObject.GetComponent<WallTranferScript>());
+        }
+    }
+
+    private void wallTransfer(WallTranferScript InitialSide)
+    {
+        float wallTransferInput = playerControls.Main.WallTransfer.ReadValue<float>();
+
+        if (wallTransferInput != 0 && !wallTransferCooldownStart)
+        {
+            this.transform.position = InitialSide.returnNewPosition(this.transform.position);
+            wallTransferCooldownStart = true;
+        }
+    }
 
     private void Crouch()
     {

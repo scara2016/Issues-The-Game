@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "WallTransfer",
+                    "type": "Button",
+                    "id": "e5c4aa43-439c-445b-b694-8b4663367d5f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -164,6 +173,17 @@
                 },
                 {
                     "name": "",
+                    "id": "e739bcc4-e949-4692-85d6-55bbff1f921d",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ceada642-62ac-4042-b8f7-8292717acc8f",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -177,6 +197,17 @@
                     "name": "",
                     "id": "f751229c-b479-47ff-8f87-f6c7c7a9db30",
                     "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b035f298-b3bc-478d-93b5-7a42b4372fc5",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -203,6 +234,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e59937d-40ad-40ec-8cfb-004abc5c715e",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WallTransfer",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
