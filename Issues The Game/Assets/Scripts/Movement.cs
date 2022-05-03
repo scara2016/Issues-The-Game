@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Interactions;
 
 public class Movement : MonoBehaviour
 {
@@ -65,7 +66,10 @@ public class Movement : MonoBehaviour
         playerControls.Disable();
     }
 
- 
+    private void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -76,6 +80,9 @@ public class Movement : MonoBehaviour
         Jump();
         WallJump();
         Crouch();
+       
+       
+       
 
         if (wallTransferCooldownStart) //cooldown for walltransfer added here so it runs everyframe;
         {
@@ -284,13 +291,45 @@ public class Movement : MonoBehaviour
     //     }
     // }
 
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("InkDrop"))
+        {
+            InkDrag();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+        if (collision.CompareTag("InkDrop"))
+        {
+            InkDragReset();
+        }
+    }
+
+
     private void OnTriggerStay2D(Collider2D collision)
     {
+           
         if (collision.CompareTag("PassableObject"))
         {
             wallTransfer(collision.gameObject.GetComponent<WallTranferScript>());
         }
+        
+        if (collision.CompareTag("InkDrop"))
+        {
+       
+        }
+        else
+        {
+        
+        }
     }
+
+
+
+    
 
     private void wallTransfer(WallTranferScript InitialSide)
     {
@@ -301,6 +340,18 @@ public class Movement : MonoBehaviour
             this.transform.position = InitialSide.returnNewPosition(this.transform.position);
             wallTransferCooldownStart = true;
         }
+    }
+
+    private void InkDrag()
+    {
+        moveSpeed = moveSpeed / 2;
+        rb.drag = 3;
+    }
+
+    private void InkDragReset()
+    {
+        moveSpeed = moveSpeed * 2;
+        rb.drag = 0;
     }
 
     private void Crouch()
