@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "WallTransfer",
+                    "type": "Button",
+                    "id": "e5c4aa43-439c-445b-b694-8b4663367d5f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -143,7 +152,7 @@
                 {
                     "name": "",
                     "id": "3ae5a621-a7b7-4249-9641-a332bcdd844c",
-                    "path": "<Keyboard>/q",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -176,7 +185,7 @@
                 {
                     "name": "",
                     "id": "ceada642-62ac-4042-b8f7-8292717acc8f",
-                    "path": "<Keyboard>/e",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -209,7 +218,7 @@
                 {
                     "name": "",
                     "id": "5b33929a-d7c0-4cae-81a8-ac550b3047ba",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<XInputController>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -225,6 +234,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e59937d-40ad-40ec-8cfb-004abc5c715e",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WallTransfer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5d855e76-931b-467d-8304-ff592434b7c0",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WallTransfer",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
