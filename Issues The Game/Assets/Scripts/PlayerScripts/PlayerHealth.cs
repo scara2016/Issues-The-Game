@@ -7,12 +7,13 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     public float maxHealth = 100;
     public float health;
-    // public Rigidbody2D rb;
+    public Rigidbody2D rb;
+    public Healthbar healthbar;
 
     void Start()
     {
         health = maxHealth;
-        // rb = gameObject.GetComponent<Rigidbody2D>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     public void InkDamage(float inkDamage)
@@ -33,19 +34,19 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    // public IEnumerator Knockback(float knockDur, float knockbackPwr, Vector3 knockbackDir)
-    // {
-    //     float timer = 0;
-    //     while(knockDur > timer)
-    //     {
-    //         timer+=Time.deltaTime;
-    //         // rb.velocity = new Vector2 (rb.velocity.x, 0);
+    public IEnumerator Knockback(float knockDur, float knockbackPwr, Vector3 knockbackDir)
+    {
+        float timer = 0;
+        while(knockDur > timer)
+        {
+            timer+=Time.deltaTime;
+            // rb.velocity = new Vector2 (rb.velocity.x, 0);
 
-    //         rb.AddForce(new Vector3(knockbackDir.x * -100, knockbackDir.y * knockbackPwr, transform.position.z));
-    //     }
+            rb.AddForce(new Vector3(knockbackDir.x * -100, knockbackDir.y * knockbackPwr, transform.position.z));
+        }
 
-    //     yield return 0;
-    // }
+        yield return 0;
+    }
 
 
 }
