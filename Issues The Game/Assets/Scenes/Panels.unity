@@ -449,7 +449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8408759196536466220, guid: 02f734724593cfa4fa07156135246a9e, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8408759196536466220, guid: 02f734724593cfa4fa07156135246a9e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -522,6 +522,10 @@ PrefabInstance:
     - target: {fileID: 8408759196536466220, guid: 02f734724593cfa4fa07156135246a9e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408759197726662683, guid: 02f734724593cfa4fa07156135246a9e, type: 3}
+      propertyPath: m_Value
+      value: 3.85
       objectReference: {fileID: 0}
     - target: {fileID: 8408759197750936316, guid: 02f734724593cfa4fa07156135246a9e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -613,23 +617,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1245307174944323383, guid: 30c220428ec9a5e409f667a593f61da9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1245307174944323383, guid: 30c220428ec9a5e409f667a593f61da9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1245307174944323383, guid: 30c220428ec9a5e409f667a593f61da9, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1245307174944323383, guid: 30c220428ec9a5e409f667a593f61da9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.4
+      value: -9.43
       objectReference: {fileID: 0}
     - target: {fileID: 1245307174944323383, guid: 30c220428ec9a5e409f667a593f61da9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.86
+      value: 3.83
       objectReference: {fileID: 0}
     - target: {fileID: 1245307174944323383, guid: 30c220428ec9a5e409f667a593f61da9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1351,7 +1355,7 @@ Transform:
   - {fileID: 433165130}
   - {fileID: 1150783201}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1318065170
 PrefabInstance:
