@@ -3,30 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Weapon
-  - Sword
-  - Boots
-  - WeaponHolder
-  - panel
-<<<<<<< HEAD
-  - PassableObject
-=======
->>>>>>> Bayleigh-Development
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Platform
+  - 
   - Water
   - UI
-  - Enemy
-  - Weapon
-<<<<<<< HEAD
   - 
-=======
-  - Ground
->>>>>>> Bayleigh-Development
+  - 
+  - 
   - 
   - 
   - 
