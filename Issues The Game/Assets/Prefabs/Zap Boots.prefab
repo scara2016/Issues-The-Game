@@ -100,7 +100,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5987083}
+  m_Offset: {x: -0.16464567, y: 0.36820492}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.24, y: 3.4160998}
+  m_Size: {x: 3.12041, y: 2.0330832}
   m_EdgeRadius: 0
 --- !u!114 &5580023756563563904
 MonoBehaviour:
@@ -125,10 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91de9017ce9b83b44849790e4a01de6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponsList: []
   weaponHolder: {fileID: 0}
-  sizzleSword: {fileID: 0}
-  zapBoots: {fileID: 0}
   pickUpAllowed: 0
   weapon: {fileID: 2157661438299541236}
 --- !u!114 &2157661438299541236
