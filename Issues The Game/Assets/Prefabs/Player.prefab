@@ -230,60 +230,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 0
-  rb: {fileID: 0}
-  healthbar: {fileID: 0}
---- !u!114 &8786989015115453860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8786989015115453862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a53b530517cf6142bdbe8bca2310864, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platformLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  acceleration: 7
-  moveSpeed: 6
-  decceleration: 7
-  velPower: 0.9
-  frictionAmount: 0.8
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 2
-  jumpCooldown: 1
-  jumpVelocity: 5
-  wallJumpCooldown: 0.2
-  wallJumpTime: 0.2
-  wallSlideSpeed: 0.3
-  wallDistance: 0.5
-  slideCooldown: 0.5
-  wallTransferCooldownTime: 0.2
-  wallTextTip: {fileID: 0}
---- !u!114 &6217983382483752865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8786989015115453862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbbfb2a4afa2c6743a7b37f9aa103cc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponsList: []
-  attackDamage: 10
-  attackRate: 2
-  attackPoint: {fileID: 0}
-  attackRange: 0.5
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  weapon: {fileID: 0}
+  hit: 0
+  verticalKnockbackForce: 40
+  horizontalKnockbackForce: 500
+  invulnerabilityTime: 0.25
+  cancelMovementTime: 0.65
+  enemy: {fileID: 0}
 --- !u!1001 &7968779583915489958
 PrefabInstance:
   m_ObjectHideFlags: 0

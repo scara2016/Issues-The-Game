@@ -8,11 +8,7 @@ TagManager:
   - Sword
   - Boots
   - WeaponHolder
-  - panel
-<<<<<<< HEAD
-  - PassableObject
-=======
->>>>>>> Bayleigh-Development
+  - Enemy
   layers:
   - Default
   - TransparentFX

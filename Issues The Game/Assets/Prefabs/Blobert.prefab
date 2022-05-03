@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 8243288324827025532}
   - component: {fileID: 5960635081699245006}
   - component: {fileID: 6238662374816229140}
+  - component: {fileID: 2597485148806398863}
   m_Layer: 6
   m_Name: Blobert
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +102,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.032405138, y: 0.21975374}
+  m_Offset: {x: -0.05553043, y: 0.21975374}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -112,7 +113,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.9770827, y: 3.4439893}
+  m_Size: {x: 3.9308321, y: 3.4439893}
   m_EdgeRadius: 0
 --- !u!114 &8243288324827025532
 MonoBehaviour:
@@ -139,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990232bad4dbc294eab6c01d25f97c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  harm: 10
+  harm: 40
 --- !u!50 &6238662374816229140
 Rigidbody2D:
   serializedVersion: 4
@@ -161,3 +162,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &2597485148806398863
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013285836429819169}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.09249997, y: -0.13068587}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.69, y: 4.03}
+    newSize: {x: 4.69, y: 4.03}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.7474809, y: 2.6186013}
+  m_EdgeRadius: 0
