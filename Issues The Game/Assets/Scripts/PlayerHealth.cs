@@ -9,8 +9,10 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     private Rigidbody2D rb;
 
-    private bool isDead;
-    private bool isTakingDamage;
+    [HideInInspector]
+    public bool isDead;
+    // [HideInInspector]
+    public bool isTakingDamage;
 
     public bool hit;
 
@@ -52,7 +54,9 @@ public class PlayerHealth : MonoBehaviour
             if (health <= 0)
             {
                 isDead = true;
-                Destroy(gameObject);
+                GetComponent<Collider2D>().enabled = false;
+                this.enabled = false;
+                // Destroy(gameObject);
             }
         }
     }
@@ -90,9 +94,10 @@ public class PlayerHealth : MonoBehaviour
 
     private void EnableMovement()
     {
-        if (!isDead)
+        if (isDead == false)
         {
             isTakingDamage = false;
+            Debug.Log(isTakingDamage);
         }
     }
 
