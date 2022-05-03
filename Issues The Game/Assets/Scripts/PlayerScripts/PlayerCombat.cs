@@ -58,47 +58,12 @@ public class PlayerCombat : MonoBehaviour
         playerControls.Disable();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        // wpnPickup.GetComponent<WeaponPickup>().pickUpAllowed = true;
-        // once sword is in contact, with player, sword is added in array
-        // if(other.CompareTag("Sword"))
-        // {
-        //     weaponsList[0] = other;
-        //     Debug.Log("We have " + other.name);
-        //     attackDamage = 20;
-        //     // once boots is in contact, with player, boots is added in array
-        // } 
-        // if(other.CompareTag("Boots"))
-        // {
-        //     weaponsList[0] = other;
-        //     Debug.Log("We have " + other.name);
-        //     attackDamage = 5;
-        //     movement.moveSpeed = 15f;
-        // }
-
-        // if(other.transform.parent == weaponHolder)
-        // {
-        //     if(other.CompareTag("Sword"))
-        //     {
-        //         weaponsList[0] = other;
-        //         Debug.Log("We have " + other.name);
-        //         attackDamage = 20;
-        //     } else if(other.CompareTag("Boots") && pickUpInput != 0)
-        //     {
-        //         weaponsList[0] = other;
-        //         Debug.Log("We have " + other.name);
-        //         attackDamage = 5;
-        //         movement.moveSpeed = 15f;
-        //     }
-        // }
-    }
 
 
     // Update is called once per frame
     void Update()
     {
-        pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
+        // pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
         attackInput = playerControls.Main.Attack.ReadValue<float>();
         Debug.Log(attackDamage);
         // Debug.Log(movement.moveSpeed);
@@ -112,25 +77,6 @@ public class PlayerCombat : MonoBehaviour
             }
         }
     }
-
-    // void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     // if(weapon.Equiped == true)
-    //     // {
-    //         // add weapon to array when picked up
-    //         if(other.CompareTag("Sword"))
-    //         {
-    //             weaponsList[0] = other;
-    //             Debug.Log("We have " + other.name);
-    //         }
-
-    //         if(other.CompareTag("Boots"))
-    //         {
-    //             weaponsList[0] = other;
-    //             Debug.Log("We have " + other.name);
-    //         }
-    //     // }
-    // }
 
     void Attack()
     {

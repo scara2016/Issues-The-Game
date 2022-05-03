@@ -114,10 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponsList: []
   weaponHolder: {fileID: 0}
-  sizzleSword: {fileID: 0}
-  zapBoots: {fileID: 0}
   pickUpAllowed: 0
-  weapon: {fileID: 2101425124226408200}
+  weapon: {fileID: 0}
 --- !u!61 &5686173940864069281
 BoxCollider2D:
   m_ObjectHideFlags: 0
