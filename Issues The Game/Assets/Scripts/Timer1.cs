@@ -3,57 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class Timer1 : MonoBehaviour
 {
+    [Header("Component")]
+    public TextMeshProUGUI timerText;
 
-    public static Timer1 instance;
+    [Header("Timer Settings")]
+    public float currentTime;
+    public bool countDown;
 
-    public Text TimeCounter;
+    [Header("Limit Settings")]
+    public bool hasLimit;
+    public float timerLimit;
 
-    private TimeSpan timePlaying;
-    private bool timerGoing;
-
-    private float elapsedTime;
-
-    private void Awake()
+    void Update()
     {
-        instance = this;
-    }
+        currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        TimeCounter.text = "00:00.00";
-        timerGoing = false;
-    }
-
-    public void BeginTimer()
-    {
-        timerGoing = true;
-        elapsedTime = 0f;
-
-        StartCoroutine(UpdateTimer());
-    }
-
-    public void EndTimer()
-    {
-        timerGoing = false;
-    }
-
-    private IEnumerator UpdateTimer()
-    {
-        while (timerGoing)
+        if(hasLimit && ((countDown && currentTime <= timerLimit) || (!countDown && currentTime >= timerLimit)))
         {
-            elapsedTime += Time.deltaTime;
-            timePlaying = TimeSpan.FromSeconds(elapsedTime);
-            string timePlayingStr = timePlaying.ToString("mm':'ss'.'ff");
-            TimeCounter.text = timePlayingStr;
-
-            yield return null;
-
+            currentTime = timerLimit;
+            SetTimerText();
+            timerText.color = Color.red;
+            enabled = false;
         }
 
+        SetTimerText();
     }
 
+    private void SetTimerText()
+    {
+        timerText.text = currentTime.ToString("0:00:00");
+    }
+
+
 }
+ 
+
+
+ 
