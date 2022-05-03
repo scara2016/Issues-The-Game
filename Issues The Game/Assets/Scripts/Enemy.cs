@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float harm = 10;
+    public float harm = 40;
 
     private PlayerHealth player;
     // private Player knockback;
@@ -31,4 +31,12 @@ public class Enemy : MonoBehaviour
             // StartCoroutine(player.Knockback(0.025f, 350, player.transform.position));
         }
     }
+
+    // void OnTriggerExit2D(Collider2D other)
+    // {
+    //     if(other.CompareTag("Player"))
+    //     {
+    //         player.hit = false;
+    //     }
+    // }
 }

@@ -236,7 +236,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 0
-  rb: {fileID: 0}
+  hit: 0
+  verticalKnockbackForce: 40
+  horizontalKnockbackForce: 500
+  invulnerabilityTime: 0.25
+  cancelMovementTime: 0.65
+  enemy: {fileID: 0}
 --- !u!1001 &7968779583915489958
 PrefabInstance:
   m_ObjectHideFlags: 0
