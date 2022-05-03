@@ -28,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        Healthbar.Instance.SetHealth(health);
         if (health <= 0)
         {
             Destroy(gameObject);
