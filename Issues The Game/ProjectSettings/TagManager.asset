@@ -4,21 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Weapon
-  - Sword
-  - Boots
   - WeaponHolder
+  - Boots
+  - Sword
   - Enemy
-  - PassableObject
-  - panel
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Platform
+  - Enemy
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 

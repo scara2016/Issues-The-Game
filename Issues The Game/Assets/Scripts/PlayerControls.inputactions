@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Test",
+                    "type": "Button",
+                    "id": "58b94bfc-f2c9-4d88-82b0-96948e157e01",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -152,7 +161,7 @@
                 {
                     "name": "",
                     "id": "3ae5a621-a7b7-4249-9641-a332bcdd844c",
-                    "path": "<XInputController>/buttonEast",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -185,7 +194,7 @@
                 {
                     "name": "",
                     "id": "ceada642-62ac-4042-b8f7-8292717acc8f",
-                    "path": "<XInputController>/buttonEast",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -218,7 +227,7 @@
                 {
                     "name": "",
                     "id": "5b33929a-d7c0-4cae-81a8-ac550b3047ba",
-                    "path": "<XInputController>/leftStick/down",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -250,12 +259,12 @@
                 },
                 {
                     "name": "",
-                    "id": "5d855e76-931b-467d-8304-ff592434b7c0",
-                    "path": "<XInputController>/buttonWest",
-                    "interactions": "",
+                    "id": "dba18afb-811e-4063-8698-980ef70da687",
+                    "path": "<Keyboard>/z",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "WallTransfer",
+                    "action": "Test",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

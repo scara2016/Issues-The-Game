@@ -7,13 +7,33 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     public float maxHealth = 100;
     public float health;
-    public Rigidbody2D rb;
-    public Healthbar healthbar;
+    private Rigidbody2D rb;
 
+    [HideInInspector]
+    public bool isDead;
+    // [HideInInspector]
+    public bool isTakingDamage;
+
+    public bool hit;
+
+    [SerializeField]
+    private float verticalKnockbackForce;
+    [SerializeField]
+    private float horizontalKnockbackForce;
+
+    [SerializeField]
+    private float invulnerabilityTime;
+
+    [SerializeField]
+    private float cancelMovementTime;
+
+    [HideInInspector]
+    public Enemy enemy;
     void Start()
     {
         health = maxHealth;
         rb = gameObject.GetComponent<Rigidbody2D>();
+        enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
     }
 
     public void InkDamage(float inkDamage)
@@ -27,26 +47,58 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        Healthbar.Instance.SetHealth(health);
-        if (health <= 0)
+        if(!hit)
         {
-            Destroy(gameObject);
+            hit = true;
+            health -= damage;
+            if (health <= 0)
+            {
+                isDead = true;
+                GetComponent<Collider2D>().enabled = false;
+                this.enabled = false;
+                // Destroy(gameObject);
+            }
         }
     }
 
-    public IEnumerator Knockback(float knockDur, float knockbackPwr, Vector3 knockbackDir)
+    private void FixedUpdate()
     {
-        float timer = 0;
-        while(knockDur > timer)
+        // hit bool is set to true, changed to false after knockback
+        if(hit)
         {
-            timer+=Time.deltaTime;
-            // rb.velocity = new Vector2 (rb.velocity.x, 0);
+            HandleKnockBack();
+        }
+    }
 
-            rb.AddForce(new Vector3(knockbackDir.x * -100, knockbackDir.y * knockbackPwr, transform.position.z));
+    private void HandleKnockBack()
+    {
+        rb.AddForce(Vector2.up * verticalKnockbackForce);
+        
+        if(transform.position.x < enemy.transform.position.x)
+        {
+            rb.AddForce(Vector2.left * horizontalKnockbackForce);
+        }
+        else 
+        {
+            rb.AddForce(Vector2.right * horizontalKnockbackForce);
         }
 
-        yield return 0;
+        Invoke("CancelHit", invulnerabilityTime);
+        Invoke("EnableMovement", cancelMovementTime);
+    }
+
+    private void CancelHit()
+    {
+        hit = false;
+    }
+
+    private void EnableMovement()
+    {
+        if (isDead == false)
+        {
+            isTakingDamage = false;
+            Debug.Log(isTakingDamage);
+        }
     }
 
 
