@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     private Rigidbody2D rb;
 
+    private Movement movement;
+
     [HideInInspector]
     public bool isDead;
     // [HideInInspector]
@@ -34,6 +36,7 @@ public class PlayerHealth : MonoBehaviour
         health = maxHealth;
         rb = gameObject.GetComponent<Rigidbody2D>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
+        movement = this.GetComponent<Movement>();
     }
 
     public void InkDamage(float inkDamage)
@@ -85,6 +88,14 @@ public class PlayerHealth : MonoBehaviour
 
         Invoke("CancelHit", invulnerabilityTime);
         Invoke("EnableMovement", cancelMovementTime);
+
+        // if(isTakingDamage){
+        //     movement.enabled = false;
+        // }
+        // else 
+        // {
+        //     movement.enabled = true;
+        // }
     }
 
     private void CancelHit()
@@ -94,10 +105,13 @@ public class PlayerHealth : MonoBehaviour
 
     private void EnableMovement()
     {
-        if (isDead == false)
+        if (!isDead)
         {
-            isTakingDamage = false;
-            Debug.Log(isTakingDamage);
+            movement.enabled = false;
+        }
+        else 
+        {
+            movement.enabled = true;
         }
     }
 
