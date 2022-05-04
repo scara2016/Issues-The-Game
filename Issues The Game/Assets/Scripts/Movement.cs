@@ -58,7 +58,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         controller = GetComponent<AnimationController>();
-        pHealth = GetComponent<PlayerHealth>();
+        // pHealth = GetComponent<PlayerHealth>();
     }
 
     private void OnEnable()
@@ -285,18 +285,6 @@ public class Movement : MonoBehaviour
         }
     }
 
-    // void SwordAttackDOne() 
-    // {
-    //     if(GetSpeed() > 0)
-    //     {
-    //         swordRight.SetActive(false);
-    //     }
-    //     //when facing left
-    //     else
-    //     {
-    //         swordLeft.SetActive(false);
-    //     }
-    // }
 
     
     private void OnTriggerEnter2D(Collider2D collision)

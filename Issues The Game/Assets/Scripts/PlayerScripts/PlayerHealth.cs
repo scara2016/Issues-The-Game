@@ -9,7 +9,11 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     private Rigidbody2D rb;
 
+    private PlayerControls playerControls;
+
     private Movement movement;
+
+    private float moveInput;
 
     [HideInInspector]
     public bool isDead;
@@ -37,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
         movement = this.GetComponent<Movement>();
+        playerControls = new PlayerControls();
     }
 
     public void InkDamage(float inkDamage)
@@ -107,11 +112,22 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!isDead)
         {
-            movement.enabled = false;
+            isTakingDamage = true;
+            StopMovement();
+        }
+    }
+
+    private void StopMovement()
+    {
+        moveInput = playerControls.Main.Move.ReadValue<float>();
+        // Debug.Log(cancelMovementTime);
+        if(moveInput != 0 && !isTakingDamage)
+        {
+            movement.enabled = true;
         }
         else 
         {
-            movement.enabled = true;
+            movement.enabled = false;
         }
     }
 

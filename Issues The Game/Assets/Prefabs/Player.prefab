@@ -231,7 +231,6 @@ MonoBehaviour:
   maxHealth: 100
   health: 0
   isDead: 0
-  isTakingDamage: 0
   hit: 0
   verticalKnockbackForce: 40
   horizontalKnockbackForce: 100
@@ -267,6 +266,8 @@ MonoBehaviour:
   wallSlideSpeed: 0.3
   wallDistance: 0.5
   slideCooldown: 0.5
+  wallTransferCooldownTime: 0.2
+  wallTextTip: {fileID: 0}
 --- !u!114 &6217983382483752865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +287,7 @@ MonoBehaviour:
   attackRange: 0.5
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   weapon: {fileID: 0}
 --- !u!1001 &7968779583915489958
 PrefabInstance:

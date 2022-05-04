@@ -63,10 +63,8 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
         attackInput = playerControls.Main.Attack.ReadValue<float>();
         Debug.Log(attackDamage);
-        // Debug.Log(movement.moveSpeed);
 
         if(Time.time >= nextAttackTime)
         {
@@ -87,14 +85,11 @@ public class PlayerCombat : MonoBehaviour
         //Damage them 
         hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,attackRange, enemyLayer);
 
-        // if(wpn.CompareTag("Sword"))
-        // {
             foreach(Collider2D enemy in hitEnemies)
             {
                 Debug.Log("We hit " + enemy.name);
                 enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
             }
-        // }
     }
 
     void OnDrawGizmosSelected()

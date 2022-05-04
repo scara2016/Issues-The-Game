@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour {
 
-    // public Weapon[] weaponsList;
-    // public GameObject[] weaponsList;
     
 
     public GameObject weaponHolder;
@@ -13,9 +11,6 @@ public class WeaponPickup : MonoBehaviour {
     private GameObject zapBoots;
 
     private GameObject player;
-
-    // List<GameObject> allWeapons = new List<GameObject>();
-    // List<GameObject> weapons = new List<GameObject>();
     private PlayerControls playerControls;
 
     private PlayerCombat combat;
@@ -38,19 +33,14 @@ public class WeaponPickup : MonoBehaviour {
 
     void Start () {
         pickUpAllowed = false;
-        // itemPicked = false;
-        // weaponHere = weapons [Random.Range (0, weapons.Length)];
-        // GetComponent<SpriteRenderer> ().sprite = weaponHere.GetComponent<SpriteRenderer> ().sprite;
     }
 
     void Awake (){
         player = GameObject.FindGameObjectWithTag("Player");
         zapBoots = GameObject.FindGameObjectWithTag("Boots");
-        // sizzleSword = GameObject.FindGameObjectWithTag("Sword");
+        sizzleSword = GameObject.FindGameObjectWithTag("Sword");
         weaponHolder = GameObject.FindGameObjectWithTag("WeaponHolder");
         playerControls = new PlayerControls();
-        // weaponsList = new Weapon[1];
-        // weaponsList = new GameObject[1];
         combat = player.GetComponent<PlayerCombat>();
         movement = player.GetComponent<Movement>();
         sprite = GetComponent<SpriteRenderer>();
@@ -84,6 +74,7 @@ public class WeaponPickup : MonoBehaviour {
                     Debug.Log("We have " + this.name);
                     pickUpAllowed = false;
                     Weapon.Instance.GetWeapon();
+                    // Debug.Log(weaponHolder.transform.Find("Zap Boots"));
                         if(weaponHolder.transform.Find("Zap Boots"))
                         {
                             Destroy(zapBoots);
@@ -96,6 +87,7 @@ public class WeaponPickup : MonoBehaviour {
                     Debug.Log("We have " + this.name);
                     pickUpAllowed = false;
                     Weapon.Instance.GetWeapon();
+                    // Debug.Log(weaponHolder.transform.Find("Sizzle Sword"));
                         if(weaponHolder.transform.Find("Sizzle Sword"))
                         {
                             Destroy(sizzleSword);
