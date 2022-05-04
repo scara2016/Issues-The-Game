@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Interactions;
 
 public class Movement : MonoBehaviour
 {
@@ -40,6 +41,13 @@ public class Movement : MonoBehaviour
     RaycastHit2D wallCheckHitLeft;
     RaycastHit2D wallCheckHitRight;
 
+    public float wallTransferCooldownTime = 0.2f;
+    private float wallTransferCooldownTimer=0;
+    private bool wallTransferCooldownStart = false;
+    private bool wallTransferState = false;
+    public GameObject wallTextTip;
+
+
     private AnimationController controller;
 
     private PlayerHealth pHealth;
@@ -63,7 +71,10 @@ public class Movement : MonoBehaviour
         playerControls.Disable();
     }
 
- 
+    private void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -74,6 +85,21 @@ public class Movement : MonoBehaviour
         Jump();
         WallJump();
         Crouch();
+       
+       
+       
+
+        if (wallTransferCooldownStart) //cooldown for walltransfer added here so it runs everyframe;
+        {
+            wallTransferCooldownTimer += Time.deltaTime;
+        }
+        if (wallTransferCooldownTimer >= wallTransferCooldownTime)
+        {
+            wallTransferCooldownTimer = 0;
+            wallTransferCooldownStart = false;
+        }
+
+        WallText();
     }
 
     public bool IsGrounded()
@@ -108,6 +134,8 @@ public class Movement : MonoBehaviour
             float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
             rb.AddForce(movement * Vector2.right);
         }
+
+        
     }
 
     private void AnimateMovement()
@@ -191,9 +219,10 @@ public class Movement : MonoBehaviour
             {
                 rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
                 jumpCooldownStart = true; //cooldown has started
+                wallJumpCooldownStart = true;
             }
         }
-        else if(isWallSliding && jumpInput!=0 && !wallJumpCooldownStart)
+        else if(isWallSliding && jumpInput!=0 && !wallJumpCooldownStart && !IsGrounded())
         {
             if (wallCheckHitLeft)
             {
@@ -234,7 +263,7 @@ public class Movement : MonoBehaviour
             isWallSliding = true;
             jumpCooldownTimer = float.MaxValue;
         }
-        else if (slideTimer > slideCooldown) //ends the slide
+        else if (slideTimer > slideCooldown && !wallCheckHitLeft || !wallCheckHitRight) //ends the slide
         {
             slideTimer = 0;
             slideCooldownStart = false;
@@ -269,6 +298,76 @@ public class Movement : MonoBehaviour
     //     }
     // }
 
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("InkDrop"))
+        {
+            InkDrag();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+        if (collision.CompareTag("InkDrop"))
+        {
+            InkDragReset();
+        }
+    }
+
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+           
+        if (collision.CompareTag("PassableObject"))
+        {
+            wallTransfer(collision.gameObject.GetComponent<WallTranferScript>());
+            wallTransferState = true;
+            Debug.Log("Wall Transfer State: " + wallTransferState);
+        }
+        else
+        {
+            wallTransferState = false;
+            Debug.Log("Wall Transfer State: " + wallTransferState);
+        }
+        
+        if (collision.CompareTag("InkDrop"))
+        {
+       
+        }
+        else
+        {
+        
+        }
+    }
+
+
+
+    
+
+    private void wallTransfer(WallTranferScript InitialSide)
+    {
+        float wallTransferInput = playerControls.Main.WallTransfer.ReadValue<float>();
+
+        if (wallTransferInput != 0 && !wallTransferCooldownStart)
+        {
+            this.transform.position = InitialSide.returnNewPosition(this.transform.position);
+            wallTransferCooldownStart = true;
+        }
+    }
+
+    private void InkDrag()
+    {
+        moveSpeed = moveSpeed / 2;
+        rb.drag = 3;
+    }
+
+    private void InkDragReset()
+    {
+        moveSpeed = moveSpeed * 2;
+        rb.drag = 0;
+    }
+
     private void Crouch()
     {
         crouchInput = playerControls.Main.Crouch.ReadValue<float>();
@@ -285,6 +384,18 @@ public class Movement : MonoBehaviour
             boxCollider.size = new Vector2(1, 1);
             boxCollider.offset = new Vector2(0, 0);
             controller.CrouchState(false);
+        }
+    }
+
+    private void WallText()
+    {
+        if (wallTransferState)
+        {
+            wallTextTip.SetActive(true);
+        }
+        if (!wallTransferState)
+        {
+            wallTextTip.SetActive(false);
         }
     }
 }

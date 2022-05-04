@@ -4,19 +4,19 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Weapon
-  - Sword
-  - Boots
   - WeaponHolder
+  - Boots
+  - Sword
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Platform
+  - Enemy
   - Water
   - UI
-  - Enemy
-  - Weapon
+  - Ground
+  - 
   - 
   - 
   - 
