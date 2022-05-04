@@ -44,9 +44,13 @@ public class Movement : MonoBehaviour
     public float wallTransferCooldownTime = 0.2f;
     private float wallTransferCooldownTimer=0;
     private bool wallTransferCooldownStart = false;
+    private bool wallTransferState = false;
+    public GameObject wallTextTip;
 
 
     private AnimationController controller;
+
+    private PlayerHealth pHealth;
 
     private void Awake()
     {
@@ -54,6 +58,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         controller = GetComponent<AnimationController>();
+        pHealth = GetComponent<PlayerHealth>();
     }
 
     private void OnEnable()
@@ -93,6 +98,8 @@ public class Movement : MonoBehaviour
             wallTransferCooldownTimer = 0;
             wallTransferCooldownStart = false;
         }
+
+        WallText();
     }
 
     public bool IsGrounded()
@@ -256,7 +263,7 @@ public class Movement : MonoBehaviour
             isWallSliding = true;
             jumpCooldownTimer = float.MaxValue;
         }
-        else if (slideTimer > slideCooldown) //ends the slide
+        else if (slideTimer > slideCooldown && !wallCheckHitLeft || !wallCheckHitRight) //ends the slide
         {
             slideTimer = 0;
             slideCooldownStart = false;
@@ -315,6 +322,13 @@ public class Movement : MonoBehaviour
         if (collision.CompareTag("PassableObject"))
         {
             wallTransfer(collision.gameObject.GetComponent<WallTranferScript>());
+            wallTransferState = true;
+            Debug.Log("Wall Transfer State: " + wallTransferState);
+        }
+        else
+        {
+            wallTransferState = false;
+            Debug.Log("Wall Transfer State: " + wallTransferState);
         }
         
         if (collision.CompareTag("InkDrop"))
@@ -370,6 +384,18 @@ public class Movement : MonoBehaviour
             boxCollider.size = new Vector2(1, 1);
             boxCollider.offset = new Vector2(0, 0);
             controller.CrouchState(false);
+        }
+    }
+
+    private void WallText()
+    {
+        if (wallTransferState)
+        {
+            wallTextTip.SetActive(true);
+        }
+        if (!wallTransferState)
+        {
+            wallTextTip.SetActive(false);
         }
     }
 }

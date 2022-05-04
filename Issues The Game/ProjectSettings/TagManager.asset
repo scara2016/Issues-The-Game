@@ -3,23 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Weapon
-  - Sword
-  - Boots
-  - WeaponHolder
-  - panel
-  - PassableObject
-  - InkDrop
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Platform
+  - 
   - Water
   - UI
-  - Enemy
-  - Weapon
+  - 
+  - 
   - 
   - 
   - 
