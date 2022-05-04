@@ -19,6 +19,19 @@ public class Timer1 : MonoBehaviour
     public bool hasLimit;
     public float timerLimit;
 
+    [Header("Format Settings")]
+    public bool hasFormat;
+    public TimerFormats format;
+    private Dictionary<TimerFormats, string> timeFormats = new Dictionary<TimerFormats, string>();
+
+
+    private void Start()
+    {
+        timeFormats.Add(TimerFormats.Whole, "0");
+        timeFormats.Add(TimerFormats.TenthDecimal, "0.0");
+        timeFormats.Add(TimerFormats.HundrethsDecimal, "0.00");
+    }
+
     void Update()
     {
         currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
@@ -36,10 +49,17 @@ public class Timer1 : MonoBehaviour
 
     private void SetTimerText()
     {
-        timerText.text = currentTime.ToString("0:00:00");
+        timerText.text = hasFormat ? currentTime.ToString(timeFormats[format]) : currentTime.ToString();
     }
 
 
+}
+
+public enum TimerFormats
+{
+    Whole,
+    TenthDecimal,
+    HundrethsDecimal
 }
  
 
