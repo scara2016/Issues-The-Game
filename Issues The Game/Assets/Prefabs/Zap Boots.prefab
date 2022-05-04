@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponHolder: {fileID: 0}
   pickUpAllowed: 0
-  weapon: {fileID: 2157661438299541236}
+  weapon: {fileID: 0}
 --- !u!114 &2157661438299541236
 MonoBehaviour:
   m_ObjectHideFlags: 0

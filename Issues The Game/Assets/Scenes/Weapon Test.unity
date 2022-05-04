@@ -358,7 +358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1126811261814783415, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1803942982354842547, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_Enabled
@@ -424,6 +424,10 @@ PrefabInstance:
       propertyPath: swordRight
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: wallTextTip
+      value: 
+      objectReference: {fileID: 5427433917815028390, guid: 30c220428ec9a5e409f667a593f61da9, type: 3}
     - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: wallDistance
       value: 0.6
@@ -711,6 +715,10 @@ PrefabInstance:
     - target: {fileID: 3995379216834914111, guid: 4cd31e4891f21164592725b6176c619e, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238662374816229140, guid: 4cd31e4891f21164592725b6176c619e, type: 3}
+      propertyPath: m_Mass
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6238662374816229140, guid: 4cd31e4891f21164592725b6176c619e, type: 3}
       propertyPath: m_BodyType

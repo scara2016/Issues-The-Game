@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91de9017ce9b83b44849790e4a01de6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponsList: []
   weaponHolder: {fileID: 0}
   pickUpAllowed: 0
   weapon: {fileID: 0}

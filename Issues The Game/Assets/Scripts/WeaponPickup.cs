@@ -59,8 +59,6 @@ public class WeaponPickup : MonoBehaviour {
         Debug.Log(pickUpInput);
         Debug.Log(combat.attackDamage);
         Debug.Log(movement.moveSpeed);
-        // combat.attackDamage = 60;
-        Debug.Log(weaponHolder);
         
         if(pickUpAllowed && pickUpInput != 0) {
             PickUp();
@@ -74,7 +72,7 @@ public class WeaponPickup : MonoBehaviour {
                     Debug.Log("We have " + this.name);
                     pickUpAllowed = false;
                     Weapon.Instance.GetWeapon();
-                    // Debug.Log(weaponHolder.transform.Find("Zap Boots"));
+                    Debug.Log(weaponHolder.transform.Find("Zap Boots"));
                         if(weaponHolder.transform.Find("Zap Boots"))
                         {
                             Destroy(zapBoots);
@@ -87,7 +85,7 @@ public class WeaponPickup : MonoBehaviour {
                     Debug.Log("We have " + this.name);
                     pickUpAllowed = false;
                     Weapon.Instance.GetWeapon();
-                    // Debug.Log(weaponHolder.transform.Find("Sizzle Sword"));
+                    Debug.Log(weaponHolder.transform.Find("Sizzle Sword"));
                         if(weaponHolder.transform.Find("Sizzle Sword"))
                         {
                             Destroy(sizzleSword);

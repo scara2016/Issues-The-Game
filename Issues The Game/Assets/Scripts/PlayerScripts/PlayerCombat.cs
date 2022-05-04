@@ -43,11 +43,9 @@ public class PlayerCombat : MonoBehaviour
     void Awake()
     {
         playerControls = new PlayerControls();
-        // weapon = GetComponent<Weapon>();
         weaponsList = new Collider2D[1];
-        // wpnPickup = GetComponent<WeaponPickup>();
         movement = this.GetComponent<Movement>();
-        // wpnPickup = GetComponent<WeaponPickup>();
+        controller = GetComponent<AnimationController>();
     }
 
     void OnEnable() {
