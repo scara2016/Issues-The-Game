@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1192897064739627187}
   - component: {fileID: 5580023756563563904}
   - component: {fileID: 2157661438299541236}
+  - component: {fileID: 4868943514167252765}
   m_Layer: 7
   m_Name: Zap Boots
   m_TagString: Boots
@@ -127,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponHolder: {fileID: 0}
   pickUpAllowed: 0
-  weapon: {fileID: 2157661438299541236}
+  weapon: {fileID: 0}
 --- !u!114 &2157661438299541236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,3 +142,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equiped: 0
+--- !u!114 &4868943514167252765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3720417827102285909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c360413f5545247bb5469abeff83a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

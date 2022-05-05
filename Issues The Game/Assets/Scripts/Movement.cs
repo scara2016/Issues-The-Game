@@ -99,6 +99,18 @@ public class Movement : MonoBehaviour
             wallTransferCooldownStart = false;
         }
 
+        if(moveInput != 0 && !pHealth.isTakingDamage)
+        {
+            moveInput = playerControls.Main.Move.ReadValue<float>();
+        }
+        else 
+        {
+            moveInput = 0;
+            Debug.Log(moveInput);
+        }
+
+
+
         WallText();
     }
 
@@ -124,6 +136,7 @@ public class Movement : MonoBehaviour
 
     private void PlayerMovement()
     {
+
         moveInput = playerControls.Main.Move.ReadValue<float>(); // Reads and stores movement input from inputManager
         if (!wallJumpCooldownStart)
         {
@@ -285,18 +298,24 @@ public class Movement : MonoBehaviour
         }
     }
 
-    // void SwordAttackDOne() 
-    // {
-    //     if(GetSpeed() > 0)
-    //     {
-    //         swordRight.SetActive(false);
-    //     }
-    //     //when facing left
-    //     else
-    //     {
-    //         swordLeft.SetActive(false);
-    //     }
-    // }
+
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("InkDrop"))
+        {
+            InkDrag();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+        if (collision.CompareTag("InkDrop"))
+        {
+            InkDragReset();
+        }
+    }
+
 
     
     private void OnTriggerEnter2D(Collider2D collision)

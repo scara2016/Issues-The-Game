@@ -30,6 +30,9 @@ public class WallTranferScript : MonoBehaviour
         {
             finalPosition = new Vector2(otherSideCollider.bounds.center.x - movementDifference.x, otherSideCollider.bounds.center.y + movementDifference.y);
         }
+        else if (horizontal) {
+            finalPosition = new Vector2(otherSideCollider.bounds.center.x + movementDifference.x, otherSideCollider.bounds.center.y - movementDifference.y);
+        }
 
         return finalPosition;
     }

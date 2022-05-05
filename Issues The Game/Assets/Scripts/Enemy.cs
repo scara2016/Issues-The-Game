@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
         {
             player.TakeDamage(harm);
 
-            // StartCoroutine(player.Knockback(0.025f, 350, player.transform.position));
+            // StartCoroutine(player.Knockback(0.025f, 100, 2000));
         }
     }
 
