@@ -34,14 +34,13 @@ public class PlayerCombat : MonoBehaviour
     private Collider2D[] hitEnemies;
 
     private AnimationController controller;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   
+
 
     void Awake()
     {
+        controller = new AnimationController();
+
         playerControls = new PlayerControls();
         // weapon = GetComponent<Weapon>();
         weaponsList = new Collider2D[1];
@@ -63,6 +62,10 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(controller == null)
+        {
+            Debug.Log("Null Controller");
+        }
         // pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
         attackInput = playerControls.Main.Attack.ReadValue<float>();
         Debug.Log(attackDamage);
