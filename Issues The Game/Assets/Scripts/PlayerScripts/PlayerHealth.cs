@@ -9,11 +9,11 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     private Rigidbody2D rb;
 
-    private PlayerControls playerControls;
+    // private PlayerControls playerControls;
 
-    private Movement movement;
+    // private Movement movement;
 
-    private float moveInput;
+    // private float moveInput;
 
     [HideInInspector]
     public bool isDead;
@@ -35,13 +35,21 @@ public class PlayerHealth : MonoBehaviour
 
     [HideInInspector]
     public Enemy enemy;
+
+    // void OnEnable() {
+    //     playerControls.Enable();
+    // }
+
+    // void OnDisable() {
+    //     playerControls.Disable();
+    // }
     void Start()
     {
         health = maxHealth;
         rb = gameObject.GetComponent<Rigidbody2D>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
-        movement = this.GetComponent<Movement>();
-        playerControls = new PlayerControls();
+        // movement = this.GetComponent<Movement>();
+        // playerControls = new PlayerControls();
     }
 
     public void InkDamage(float inkDamage)
@@ -64,7 +72,6 @@ public class PlayerHealth : MonoBehaviour
                 isDead = true;
                 GetComponent<Collider2D>().enabled = false;
                 this.enabled = false;
-                // Destroy(gameObject);
             }
         }
     }
@@ -80,6 +87,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void HandleKnockBack()
     {
+        isTakingDamage = true;
         rb.AddForce(Vector2.up * verticalKnockbackForce);
         
         if(transform.position.x < enemy.transform.position.x)
@@ -93,14 +101,6 @@ public class PlayerHealth : MonoBehaviour
 
         Invoke("CancelHit", invulnerabilityTime);
         Invoke("EnableMovement", cancelMovementTime);
-
-        // if(isTakingDamage){
-        //     movement.enabled = false;
-        // }
-        // else 
-        // {
-        //     movement.enabled = true;
-        // }
     }
 
     private void CancelHit()
@@ -112,24 +112,24 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!isDead)
         {
-            isTakingDamage = true;
-            StopMovement();
+            isTakingDamage = false;
         }
     }
 
-    private void StopMovement()
-    {
-        moveInput = playerControls.Main.Move.ReadValue<float>();
-        // Debug.Log(cancelMovementTime);
-        if(moveInput != 0 && !isTakingDamage)
-        {
-            movement.enabled = true;
-        }
-        else 
-        {
-            movement.enabled = false;
-        }
-    }
+
+    // private void StopMovement()
+    // {
+    //     moveInput = playerControls.Main.Move.ReadValue<float>();
+    //     // Debug.Log(cancelMovementTime);
+    //     if(moveInput != 0 && !isTakingDamage)
+    //     {
+    //         movement.enabled = true;
+    //     }
+    //     else 
+    //     {
+    //         movement.enabled = false;
+    //     }
+    // }
 
 
 }

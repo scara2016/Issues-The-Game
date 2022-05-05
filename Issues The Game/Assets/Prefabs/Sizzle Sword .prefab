@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2101425124226408200}
   - component: {fileID: 3787261000913849659}
   - component: {fileID: 5686173940864069281}
+  - component: {fileID: 1141565991079054869}
   m_Layer: 7
   m_Name: 'Sizzle Sword '
   m_TagString: Sword
@@ -141,3 +142,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4611499, y: 3.5354347}
   m_EdgeRadius: 0
+--- !u!114 &1141565991079054869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105030698027596699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4ad73ebdac46b44b228501e203b1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour {
 
-    
+    private float moveInput;
 
     public GameObject weaponHolder;
-    private GameObject sizzleSword;
-    private GameObject zapBoots;
+    private SizzleSword sizzleSword;
+    private ZapBoots zapBoots;
 
     private GameObject player;
     private PlayerControls playerControls;
@@ -37,8 +37,8 @@ public class WeaponPickup : MonoBehaviour {
 
     void Awake (){
         player = GameObject.FindGameObjectWithTag("Player");
-        zapBoots = GameObject.FindGameObjectWithTag("Boots");
-        sizzleSword = GameObject.FindGameObjectWithTag("Sword");
+        zapBoots = GameObject.FindGameObjectWithTag("Boots").GetComponent<ZapBoots>();
+        sizzleSword = GameObject.FindGameObjectWithTag("Sword").GetComponent<SizzleSword>();;
         weaponHolder = GameObject.FindGameObjectWithTag("WeaponHolder");
         playerControls = new PlayerControls();
         combat = player.GetComponent<PlayerCombat>();
@@ -55,6 +55,7 @@ public class WeaponPickup : MonoBehaviour {
     }
 
     void Update (){
+        // moveInput = playerControls.Main.Move.ReadValue<float>();
         pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
         Debug.Log(pickUpInput);
         Debug.Log(combat.attackDamage);
@@ -68,14 +69,17 @@ public class WeaponPickup : MonoBehaviour {
                 if(this.CompareTag("Sword")) 
                 {
                     combat.attackDamage = 20;
+                    // movement.moveSpeed = moveInput * movement.moveSpeed;
                     movement.moveSpeed = 6f;
                     Debug.Log("We have " + this.name);
                     pickUpAllowed = false;
                     Weapon.Instance.GetWeapon();
-                    Debug.Log(weaponHolder.transform.Find("Zap Boots"));
-                        if(weaponHolder.transform.Find("Zap Boots"))
+                    Debug.Log(weaponHolder.GetComponentInChildren<ZapBoots>());
+                    Debug.Log(weaponHolder.GetComponentInChildren<SizzleSword>());
+                        if(weaponHolder.GetComponentInChildren<ZapBoots>() != null)
                         {
-                            Destroy(zapBoots);
+                            Debug.Log("Reached");
+                            Destroy(zapBoots.gameObject);
                         }
                 }
                 else if (this.CompareTag("Boots")) 
@@ -85,10 +89,12 @@ public class WeaponPickup : MonoBehaviour {
                     Debug.Log("We have " + this.name);
                     pickUpAllowed = false;
                     Weapon.Instance.GetWeapon();
-                    Debug.Log(weaponHolder.transform.Find("Sizzle Sword"));
-                        if(weaponHolder.transform.Find("Sizzle Sword"))
+                    Debug.Log(weaponHolder.GetComponentInChildren<SizzleSword>());
+                    Debug.Log(weaponHolder.GetComponentInChildren<ZapBoots>());
+                        if(weaponHolder.GetComponentInChildren<SizzleSword>() != null)
                         {
-                            Destroy(sizzleSword);
+                            Debug.Log("Reached");
+                            Destroy(sizzleSword.gameObject);
                         }
                 }
             }
@@ -118,7 +124,6 @@ public class WeaponPickup : MonoBehaviour {
     {
 
         // makes item dissapear after pickup
-        // Destroy(gameObject);
         gameObject.transform.parent = weaponHolder.transform;
         GetComponent<Collider2D>().enabled = false;
         this.sprite.enabled = false;

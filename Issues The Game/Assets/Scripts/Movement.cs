@@ -58,7 +58,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         controller = GetComponent<AnimationController>();
-        // pHealth = GetComponent<PlayerHealth>();
+        pHealth = GetComponent<PlayerHealth>();
     }
 
     private void OnEnable()
@@ -99,6 +99,18 @@ public class Movement : MonoBehaviour
             wallTransferCooldownStart = false;
         }
 
+        if(moveInput != 0 && !pHealth.isTakingDamage)
+        {
+            moveInput = playerControls.Main.Move.ReadValue<float>();
+        }
+        else 
+        {
+            moveInput = 0;
+            Debug.Log(moveInput);
+        }
+
+
+
         WallText();
     }
 
@@ -124,6 +136,7 @@ public class Movement : MonoBehaviour
 
     private void PlayerMovement()
     {
+
         moveInput = playerControls.Main.Move.ReadValue<float>(); // Reads and stores movement input from inputManager
         if (!wallJumpCooldownStart)
         {

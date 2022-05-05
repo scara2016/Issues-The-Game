@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
 
-    // public Transform weaponHolder;
-
     public Collider2D[] weaponsList;
     private PlayerControls playerControls;
     private float attackInput;
