@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
 
-    // public Transform weaponHolder;
-
     public Collider2D[] weaponsList;
     private PlayerControls playerControls;
     private float attackInput;
@@ -42,11 +40,9 @@ public class PlayerCombat : MonoBehaviour
         controller = new AnimationController();
 
         playerControls = new PlayerControls();
-        // weapon = GetComponent<Weapon>();
         weaponsList = new Collider2D[1];
-        // wpnPickup = GetComponent<WeaponPickup>();
         movement = this.GetComponent<Movement>();
-        // wpnPickup = GetComponent<WeaponPickup>();
+        controller = GetComponent<AnimationController>();
     }
 
     void OnEnable() {
@@ -69,7 +65,6 @@ public class PlayerCombat : MonoBehaviour
         // pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
         attackInput = playerControls.Main.Attack.ReadValue<float>();
         Debug.Log(attackDamage);
-        // Debug.Log(movement.moveSpeed);
 
         if(Time.time >= nextAttackTime)
         {
@@ -90,14 +85,11 @@ public class PlayerCombat : MonoBehaviour
         //Damage them 
         hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,attackRange, enemyLayer);
 
-        // if(wpn.CompareTag("Sword"))
-        // {
             foreach(Collider2D enemy in hitEnemies)
             {
                 Debug.Log("We hit " + enemy.name);
                 enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
             }
-        // }
     }
 
     void OnDrawGizmosSelected()
