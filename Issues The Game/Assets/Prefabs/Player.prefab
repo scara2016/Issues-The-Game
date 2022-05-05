@@ -234,7 +234,7 @@ MonoBehaviour:
   wallJumpCooldown: 0.2
   wallJumpTime: 0.2
   wallSlideSpeed: 0.3
-  wallDistance: 0.5
+  wallDistance: 0.6
   slideCooldown: 0.5
   wallTransferCooldownTime: 0.2
   wallTextTip: {fileID: 5427433917815028390, guid: 30c220428ec9a5e409f667a593f61da9, type: 3}
@@ -253,7 +253,7 @@ MonoBehaviour:
   weaponsList: []
   attackDamage: 10
   attackRate: 2
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 1126811261814783415}
   attackRange: 0.5
   enemyLayer:
     serializedVersion: 2
