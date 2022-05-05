@@ -64,7 +64,7 @@ public class WeaponPickup : MonoBehaviour {
         if(pickUpAllowed && pickUpInput != 0) {
             PickUp();
             
-            if(this.transform.parent.CompareTag(weaponHolder.tag))
+            if(transform.parent.CompareTag(weaponHolder.tag))
             {
                 if(this.CompareTag("Sword")) 
                 {

@@ -340,11 +340,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1852178183 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1126811261814783415, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-  m_PrefabInstance: {fileID: 1887019048}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1887019048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -352,94 +347,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 985087319354571930, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126811261814783415, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1803942982354842547, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2339204883490925889, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: swordLeft
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2339204883490925889, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: swordRight
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2339204883490925889, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: attackPoint
-      value: 
-      objectReference: {fileID: 1852178183}
-    - target: {fileID: 2339204883490925889, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: attackRange
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2339204883490925889, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: attackDamage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2339204883490925889, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: weaponHolder
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611382454822247511, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3882388170554263251, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: cancelMovementTime
-      value: 0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 3882388170554263251, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: verticalKnockbackForce
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 3882388170554263251, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: horizontalKnockbackForce
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6217983382483752865, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6217983382483752865, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: attackPoint
-      value: 
-      objectReference: {fileID: 1852178183}
-    - target: {fileID: 6217983382483752865, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: enemyLayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7223354796076367979, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: m_TagString
-      value: WeaponHolder
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: moveSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: swordLeft
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: swordRight
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: wallTextTip
-      value: 
-      objectReference: {fileID: 5427433917815028390, guid: 30c220428ec9a5e409f667a593f61da9, type: 3}
-    - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: wallDistance
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453862, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -486,22 +393,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453866, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786989015115453867, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786989015115453867, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786989015115453867, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053813936372881042, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -561,22 +452,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5580023756563563904, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5580023756563563904, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
-      propertyPath: zapBoots
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5580023756563563904, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
-      propertyPath: sizzleSword
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5580023756563563904, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
-      propertyPath: weaponHolder
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6524addefbf79645ab97ad96f32fc41, type: 3}
 --- !u!1001 &4105030699364583552
@@ -586,37 +461,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2101425124226408200, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3787261000913849659, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
-      propertyPath: zapBoots
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3787261000913849659, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
-      propertyPath: sizzleSword
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3787261000913849659, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
-      propertyPath: weaponHolder
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4105030698027596699, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: m_Name
       value: 'Sizzle Sword '
-      objectReference: {fileID: 0}
-    - target: {fileID: 4105030698027596700, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4105030698027596700, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4105030698027596700, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
-      propertyPath: m_Color.r
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4105030698027596701, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
       propertyPath: m_RootOrder
@@ -662,8 +509,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4068242133590894018, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 417ede986245d3f4a962ee540bcad0b2, type: 3}
 --- !u!1001 &6258591842430835407
 PrefabInstance:
