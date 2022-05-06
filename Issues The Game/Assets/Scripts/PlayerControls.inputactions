@@ -237,6 +237,17 @@
                 },
                 {
                     "name": "",
+                    "id": "cc7e62a1-6099-4132-bee7-e96c86f22e3e",
+                    "path": "<XInputController>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WallTransfer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "dba18afb-811e-4063-8698-980ef70da687",
                     "path": "<Keyboard>/z",
                     "interactions": "Press",
