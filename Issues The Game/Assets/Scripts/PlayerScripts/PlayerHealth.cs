@@ -35,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
 
     [HideInInspector]
     public Enemy enemy;
+    private AnimationController controller;
 
     // void OnEnable() {
     //     playerControls.Enable();
@@ -48,6 +49,7 @@ public class PlayerHealth : MonoBehaviour
         health = maxHealth;
         rb = gameObject.GetComponent<Rigidbody2D>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
+        controller = GetComponent<AnimationController>();
         // movement = this.GetComponent<Movement>();
         // playerControls = new PlayerControls();
     }
@@ -93,10 +95,12 @@ public class PlayerHealth : MonoBehaviour
         if(transform.position.x < enemy.transform.position.x)
         {
             rb.AddForce(Vector2.left * horizontalKnockbackForce);
+            controller.HurtState(true); //Plays damage animation
         }
         else 
         {
             rb.AddForce(Vector2.right * horizontalKnockbackForce);
+            controller.HurtState(true); //Plays damage animation
         }
 
         Invoke("CancelHit", invulnerabilityTime);
