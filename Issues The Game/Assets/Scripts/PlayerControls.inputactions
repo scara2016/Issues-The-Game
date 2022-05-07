@@ -52,7 +52,7 @@
                 },
                 {
                     "name": "WallTransfer",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "e5c4aa43-439c-445b-b694-8b4663367d5f",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -238,7 +238,7 @@
                 {
                     "name": "",
                     "id": "cc7e62a1-6099-4132-bee7-e96c86f22e3e",
-                    "path": "<XInputController>/rightShoulder",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
