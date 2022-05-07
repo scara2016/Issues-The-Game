@@ -23,9 +23,9 @@ public class PlayerHealth : MonoBehaviour
     public bool hit;
 
     [SerializeField]
-    private float verticalKnockbackForce;
+    public float verticalKnockbackForce;
     [SerializeField]
-    private float horizontalKnockbackForce;
+    public float horizontalKnockbackForce;
 
     [SerializeField]
     private float invulnerabilityTime;
@@ -71,9 +71,7 @@ public class PlayerHealth : MonoBehaviour
             health -= damage;
             if (health <= 0)
             {
-                isDead = true;
-                GetComponent<Collider2D>().enabled = false;
-                this.enabled = false;
+                Die();
             }
         }
     }
@@ -85,6 +83,13 @@ public class PlayerHealth : MonoBehaviour
         {
             HandleKnockBack();
         }
+    }
+
+    private void Die()
+    {
+        isDead = true;
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
     }
 
     private void HandleKnockBack()
