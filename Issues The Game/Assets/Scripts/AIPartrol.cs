@@ -10,15 +10,18 @@ public class AIPartrol : MonoBehaviour
     Rigidbody2D myRigidbody;
     BoxCollider2D myBoxCollider;
 
+    bool right = true;
+
     void Start()
     {
-        myRigidbody = GetComponent<Rigidbody2D>();  
+        myRigidbody = GetComponent<Rigidbody2D>();
+        myBoxCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (IsFacingRight())
+        if (right)
         {
             myRigidbody.velocity = new Vector2(moveSpeed, 0f);
         }
@@ -33,10 +36,16 @@ public class AIPartrol : MonoBehaviour
         return transform.localScale.x > Mathf.Epsilon;
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        transform.localScale = new Vector2(-(Mathf.Sign(myRigidbody.velocity.x)), transform.localScale.y);
-
+       if (right)
+        {
+            right = false;
+        }
+       else
+        {
+            right = true;
+        }
     }
 
 }
