@@ -68,10 +68,15 @@ public class AnimationController : MonoBehaviour
         animator.SetBool("isCrouching", crouch);
     }
 
-    public void HurtState(bool ouch)
+    public void HurtState()
     {
         animator.ResetTrigger("Ow");
         animator.SetTrigger("Ow");
+    }
+
+    public void DieState(bool die)
+    {
+        animator.SetBool("isDead", die);
     }
 
 }

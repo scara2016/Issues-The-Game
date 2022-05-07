@@ -88,8 +88,10 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         isDead = true;
-        GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
+        Debug.Log("He ded tho: " + isDead);
+        // GetComponent<Collider2D>().enabled = false;
+        // this.enabled = false;
+        controller.DieState(true);
     }
 
     private void HandleKnockBack()
@@ -100,12 +102,12 @@ public class PlayerHealth : MonoBehaviour
         if(transform.position.x < enemy.transform.position.x)
         {
             rb.AddForce(Vector2.left * horizontalKnockbackForce);
-            controller.HurtState(true); //Plays damage animation
+            controller.HurtState(); //Plays damage animation
         }
         else 
         {
             rb.AddForce(Vector2.right * horizontalKnockbackForce);
-            controller.HurtState(true); //Plays damage animation
+            controller.HurtState(); //Plays damage animation
         }
 
         Invoke("CancelHit", invulnerabilityTime);
