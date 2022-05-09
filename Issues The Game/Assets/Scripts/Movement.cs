@@ -45,12 +45,13 @@ public class Movement : MonoBehaviour
     private float wallTransferCooldownTimer=0;
     private bool wallTransferCooldownStart = false;
     private bool wallTransferState = false;
-    public GameObject wallTextTip;
 
 
     private AnimationController controller;
 
     private PlayerHealth pHealth;
+
+    public GameObject ButtonPrompt;
 
     private void Awake()
     {
@@ -85,9 +86,7 @@ public class Movement : MonoBehaviour
         Jump();
         WallJump();
         Crouch();
-       
-       
-       
+        ButtonPromptShow();       
 
         if (wallTransferCooldownStart) //cooldown for walltransfer added here so it runs everyframe;
         {
@@ -108,10 +107,6 @@ public class Movement : MonoBehaviour
             moveInput = 0;
             Debug.Log(moveInput);
         }
-
-
-
-        WallText();
     }
 
     public bool IsGrounded()
@@ -341,10 +336,6 @@ public class Movement : MonoBehaviour
         }
     }
 
-
-
-    
-
     private void wallTransfer(WallTranferScript InitialSide)
     {
         float wallTransferInput = playerControls.Main.WallTransfer.ReadValue<float>();
@@ -387,15 +378,15 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void WallText()
+    private void ButtonPromptShow()
     {
         if (wallTransferState)
         {
-            wallTextTip.SetActive(true);
+            ButtonPrompt.SetActive(true);
         }
         if (!wallTransferState)
         {
-            wallTextTip.SetActive(false);
+            ButtonPrompt.SetActive(false);
         }
     }
 }
