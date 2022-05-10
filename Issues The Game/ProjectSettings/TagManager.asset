@@ -8,6 +8,9 @@ TagManager:
   - Boots
   - Sword
   - Enemy
+  - PassableObject
+  - InkDrop
+  - NextLevel
   layers:
   - Default
   - TransparentFX
