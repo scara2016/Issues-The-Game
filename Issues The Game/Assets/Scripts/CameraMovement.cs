@@ -53,15 +53,15 @@ public class CameraMovement : MonoBehaviour
             {
                 if (freePan)
                 {
-                    cam.gameObject.transform.position = Vector3.Lerp(startPos, new Vector3(this.transform.position.x, this.transform.position.y, currentPanelCollider.bounds.center.z), t);
+                    cam.gameObject.transform.position = Vector3.Lerp(startPos, new Vector3(this.transform.position.x, this.transform.position.y, -10), t);
                 }
                 else if (horizontal)
                 {
-                    cam.gameObject.transform.position = Vector3.Lerp(startPos,new Vector3(this.transform.position.x, currentPanelCollider.bounds.center.y, currentPanelCollider.bounds.center.z), t);
+                    cam.gameObject.transform.position = Vector3.Lerp(startPos,new Vector3(this.transform.position.x, currentPanelCollider.bounds.center.y, -10), t);
                 }
                 else
                 {
-                    cam.gameObject.transform.position = Vector3.Lerp(startPos, new Vector3(currentPanelCollider.bounds.center.x, this.transform.position.y, currentPanelCollider.bounds.center.z), t);
+                    cam.gameObject.transform.position = Vector3.Lerp(startPos, new Vector3(currentPanelCollider.bounds.center.x, this.transform.position.y, -10), t);
                 }
             }
         }
