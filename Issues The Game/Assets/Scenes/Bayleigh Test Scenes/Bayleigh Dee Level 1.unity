@@ -567,7 +567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 69669566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4321,7 +4321,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1651802970583242887, guid: cd48d01e9e37cdb49a67dcce8345f1a3, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6250578888606902058, guid: cd48d01e9e37cdb49a67dcce8345f1a3, type: 3}
       propertyPath: m_Name
@@ -5062,7 +5062,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1651802970583242887, guid: cd48d01e9e37cdb49a67dcce8345f1a3, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6250578888606902058, guid: cd48d01e9e37cdb49a67dcce8345f1a3, type: 3}
       propertyPath: m_Name
@@ -5341,7 +5341,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1651802970583242887, guid: cd48d01e9e37cdb49a67dcce8345f1a3, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3830755127292297364, guid: cd48d01e9e37cdb49a67dcce8345f1a3, type: 3}
       propertyPath: m_LocalPosition.x
