@@ -9,15 +9,9 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     private Rigidbody2D rb;
 
-    // private PlayerControls playerControls;
-
-    // private Movement movement;
-
-    // private float moveInput;
-
     [HideInInspector]
     public bool isDead;
-    // [HideInInspector]
+    [HideInInspector]
     public bool isTakingDamage;
 
     public bool hit;
@@ -126,21 +120,6 @@ public class PlayerHealth : MonoBehaviour
             isTakingDamage = false;
         }
     }
-
-
-    // private void StopMovement()
-    // {
-    //     moveInput = playerControls.Main.Move.ReadValue<float>();
-    //     // Debug.Log(cancelMovementTime);
-    //     if(moveInput != 0 && !isTakingDamage)
-    //     {
-    //         movement.enabled = true;
-    //     }
-    //     else 
-    //     {
-    //         movement.enabled = false;
-    //     }
-    // }
 
 
 }

@@ -52,7 +52,7 @@
                 },
                 {
                     "name": "WallTransfer",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "e5c4aa43-439c-445b-b694-8b4663367d5f",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -228,6 +228,17 @@
                     "name": "",
                     "id": "6e59937d-40ad-40ec-8cfb-004abc5c715e",
                     "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WallTransfer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc7e62a1-6099-4132-bee7-e96c86f22e3e",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

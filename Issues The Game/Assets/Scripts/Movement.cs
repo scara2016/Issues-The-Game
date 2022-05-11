@@ -38,6 +38,9 @@ public class Movement : MonoBehaviour
     public float slideCooldown = 0.5f;
     private bool slideCooldownStart = false;
     private bool isWallSliding = false;
+    public float inkDragVert = 3f;
+    public float inkDragMoveSpeed = 2f;
+
     RaycastHit2D wallCheckHitLeft;
     RaycastHit2D wallCheckHitRight;
 
@@ -141,9 +144,12 @@ public class Movement : MonoBehaviour
             float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration; // calculates if accel needs to be applied positive or negative
             float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
             rb.AddForce(movement * Vector2.right);
+
+         
+             
         }
 
-        
+
     }
 
     private void AnimateMovement()
@@ -271,7 +277,7 @@ public class Movement : MonoBehaviour
             isWallSliding = true;
             jumpCooldownTimer = float.MaxValue;
         }
-        else if (slideTimer > slideCooldown && !wallCheckHitLeft || !wallCheckHitRight) //ends the slide
+        else if (slideTimer > slideCooldown && (!wallCheckHitLeft || !wallCheckHitRight)) //ends the slide
         {
             slideTimer = 0;
             slideCooldownStart = false;
@@ -349,21 +355,21 @@ public class Movement : MonoBehaviour
 
     private void InkDrag()
     {
-        moveSpeed = moveSpeed / 2;
-        rb.drag = 3;
+        moveSpeed = moveSpeed / inkDragMoveSpeed;
+        rb.drag = inkDragVert;
     }
 
     private void InkDragReset()
     {
-        moveSpeed = moveSpeed * 2;
+        moveSpeed = moveSpeed * inkDragMoveSpeed;
         rb.drag = 0;
     }
 
     private void Crouch()
     {
         crouchInput = playerControls.Main.Crouch.ReadValue<float>();
-
-        if (crouchInput >= 0.5 && IsGrounded() && moveInput == 0)
+/*
+       if (crouchInput >= 0.5 && IsGrounded() && moveInput == 0)
         {
             Debug.Log("Crouching");
             boxCollider.size = new Vector2(1, 0.7f);
@@ -376,6 +382,7 @@ public class Movement : MonoBehaviour
             boxCollider.offset = new Vector2(0, 0);
             controller.CrouchState(false);
         }
+*/
     }
 
     private void ButtonPromptShow()
@@ -390,3 +397,4 @@ public class Movement : MonoBehaviour
         }
     }
 }
+

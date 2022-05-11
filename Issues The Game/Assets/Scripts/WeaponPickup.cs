@@ -38,7 +38,7 @@ public class WeaponPickup : MonoBehaviour {
     void Awake (){
         player = GameObject.FindGameObjectWithTag("Player");
         zapBoots = GameObject.FindGameObjectWithTag("Boots").GetComponent<ZapBoots>();
-        sizzleSword = GameObject.FindGameObjectWithTag("Sword").GetComponent<SizzleSword>();;
+        sizzleSword = GameObject.FindGameObjectWithTag("Sword").GetComponent<SizzleSword>();
         weaponHolder = GameObject.FindGameObjectWithTag("WeaponHolder");
         playerControls = new PlayerControls();
         combat = player.GetComponent<PlayerCombat>();
@@ -82,7 +82,7 @@ public class WeaponPickup : MonoBehaviour {
                             Destroy(zapBoots.gameObject);
                         }
                 }
-                else if (this.CompareTag("Boots")) 
+                if (this.CompareTag("Boots")) 
                 {
                     combat.attackDamage = 5;
                     movement.moveSpeed = 15f;
