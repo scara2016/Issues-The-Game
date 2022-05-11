@@ -279,7 +279,7 @@ public class Movement : MonoBehaviour
             isWallSliding = true;
             jumpCooldownTimer = float.MaxValue;
         }
-        else if (slideTimer > slideCooldown && !wallCheckHitLeft || !wallCheckHitRight) //ends the slide
+        else if (slideTimer > slideCooldown && (!wallCheckHitLeft || !wallCheckHitRight)) //ends the slide
         {
             slideTimer = 0;
             slideCooldownStart = false;
@@ -375,8 +375,8 @@ public class Movement : MonoBehaviour
     private void Crouch()
     {
         crouchInput = playerControls.Main.Crouch.ReadValue<float>();
-
-        if (crouchInput >= 0.5 && IsGrounded() && moveInput == 0)
+/*
+       if (crouchInput >= 0.5 && IsGrounded() && moveInput == 0)
         {
             Debug.Log("Crouching");
             boxCollider.size = new Vector2(1, 0.7f);
@@ -389,6 +389,7 @@ public class Movement : MonoBehaviour
             boxCollider.offset = new Vector2(0, 0);
             controller.CrouchState(false);
         }
+*/
     }
 
     private void WallText()

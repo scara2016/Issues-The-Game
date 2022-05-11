@@ -2106,7 +2106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 298743063194938029, guid: 34401219159ee1d4082a63fdeadd8a89, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4555457702469114227, guid: 34401219159ee1d4082a63fdeadd8a89, type: 3}
       propertyPath: m_LocalScale.x
@@ -2462,9 +2462,21 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 424868916}
+    - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: wallDistance
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453862, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786989015115453865, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5152843
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786989015115453865, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.00000011920929
       objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453866, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_RootOrder
