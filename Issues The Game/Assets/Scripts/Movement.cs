@@ -38,6 +38,9 @@ public class Movement : MonoBehaviour
     public float slideCooldown = 0.5f;
     private bool slideCooldownStart = false;
     private bool isWallSliding = false;
+    public float inkDragVert = 3f;
+    public float inkDragMoveSpeed = 2f;
+
     RaycastHit2D wallCheckHitLeft;
     RaycastHit2D wallCheckHitRight;
 
@@ -362,13 +365,13 @@ public class Movement : MonoBehaviour
 
     private void InkDrag()
     {
-        moveSpeed = moveSpeed / 2;
-        rb.drag = 3;
+        moveSpeed = moveSpeed / inkDragMoveSpeed;
+        rb.drag = inkDragVert;
     }
 
     private void InkDragReset()
     {
-        moveSpeed = moveSpeed * 2;
+        moveSpeed = moveSpeed * inkDragMoveSpeed;
         rb.drag = 0;
     }
 

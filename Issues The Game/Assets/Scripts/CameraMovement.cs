@@ -6,6 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     Collider2D currentPanelCollider;
     Camera cam;
+    public float cameraDepth = -10f;
     Vector3 startPos;
     bool moveCam = false;
     private float timeToReachTarget=0.5f;
@@ -47,21 +48,21 @@ public class CameraMovement : MonoBehaviour
         {
             if (centralized)
             {
-                cam.gameObject.transform.position = Vector3.Lerp(startPos, currentPanelCollider.bounds.center, t);
+                cam.gameObject.transform.position = Vector3.Lerp(startPos,new Vector3(currentPanelCollider.bounds.center.x, currentPanelCollider.bounds.center.y, cameraDepth), t);
             }
             else if (!centralized)
             {
                 if (freePan)
                 {
-                    cam.gameObject.transform.position = Vector3.Lerp(startPos, new Vector3(this.transform.position.x, this.transform.position.y, -10), t);
+                    cam.gameObject.transform.position = Vector3.Lerp(startPos, new Vector3(this.transform.position.x, this.transform.position.y, cameraDepth), t);
                 }
                 else if (horizontal)
                 {
-                    cam.gameObject.transform.position = Vector3.Lerp(startPos,new Vector3(this.transform.position.x, currentPanelCollider.bounds.center.y, -10), t);
+                    cam.gameObject.transform.position = Vector3.Lerp(startPos,new Vector3(this.transform.position.x, currentPanelCollider.bounds.center.y, cameraDepth), t);
                 }
                 else
                 {
-                    cam.gameObject.transform.position = Vector3.Lerp(startPos, new Vector3(currentPanelCollider.bounds.center.x, this.transform.position.y, -10), t);
+                    cam.gameObject.transform.position = Vector3.Lerp(startPos, new Vector3(currentPanelCollider.bounds.center.x, this.transform.position.y, cameraDepth), t);
                 }
             }
         }

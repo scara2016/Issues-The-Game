@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4880785731428595633}
   - component: {fileID: 1969043789704042042}
   - component: {fileID: 6027613893212529180}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Platform (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 6250578888406083804}
   - component: {fileID: 6250578888406083803}
   - component: {fileID: 6250578888406083802}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Platform (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6250578888606902059}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Square Panel Thin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,6 +450,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 3599541823199480542, guid: 8d9184139ba5a294c87e9daeb5e8f99d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3599541823199480543, guid: 8d9184139ba5a294c87e9daeb5e8f99d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -579,6 +583,10 @@ PrefabInstance:
     - target: {fileID: 7219774868679182044, guid: a650d19861b1f1744aea413e9f1ec178, type: 3}
       propertyPath: m_Name
       value: Panel Center
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219774868679182044, guid: a650d19861b1f1744aea413e9f1ec178, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a650d19861b1f1744aea413e9f1ec178, type: 3}

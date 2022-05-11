@@ -9,15 +9,9 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     private Rigidbody2D rb;
 
-    // private PlayerControls playerControls;
-
-    // private Movement movement;
-
-    // private float moveInput;
-
     [HideInInspector]
     public bool isDead;
-    // [HideInInspector]
+    [HideInInspector]
     public bool isTakingDamage;
 
     public bool hit;
@@ -35,21 +29,11 @@ public class PlayerHealth : MonoBehaviour
 
     [HideInInspector]
     public Enemy enemy;
-
-    // void OnEnable() {
-    //     playerControls.Enable();
-    // }
-
-    // void OnDisable() {
-    //     playerControls.Disable();
-    // }
     void Start()
     {
         health = maxHealth;
         rb = gameObject.GetComponent<Rigidbody2D>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
-        // movement = this.GetComponent<Movement>();
-        // playerControls = new PlayerControls();
     }
 
     public void InkDamage(float inkDamage)
@@ -115,21 +99,6 @@ public class PlayerHealth : MonoBehaviour
             isTakingDamage = false;
         }
     }
-
-
-    // private void StopMovement()
-    // {
-    //     moveInput = playerControls.Main.Move.ReadValue<float>();
-    //     // Debug.Log(cancelMovementTime);
-    //     if(moveInput != 0 && !isTakingDamage)
-    //     {
-    //         movement.enabled = true;
-    //     }
-    //     else 
-    //     {
-    //         movement.enabled = false;
-    //     }
-    // }
 
 
 }
