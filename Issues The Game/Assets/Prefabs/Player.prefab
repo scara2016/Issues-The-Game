@@ -224,14 +224,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   acceleration: 7
-  moveSpeed: 6
+  moveSpeed: 4.5
   decceleration: 7
   velPower: 0.9
   frictionAmount: 0.8
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
   jumpCooldown: 1
-  jumpVelocity: 5
+  jumpVelocity: 5.5
   wallJumpCooldown: 0.2
   wallJumpTime: 0.2
   wallSlideSpeed: 0.3

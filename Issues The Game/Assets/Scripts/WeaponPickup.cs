@@ -70,7 +70,7 @@ public class WeaponPickup : MonoBehaviour {
                 {
                     combat.attackDamage = 20;
                     // movement.moveSpeed = moveInput * movement.moveSpeed;
-                    movement.moveSpeed = 6f;
+                    movement.moveSpeed = 4.5f;
                     Debug.Log("We have " + this.name);
                     pickUpAllowed = false;
                     Weapon.Instance.GetWeapon();
@@ -85,7 +85,7 @@ public class WeaponPickup : MonoBehaviour {
                 if (this.CompareTag("Boots")) 
                 {
                     combat.attackDamage = 5;
-                    movement.moveSpeed = 15f;
+                    movement.moveSpeed = 10f;
                     Debug.Log("We have " + this.name);
                     pickUpAllowed = false;
                     Weapon.Instance.GetWeapon();
