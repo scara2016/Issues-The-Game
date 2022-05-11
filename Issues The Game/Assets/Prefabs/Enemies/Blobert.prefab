@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3243516135121272976}
   - component: {fileID: 2449227307252442}
-  - component: {fileID: 3995379216834914111}
   - component: {fileID: 8243288324827025532}
   - component: {fileID: 5960635081699245006}
   - component: {fileID: 6238662374816229140}
   - component: {fileID: 2597485148806398863}
-  m_Layer: 6
+  - component: {fileID: 8351727247057442534}
+  m_Layer: 3
   m_Name: Blobert
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -89,32 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3995379216834914111
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013285836429819169}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.05553043, y: 0.21975374}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.69, y: 4.03}
-    newSize: {x: 4.69, y: 4.03}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.9308321, y: 3.4439893}
-  m_EdgeRadius: 0
 --- !u!114 &8243288324827025532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +123,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013285836429819169}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -172,10 +146,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09249997, y: -0.13068587}
+  m_Offset: {x: -0.25653517, y: 0.5765703}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -186,5 +160,18 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.7474809, y: 2.6186013}
+  m_Size: {x: 2.4194105, y: 4.0331135}
   m_EdgeRadius: 0
+--- !u!114 &8351727247057442534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013285836429819169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd9275581163a54c951fceb1fd5fe08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
