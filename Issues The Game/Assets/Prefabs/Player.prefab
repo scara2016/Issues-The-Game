@@ -237,6 +237,8 @@ MonoBehaviour:
   wallSlideSpeed: 0.3
   wallDistance: 0.6
   slideCooldown: 0.5
+  inkDragVert: 2
+  inkDragMoveSpeed: 2
   wallTransferCooldownTime: 0.2
   wallTextTip: {fileID: 5427433917815028390, guid: 30c220428ec9a5e409f667a593f61da9, type: 3}
 --- !u!114 &6217983382483752865
