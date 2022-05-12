@@ -2501,7 +2501,7 @@ PrefabInstance:
       objectReference: {fileID: 424868916}
     - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: inkDragVert
-      value: 2
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: ButtonPrompt
@@ -3970,6 +3970,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ink Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 8565858500003875558, guid: 9b24a95aa32ff164d9ec272b7852cab8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b24a95aa32ff164d9ec272b7852cab8, type: 3}
 --- !u!1001 &1205962032
@@ -5098,6 +5102,10 @@ PrefabInstance:
     - target: {fileID: 2115330344971358000, guid: 493a627064a18ce429c2af2fc8b8cff5, type: 3}
       propertyPath: m_Name
       value: Button Prompt
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115330344971358000, guid: 493a627064a18ce429c2af2fc8b8cff5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2115330344971358001, guid: 493a627064a18ce429c2af2fc8b8cff5, type: 3}
       propertyPath: m_Pivot.x
