@@ -49,7 +49,7 @@ public class Timer : MonoBehaviour
 
     private void SetTimerText()
     {
-    //    timerText.text = hasFormat ? currentTime.ToString(timeFormats[format]) : currentTime.ToString();
+    //   timerText.text = hasFormat ? currentTime.ToString(timeFormats[format]) : currentTime.ToString();
     }
 
 
