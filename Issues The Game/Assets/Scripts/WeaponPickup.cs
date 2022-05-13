@@ -11,6 +11,7 @@ public class WeaponPickup : MonoBehaviour {
     private ZapBoots zapBoots;
 
     private GameObject player;
+    private Movement playerMovement;
     private PlayerControls playerControls;
 
     private PlayerCombat combat;
@@ -37,6 +38,7 @@ public class WeaponPickup : MonoBehaviour {
 
     void Awake (){
         player = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = player.GetComponent<Movement>();
         zapBoots = GameObject.FindGameObjectWithTag("Boots").GetComponent<ZapBoots>();
         sizzleSword = GameObject.FindGameObjectWithTag("Sword").GetComponent<SizzleSword>();
         weaponHolder = GameObject.FindGameObjectWithTag("WeaponHolder");
@@ -91,6 +93,10 @@ public class WeaponPickup : MonoBehaviour {
                     Weapon.Instance.GetWeapon();
                     Debug.Log(weaponHolder.GetComponentInChildren<SizzleSword>());
                     Debug.Log(weaponHolder.GetComponentInChildren<ZapBoots>());
+                    if(playerControls.Main.Dash.ReadValue<float>() != 0)
+                    {
+                        playerMovement.Dash();
+                    }
                         if(weaponHolder.GetComponentInChildren<SizzleSword>() != null)
                         {
                             Debug.Log("Reached");
