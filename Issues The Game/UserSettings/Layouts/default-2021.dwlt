@@ -21,10 +21,14 @@ MonoBehaviour:
   m_ShowMode: 4
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Title: Game
 =======
   m_Title: Scene
 >>>>>>> parent of f81f9e9... Final Update
+=======
+  m_Title: Game
+>>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
 =======
   m_Title: Game
 >>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
@@ -129,10 +133,14 @@ MonoBehaviour:
   vertical: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 60
 =======
   controlID: 17
 >>>>>>> parent of f81f9e9... Final Update
+=======
+  controlID: 60
+>>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
 =======
   controlID: 60
 >>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
@@ -162,10 +170,14 @@ MonoBehaviour:
   vertical: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 61
 =======
   controlID: 18
 >>>>>>> parent of f81f9e9... Final Update
+=======
+  controlID: 61
+>>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
 =======
   controlID: 61
 >>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
@@ -195,10 +207,14 @@ MonoBehaviour:
   vertical: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 62
 =======
   controlID: 19
 >>>>>>> parent of f81f9e9... Final Update
+=======
+  controlID: 62
+>>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
 =======
   controlID: 62
 >>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
@@ -304,6 +320,9 @@ MonoBehaviour:
     y: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
 =======
 >>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
     width: 370.40002
@@ -312,6 +331,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     width: 463
     height: 947
@@ -319,6 +339,8 @@ MonoBehaviour:
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
 >>>>>>> parent of f81f9e9... Final Update
+=======
+>>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
 =======
 >>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
   m_Panes:
@@ -357,12 +379,17 @@ MonoBehaviour:
     m_IsLocked: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LastSelectedObjectID: -1416
 --- !u!114 &13
 =======
   m_LastSelectedObjectID: -24318
 --- !u!114 &14
 >>>>>>> parent of f81f9e9... Final Update
+=======
+  m_LastSelectedObjectID: -1416
+--- !u!114 &13
+>>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
 =======
   m_LastSelectedObjectID: -1416
 --- !u!114 &13
@@ -399,6 +426,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_SelectedIDs: 78faffff
       m_LastClickedID: 0
       m_ExpandedIDs: d4ecffffdcfaffff
@@ -407,6 +435,11 @@ MonoBehaviour:
       m_LastClickedID: 0
       m_ExpandedIDs: cadaffff70dbffff76dfffffcae1ffff70e2ffff92e8ffff26fbffff
 >>>>>>> parent of f81f9e9... Final Update
+=======
+      m_SelectedIDs: 78faffff
+      m_LastClickedID: 0
+      m_ExpandedIDs: d4ecffffdcfaffff
+>>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
 =======
       m_SelectedIDs: 78faffff
       m_LastClickedID: 0
@@ -684,6 +717,7 @@ MonoBehaviour:
   m_Position:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: -3.6525702, y: 5.6251454, z: 2.6035867}
     speed: 2
     m_Value: {x: -3.6525702, y: 5.6251454, z: 2.6035867}
@@ -692,6 +726,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.20332134, y: -33.614372, z: 0.8239862}
 >>>>>>> parent of f81f9e9... Final Update
+=======
+    m_Target: {x: -3.6525702, y: 5.6251454, z: 2.6035867}
+    speed: 2
+    m_Value: {x: -3.6525702, y: 5.6251454, z: 2.6035867}
+>>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
 =======
     m_Target: {x: -3.6525702, y: 5.6251454, z: 2.6035867}
     speed: 2
@@ -749,6 +788,7 @@ MonoBehaviour:
   m_Size:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: 8.297572
     speed: 2
     m_Value: 8.297572
@@ -757,6 +797,11 @@ MonoBehaviour:
     speed: 2
     m_Value: 7.669874
 >>>>>>> parent of f81f9e9... Final Update
+=======
+    m_Target: 8.297572
+    speed: 2
+    m_Value: 8.297572
+>>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
 =======
     m_Target: 8.297572
     speed: 2
@@ -870,6 +915,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_SelectedIDs: d8740000
     m_LastClickedID: 29912
     m_ExpandedIDs: 0000000090740000927400009474000096740000987400009a74000000ca9a3b
@@ -878,6 +924,11 @@ MonoBehaviour:
     m_LastClickedID: 29760
     m_ExpandedIDs: 000000004074000000ca9a3bffffff7f
 >>>>>>> parent of f81f9e9... Final Update
+=======
+    m_SelectedIDs: d8740000
+    m_LastClickedID: 29912
+    m_ExpandedIDs: 0000000090740000927400009474000096740000987400009a74000000ca9a3b
+>>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
 =======
     m_SelectedIDs: d8740000
     m_LastClickedID: 29912
@@ -912,10 +963,14 @@ MonoBehaviour:
     m_LastClickedID: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 0000000090740000927400009474000096740000987400009a740000
 =======
     m_ExpandedIDs: 0000000040740000
 >>>>>>> parent of f81f9e9... Final Update
+=======
+    m_ExpandedIDs: 0000000090740000927400009474000096740000987400009a740000
+>>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
 =======
     m_ExpandedIDs: 0000000090740000927400009474000096740000987400009a740000
 >>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
@@ -997,6 +1052,7 @@ MonoBehaviour:
     x: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     y: 568.8
     width: 1164.6
     height: 302.59998
@@ -1005,6 +1061,11 @@ MonoBehaviour:
     width: 1942
     height: 512
 >>>>>>> parent of f81f9e9... Final Update
+=======
+    y: 568.8
+    width: 1164.6
+    height: 302.59998
+>>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
 =======
     y: 568.8
     width: 1164.6
@@ -1113,10 +1174,14 @@ MonoBehaviour:
     m_Text: Inspector
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Image: {fileID: -440750813802333266, guid: 0000000000000000d000000000000000, type: 0}
 =======
     m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000, type: 0}
 >>>>>>> parent of f81f9e9... Final Update
+=======
+    m_Image: {fileID: -440750813802333266, guid: 0000000000000000d000000000000000, type: 0}
+>>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
 =======
     m_Image: {fileID: -440750813802333266, guid: 0000000000000000d000000000000000, type: 0}
 >>>>>>> parent of b295301... Merge remote-tracking branch 'origin/Merging-Jimmies-animations' into Jim-Development
