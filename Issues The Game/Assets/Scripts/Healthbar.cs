@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class Healthbar : MonoBehaviour
 {
-
-    private PlayerHealth playerHealth;
-
     private static Healthbar instance;
     public static Healthbar Instance
     {
@@ -22,29 +19,14 @@ public class Healthbar : MonoBehaviour
     }
     public Slider slider;
 
-    private void Awake()
+    public void SetMaxHealth(float Health)
     {
-        playerHealth = FindObjectOfType<PlayerHealth>();       
+        slider.maxValue = Health;
+        slider.value = Health;
     }
 
-    private void Start()
+    public void SetHealth(float Health)
     {
-        SetMaxHealth();
-    }
-
-    private void Update()
-    {
-        SetHealth();
-    }
-
-    private void SetMaxHealth()
-    {
-        slider.maxValue = playerHealth.maxHealth;
-        slider.value = playerHealth.health;
-    }
-
-    private void SetHealth()
-    {
-        slider.value = playerHealth.health;
+        slider.value = Health;
     }
 }
