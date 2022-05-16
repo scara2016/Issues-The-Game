@@ -48,7 +48,8 @@ public class Movement : MonoBehaviour
     private float wallTransferCooldownTimer=0;
     private bool wallTransferCooldownStart = false;
     private bool wallTransferState = false;
-
+    private float dashInput;
+    public float dashSpeed=10f;
 
     private AnimationController controller;
 
@@ -396,5 +397,14 @@ public class Movement : MonoBehaviour
             ButtonPrompt.SetActive(false);
         }
     }
+
+    public void Dash()
+    {
+        dashInput = playerControls.Main.Move.ReadValue<float>();
+        Debug.Log("Should Dash");
+        rb.AddForce(dashInput * Vector2.right*dashSpeed, ForceMode2D.Impulse);
+    }
+
+
 }
 
