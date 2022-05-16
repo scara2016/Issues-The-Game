@@ -291,7 +291,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""793225f1-8501-4f67-a473-15da45546ea2"",
-                    ""path"": ""<Keyboard>/b"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
