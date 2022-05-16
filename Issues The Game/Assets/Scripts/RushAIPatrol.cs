@@ -11,6 +11,7 @@ public class RushAIPatrol : MonoBehaviour
 
     Rigidbody2D myRigidbody;
     BoxCollider2D boxCollider;
+    private SpriteRenderer spriteRenderer;
 
     public float flipCooldown = 1f;
     public float rushSpeed = 20f;
@@ -20,24 +21,36 @@ public class RushAIPatrol : MonoBehaviour
     private EnemyDetectionCircle detectionCircle;
     private Movement player;
 
-    public float 
+    public float rushCoolDown = 1f;
+    private float rushTimer;
+    private bool rushCoolDownStart = false;
 
-    void Start()
+    private void Start()
     {
         detectionCircle = GetComponent<EnemyDetectionCircle>();
         myRigidbody = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         player = FindObjectOfType<Movement>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (rushCoolDownStart)
+        {
+            rushTimer += Time.deltaTime;
+        }
+        if (rushTimer >= rushCoolDown)
+        {
+            rushCoolDownStart = false;
+            rushTimer = 0f;
+        }
         if (!detectionCircle.PlayerSeen)
         {
             NormalMovement();
         }
-        else
+        else if(!rushCoolDownStart)
         {
             RushMovement();
         }
@@ -46,10 +59,17 @@ public class RushAIPatrol : MonoBehaviour
     private void RushMovement()
     {
         myRigidbody.AddForce(new Vector2(((player.transform.position.x - transform.position.x) / Mathf.Abs(player.transform.position.x - transform.position.x)) * rushSpeed, 0));
+        spriteRenderer.color = Color.red;
+        if (Vector2.Distance(transform.position, player.transform.position) <= 2f)
+        {
+            rushCoolDownStart = true;
+            spriteRenderer.color = Color.white;
+        }
     }
 
     private void NormalMovement()
     {
+        
         if (flipTimerStart)
         {
             flipTimer += Time.deltaTime;

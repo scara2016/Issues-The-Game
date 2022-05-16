@@ -402,9 +402,9 @@ public class Movement : MonoBehaviour
 
     public void Dash()
     {
-        dashInput = playerControls.Main.Move.ReadValue<float>();
-        Debug.Log("Should Dash");
-        rb.AddForce(dashInput * Vector2.right*dashSpeed, ForceMode2D.Impulse);
+        
+
+        //rb.AddForce(dashInput * Vector2.right*dashSpeed, ForceMode2D.Impulse);
     }
 
 
