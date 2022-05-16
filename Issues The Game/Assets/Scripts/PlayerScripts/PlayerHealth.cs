@@ -101,7 +101,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("He ded tho: " + isDead);
         // GetComponent<Collider2D>().enabled = false;
         // this.enabled = false;
-        controller.DieState();
+        controller.DieState(true);
     }
 
     private void DestroyPlayer()
