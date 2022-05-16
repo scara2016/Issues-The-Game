@@ -1,29 +1,54 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIPartrol : MonoBehaviour
+public class RushAIPatrol : MonoBehaviour
 {
-  
+
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] private LayerMask platformLayerMask;
 
     Rigidbody2D myRigidbody;
     BoxCollider2D boxCollider;
 
-    public float flipCooldown=1f;
+    public float flipCooldown = 1f;
+    public float rushSpeed = 20f;
     private float flipTimer;
     private bool flipTimerStart = false;
     bool right = true;
+    private EnemyDetectionCircle detectionCircle;
+    private Movement player;
+
+    public float 
+
     void Start()
     {
-        
+        detectionCircle = GetComponent<EnemyDetectionCircle>();
         myRigidbody = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
+        player = FindObjectOfType<Movement>();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        if (!detectionCircle.PlayerSeen)
+        {
+            NormalMovement();
+        }
+        else
+        {
+            RushMovement();
+        }
+    }
+
+    private void RushMovement()
+    {
+        myRigidbody.AddForce(new Vector2(((player.transform.position.x - transform.position.x) / Mathf.Abs(player.transform.position.x - transform.position.x)) * rushSpeed, 0));
+    }
+
+    private void NormalMovement()
     {
         if (flipTimerStart)
         {
@@ -42,7 +67,7 @@ public class AIPartrol : MonoBehaviour
         {
             myRigidbody.velocity = new Vector2(-moveSpeed, 0f);
         }
-        if (!IsGrounded()&&!flipTimerStart)
+        if (!IsGrounded() && !flipTimerStart)
         {
             flipTimerStart = true;
             if (right)
@@ -55,11 +80,12 @@ public class AIPartrol : MonoBehaviour
             }
         }
     }
+
     public bool IsGrounded()
     {
         float extraHeight = 0.3f;
         Color rayColor;
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size*2f, 0f, Vector2.down, extraHeight, platformLayerMask);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size * 2f, 0f, Vector2.down, extraHeight, platformLayerMask);
         if (raycastHit.collider != null) //When grounded
         {
             rayColor = Color.green;
@@ -68,7 +94,7 @@ public class AIPartrol : MonoBehaviour
         {
             rayColor = Color.red;
         }
-        
+
         return raycastHit.collider != null;
     }
 
@@ -83,7 +109,6 @@ public class AIPartrol : MonoBehaviour
             right = true;
         }
     }
-
 
 
 }
