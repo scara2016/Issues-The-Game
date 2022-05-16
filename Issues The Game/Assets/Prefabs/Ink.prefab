@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1051319084053334798}
   - component: {fileID: 9004379658110058046}
   - component: {fileID: -3351636930371357504}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ink
   m_TagString: InkDrop
   m_Icon: {fileID: 0}
