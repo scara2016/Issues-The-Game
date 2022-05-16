@@ -76,6 +76,11 @@ public class Movement : MonoBehaviour
         playerControls.Disable();
     }
 
+    public void DisableControls()
+    {
+        playerControls.Disable(); //Public Switch
+    }
+
     private void Start()
     {
         
