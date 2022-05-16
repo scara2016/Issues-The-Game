@@ -11,6 +11,7 @@ public class WeaponPickup : MonoBehaviour {
     private ZapBoots zapBoots;
 
     private GameObject player;
+    private Movement playerMovement;
     private PlayerControls playerControls;
 
     private PlayerCombat combat;
@@ -21,7 +22,11 @@ public class WeaponPickup : MonoBehaviour {
     // public bool itemPicked;
     
     private float pickUpInput;
-    
+    private float dashInput;
+
+    public float dashCoolDown = 2f;
+    private bool dashCoolDownStart = false;
+    private float dashCoolDownTimer;
 
     [SerializeField]
     private Weapon weapon;
@@ -37,6 +42,7 @@ public class WeaponPickup : MonoBehaviour {
 
     void Awake (){
         player = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = player.GetComponent<Movement>();
         zapBoots = GameObject.FindGameObjectWithTag("Boots").GetComponent<ZapBoots>();
         sizzleSword = GameObject.FindGameObjectWithTag("Sword").GetComponent<SizzleSword>();
         weaponHolder = GameObject.FindGameObjectWithTag("WeaponHolder");
@@ -55,13 +61,25 @@ public class WeaponPickup : MonoBehaviour {
     }
 
     void Update (){
-        // moveInput = playerControls.Main.Move.ReadValue<float>();
         pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
-        Debug.Log(pickUpInput);
-        Debug.Log(combat.attackDamage);
-        Debug.Log(movement.moveSpeed);
-        
-        if(pickUpAllowed && pickUpInput != 0) {
+        dashInput = playerControls.Main.Dash.ReadValue<float>();
+
+        if (dashCoolDownStart)
+        {
+            dashCoolDownTimer += Time.deltaTime;
+        }
+        if(dashCoolDownStart && dashCoolDownTimer >= dashCoolDown)
+        {
+            dashCoolDownStart = false;
+            dashCoolDownTimer = 0f;
+        }
+        if (dashInput != 0 && !dashCoolDownStart)
+        {
+            dashCoolDownStart = true;
+            playerMovement.Dash();
+        }
+
+        if (pickUpAllowed && pickUpInput != 0) {
             PickUp();
             
             if(transform.parent.CompareTag(weaponHolder.tag))
@@ -69,13 +87,8 @@ public class WeaponPickup : MonoBehaviour {
                 if(this.CompareTag("Sword")) 
                 {
                     combat.attackDamage = 20;
-                    // movement.moveSpeed = moveInput * movement.moveSpeed;
-                    movement.moveSpeed = 6f;
-                    Debug.Log("We have " + this.name);
                     pickUpAllowed = false;
                     Weapon.Instance.GetWeapon();
-                    Debug.Log(weaponHolder.GetComponentInChildren<ZapBoots>());
-                    Debug.Log(weaponHolder.GetComponentInChildren<SizzleSword>());
                         if(weaponHolder.GetComponentInChildren<ZapBoots>() != null)
                         {
                             Debug.Log("Reached");
@@ -85,12 +98,9 @@ public class WeaponPickup : MonoBehaviour {
                 if (this.CompareTag("Boots")) 
                 {
                     combat.attackDamage = 5;
-                    movement.moveSpeed = 15f;
-                    Debug.Log("We have " + this.name);
                     pickUpAllowed = false;
                     Weapon.Instance.GetWeapon();
-                    Debug.Log(weaponHolder.GetComponentInChildren<SizzleSword>());
-                    Debug.Log(weaponHolder.GetComponentInChildren<ZapBoots>());
+                   
                         if(weaponHolder.GetComponentInChildren<SizzleSword>() != null)
                         {
                             Debug.Log("Reached");

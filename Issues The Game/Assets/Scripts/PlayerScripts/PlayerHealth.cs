@@ -17,9 +17,9 @@ public class PlayerHealth : MonoBehaviour
     public bool hit;
 
     [SerializeField]
-    private float verticalKnockbackForce;
+    public float verticalKnockbackForce;
     [SerializeField]
-    private float horizontalKnockbackForce;
+    public float horizontalKnockbackForce;
 
     [SerializeField]
     private float invulnerabilityTime;
@@ -29,11 +29,23 @@ public class PlayerHealth : MonoBehaviour
 
     [HideInInspector]
     public Enemy enemy;
+    private AnimationController controller;
+
+    // void OnEnable() {
+    //     playerControls.Enable();
+    // }
+
+    // void OnDisable() {
+    //     playerControls.Disable();
+    // }
     void Start()
     {
         health = maxHealth;
         rb = gameObject.GetComponent<Rigidbody2D>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
+        controller = GetComponent<AnimationController>();
+        // movement = this.GetComponent<Movement>();
+        // playerControls = new PlayerControls();
     }
 
     public void InkDamage(float inkDamage)
@@ -53,9 +65,7 @@ public class PlayerHealth : MonoBehaviour
             health -= damage;
             if (health <= 0)
             {
-                isDead = true;
-                GetComponent<Collider2D>().enabled = false;
-                this.enabled = false;
+                Die();
             }
         }
     }
@@ -69,6 +79,15 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    private void Die()
+    {
+        isDead = true;
+        Debug.Log("He ded tho: " + isDead);
+        // GetComponent<Collider2D>().enabled = false;
+        // this.enabled = false;
+        controller.DieState(true);
+    }
+
     private void HandleKnockBack()
     {
         isTakingDamage = true;
@@ -77,10 +96,12 @@ public class PlayerHealth : MonoBehaviour
         if(transform.position.x < enemy.transform.position.x)
         {
             rb.AddForce(Vector2.left * horizontalKnockbackForce);
+            controller.HurtState(); //Plays damage animation
         }
         else 
         {
             rb.AddForce(Vector2.right * horizontalKnockbackForce);
+            controller.HurtState(); //Plays damage animation
         }
 
         Invoke("CancelHit", invulnerabilityTime);

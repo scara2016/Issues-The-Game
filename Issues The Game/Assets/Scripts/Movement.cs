@@ -48,12 +48,14 @@ public class Movement : MonoBehaviour
     private float wallTransferCooldownTimer=0;
     private bool wallTransferCooldownStart = false;
     private bool wallTransferState = false;
-    public GameObject wallTextTip;
-
+    private float dashInput;
+    public float dashSpeed=10f;
 
     private AnimationController controller;
 
     private PlayerHealth pHealth;
+
+    public GameObject ButtonPrompt;
 
     private void Awake()
     {
@@ -88,9 +90,7 @@ public class Movement : MonoBehaviour
         Jump();
         WallJump();
         Crouch();
-       
-       
-       
+        ButtonPromptShow();       
 
         if (wallTransferCooldownStart) //cooldown for walltransfer added here so it runs everyframe;
         {
@@ -111,10 +111,6 @@ public class Movement : MonoBehaviour
             moveInput = 0;
             Debug.Log(moveInput);
         }
-
-
-
-        WallText();
     }
 
     public bool IsGrounded()
@@ -322,7 +318,6 @@ public class Movement : MonoBehaviour
         }
     }
 
-
     private void OnTriggerStay2D(Collider2D collision)
     {
            
@@ -347,10 +342,6 @@ public class Movement : MonoBehaviour
         
         }
     }
-
-
-
-    
 
     private void wallTransfer(WallTranferScript InitialSide)
     {
@@ -395,16 +386,25 @@ public class Movement : MonoBehaviour
 */
     }
 
-    private void WallText()
+    private void ButtonPromptShow()
     {
         if (wallTransferState)
         {
-            wallTextTip.SetActive(true);
+            ButtonPrompt.SetActive(true);
         }
         if (!wallTransferState)
         {
-            wallTextTip.SetActive(false);
+            ButtonPrompt.SetActive(false);
         }
     }
+
+    public void Dash()
+    {
+        dashInput = playerControls.Main.Move.ReadValue<float>();
+        Debug.Log("Should Dash");
+        rb.AddForce(dashInput * Vector2.right*dashSpeed, ForceMode2D.Impulse);
+    }
+
+
 }
 
