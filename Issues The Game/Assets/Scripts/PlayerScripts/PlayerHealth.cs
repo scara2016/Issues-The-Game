@@ -117,11 +117,13 @@ public class PlayerHealth : MonoBehaviour
         if(transform.position.x < enemy.transform.position.x)
         {
             rb.AddForce(Vector2.left * horizontalKnockbackForce);
+            Debug.Log("called left");
             controller.HurtState(); //Plays damage animation
         }
         else 
         {
             rb.AddForce(Vector2.right * horizontalKnockbackForce);
+            Debug.Log("called right");
             controller.HurtState(); //Plays damage animation
         }
 
