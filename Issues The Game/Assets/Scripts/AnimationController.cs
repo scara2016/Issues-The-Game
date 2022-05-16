@@ -74,7 +74,7 @@ public class AnimationController : MonoBehaviour
         animator.SetTrigger("Ow");
     }
 
-    public void DieState()
+    public void DieState(bool die)
     {
         animator.SetTrigger("Dead");
     }
