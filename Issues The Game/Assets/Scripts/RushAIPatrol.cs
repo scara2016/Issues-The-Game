@@ -63,7 +63,7 @@ public class RushAIPatrol : MonoBehaviour
         if (Vector2.Distance(transform.position, player.transform.position) <= 2f)
         {
             rushCoolDownStart = true;
-            spriteRenderer.color = Color.white;
+            spriteRenderer.color = Color.blue;
         }
     }
 
