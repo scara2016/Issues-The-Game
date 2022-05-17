@@ -82,12 +82,21 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Test"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
-                    ""id"": ""58b94bfc-f2c9-4d88-82b0-96948e157e01"",
+                    ""id"": ""3d820cda-1e1c-4342-b6b1-72fdc756fc02"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""166f3d95-1cb2-4a5b-9d44-060e06c38c57"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -205,7 +214,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ceada642-62ac-4042-b8f7-8292717acc8f"",
-                    ""path"": ""<Keyboard>/h"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -270,12 +279,34 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dba18afb-811e-4063-8698-980ef70da687"",
-                    ""path"": ""<Keyboard>/z"",
-                    ""interactions"": ""Press"",
+                    ""id"": ""bd49946e-9640-4ca7-b575-247ad5e86a18"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Test"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""793225f1-8501-4f67-a473-15da45546ea2"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3f49599-1c57-4e89-8f3d-7ccc39332076"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -292,7 +323,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Main_Attack = m_Main.FindAction("Attack", throwIfNotFound: true);
         m_Main_Crouch = m_Main.FindAction("Crouch", throwIfNotFound: true);
         m_Main_WallTransfer = m_Main.FindAction("WallTransfer", throwIfNotFound: true);
-        m_Main_Test = m_Main.FindAction("Test", throwIfNotFound: true);
+        m_Main_Pause = m_Main.FindAction("Pause", throwIfNotFound: true);
+        m_Main_Dash = m_Main.FindAction("Dash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -358,7 +390,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Main_Attack;
     private readonly InputAction m_Main_Crouch;
     private readonly InputAction m_Main_WallTransfer;
-    private readonly InputAction m_Main_Test;
+    private readonly InputAction m_Main_Pause;
+    private readonly InputAction m_Main_Dash;
     public struct MainActions
     {
         private @PlayerControls m_Wrapper;
@@ -369,7 +402,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Main_Attack;
         public InputAction @Crouch => m_Wrapper.m_Main_Crouch;
         public InputAction @WallTransfer => m_Wrapper.m_Main_WallTransfer;
-        public InputAction @Test => m_Wrapper.m_Main_Test;
+        public InputAction @Pause => m_Wrapper.m_Main_Pause;
+        public InputAction @Dash => m_Wrapper.m_Main_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -397,9 +431,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @WallTransfer.started -= m_Wrapper.m_MainActionsCallbackInterface.OnWallTransfer;
                 @WallTransfer.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnWallTransfer;
                 @WallTransfer.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnWallTransfer;
-                @Test.started -= m_Wrapper.m_MainActionsCallbackInterface.OnTest;
-                @Test.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnTest;
-                @Test.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnTest;
+                @Pause.started -= m_Wrapper.m_MainActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnPause;
+                @Dash.started -= m_Wrapper.m_MainActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnDash;
             }
             m_Wrapper.m_MainActionsCallbackInterface = instance;
             if (instance != null)
@@ -422,9 +459,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @WallTransfer.started += instance.OnWallTransfer;
                 @WallTransfer.performed += instance.OnWallTransfer;
                 @WallTransfer.canceled += instance.OnWallTransfer;
-                @Test.started += instance.OnTest;
-                @Test.performed += instance.OnTest;
-                @Test.canceled += instance.OnTest;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
         }
     }
@@ -437,6 +477,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnWallTransfer(InputAction.CallbackContext context);
-        void OnTest(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
 }

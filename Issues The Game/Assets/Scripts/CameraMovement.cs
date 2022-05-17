@@ -32,7 +32,6 @@ public class CameraMovement : MonoBehaviour
         //Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag.Equals("panel"))
         {
-            Debug.Log(collision.gameObject.tag);
             currentPanelCollider = collision;
             checkCentralized(collision);
             moveCam = true;

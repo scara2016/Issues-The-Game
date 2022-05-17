@@ -6,17 +6,45 @@ using UnityEngine.UI;
 public class Healthbar : MonoBehaviour
 {
 
+    private PlayerHealth playerHealth;
 
+    private static Healthbar instance;
+    public static Healthbar Instance
+    {
+        get
+            {
+                if (instance == null)
+                {
+                    Debug.LogError("No HealthBar in the scene");
+                }
+                return instance;
+            }
+    }
     public Slider slider;
 
-    public void SetMaxHealth(int Health)
+    private void Awake()
     {
-        slider.maxValue = Health;
-        slider.value = Health;
+        playerHealth = FindObjectOfType<PlayerHealth>();       
     }
 
-    public void SetHealth(int Health)
+    private void Start()
     {
-        slider.value = Health;
+        SetMaxHealth();
+    }
+
+    private void Update()
+    {
+        SetHealth();
+    }
+
+    private void SetMaxHealth()
+    {
+        slider.maxValue = playerHealth.maxHealth;
+        slider.value = playerHealth.health;
+    }
+
+    private void SetHealth()
+    {
+        slider.value = playerHealth.health;
     }
 }
