@@ -76,6 +76,11 @@ public class Movement : MonoBehaviour
         playerControls.Disable();
     }
 
+    public void DisableControls()
+    {
+        playerControls.Disable(); //Public Switch
+    }
+
     private void Start()
     {
         
@@ -109,7 +114,6 @@ public class Movement : MonoBehaviour
         else 
         {
             moveInput = 0;
-            Debug.Log(moveInput);
         }
     }
 
@@ -287,7 +291,7 @@ public class Movement : MonoBehaviour
         if (isWallSliding) // movement condition for sliding
         {
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlideSpeed, float.MaxValue));
-            Debug.Log("Wall Sliding: " + isWallSliding);
+            
         }
         if (wallJumpCooldownStart) // so the player cannot jump in rapid succsesion
         {
@@ -325,12 +329,10 @@ public class Movement : MonoBehaviour
         {
             wallTransfer(collision.gameObject.GetComponent<WallTranferScript>());
             wallTransferState = true;
-            Debug.Log("Wall Transfer State: " + wallTransferState);
         }
         else
         {
             wallTransferState = false;
-            Debug.Log("Wall Transfer State: " + wallTransferState);
         }
         
         if (collision.CompareTag("InkDrop"))
@@ -400,9 +402,9 @@ public class Movement : MonoBehaviour
 
     public void Dash()
     {
-        dashInput = playerControls.Main.Move.ReadValue<float>();
-        Debug.Log("Should Dash");
-        rb.AddForce(dashInput * Vector2.right*dashSpeed, ForceMode2D.Impulse);
+        
+
+        //rb.AddForce(dashInput * Vector2.right*dashSpeed, ForceMode2D.Impulse);
     }
 
 

@@ -30,6 +30,10 @@ public class PlayerHealth : MonoBehaviour
     [HideInInspector]
     public Enemy enemy;
     private AnimationController controller;
+    public AnimationClip clip;
+    private AnimationEvent evt1; 
+    private Animator anim;
+    private Movement movement;
 
     // void OnEnable() {
     //     playerControls.Enable();
@@ -40,12 +44,23 @@ public class PlayerHealth : MonoBehaviour
     // }
     void Start()
     {
+        movement = GetComponent<Movement>();
         health = maxHealth;
         rb = gameObject.GetComponent<Rigidbody2D>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
         controller = GetComponent<AnimationController>();
         // movement = this.GetComponent<Movement>();
         // playerControls = new PlayerControls();
+        evt1 = new AnimationEvent();
+
+        //Parameters for AnimationEvent.
+        //Make sure the Die Animation Clip is referenced in PlayerHealth component
+        evt1.time = 1f; //Sets the avent on the last frame
+        evt1.functionName = "DestroyPlayer";
+
+        //This assigns the event to the Animation Clip
+        anim = gameObject.GetComponent<Animator>();
+        clip.AddEvent(evt1);
     }
 
     public void InkDamage(float inkDamage)
@@ -53,7 +68,7 @@ public class PlayerHealth : MonoBehaviour
         health -= inkDamage*Time.deltaTime;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
     }
 
@@ -82,26 +97,35 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         isDead = true;
+        movement.DisableControls(); //Disables controls on death
         Debug.Log("He ded tho: " + isDead);
         // GetComponent<Collider2D>().enabled = false;
         // this.enabled = false;
-        controller.DieState(true);
+        controller.DieState();
+    }
+
+    private void DestroyPlayer()
+    {
+        Destroy(gameObject); //Needs to be separate cause of animation event timing
     }
 
     private void HandleKnockBack()
     {
         isTakingDamage = true;
         rb.AddForce(Vector2.up * verticalKnockbackForce);
-        
-        if(transform.position.x < enemy.transform.position.x)
+        if (enemy != null)
         {
-            rb.AddForce(Vector2.left * horizontalKnockbackForce);
-            controller.HurtState(); //Plays damage animation
-        }
-        else 
-        {
-            rb.AddForce(Vector2.right * horizontalKnockbackForce);
-            controller.HurtState(); //Plays damage animation
+            if (transform.position.x < enemy.transform.position.x)
+            {
+                rb.AddForce(Vector2.left * horizontalKnockbackForce);
+
+                controller.HurtState(); //Plays damage animation
+            }
+            else
+            {
+                rb.AddForce(Vector2.right * horizontalKnockbackForce);
+                controller.HurtState(); //Plays damage animation
+            }
         }
 
         Invoke("CancelHit", invulnerabilityTime);
@@ -118,6 +142,14 @@ public class PlayerHealth : MonoBehaviour
         if (!isDead)
         {
             isTakingDamage = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            enemy = collision.gameObject.GetComponent<Enemy>();
         }
     }
 
