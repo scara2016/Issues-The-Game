@@ -12,6 +12,10 @@ public class panelManager : MonoBehaviour
     void Start()
     {
         panelCollider = GetComponent<BoxCollider2D>();
+        for(int i = 0; i < passableSurfaces.Count; i++)
+        {
+            passableSurfaces[i].SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -24,14 +28,12 @@ public class panelManager : MonoBehaviour
                 enemies.RemoveAt(i);
                 if (enemies.Count == 0)
                 {
-                    Debug.Log("YeeHaw");
                     EnableSurfaces();
                 }
             }
         }
         if (enemies.Count == 0)
         {
-            Debug.Log("YeeHaw");
             for (int i = 0; i < passableSurfaces.Count; i++)
             {
                 passableSurfaces[i].SetActive(true);
