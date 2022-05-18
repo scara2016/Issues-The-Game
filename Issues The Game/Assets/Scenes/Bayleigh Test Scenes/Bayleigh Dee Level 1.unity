@@ -2589,6 +2589,14 @@ PrefabInstance:
       propertyPath: verticalKnockbackForce
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 4499346221470167105, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: dashSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499346221470167105, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: dashDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: dashSpeed
       value: 125
