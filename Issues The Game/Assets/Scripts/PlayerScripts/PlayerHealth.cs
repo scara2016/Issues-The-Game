@@ -98,16 +98,19 @@ public class PlayerHealth : MonoBehaviour
     {
         isTakingDamage = true;
         rb.AddForce(Vector2.up * verticalKnockbackForce);
-        
-        if(transform.position.x < enemy.transform.position.x)
+        if (enemy != null)
         {
-            rb.AddForce(Vector2.left * horizontalKnockbackForce);
-            controller.HurtState(); //Plays damage animation
-        }
-        else 
-        {
-            rb.AddForce(Vector2.right * horizontalKnockbackForce);
-            controller.HurtState(); //Plays damage animation
+            if (transform.position.x < enemy.transform.position.x)
+            {
+                rb.AddForce(Vector2.left * horizontalKnockbackForce);
+
+                controller.HurtState(); //Plays damage animation
+            }
+            else
+            {
+                rb.AddForce(Vector2.right * horizontalKnockbackForce);
+                controller.HurtState(); //Plays damage animation
+            }
         }
 
         Invoke("CancelHit", invulnerabilityTime);
@@ -124,6 +127,14 @@ public class PlayerHealth : MonoBehaviour
         if (!isDead)
         {
             isTakingDamage = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            enemy = collision.gameObject.GetComponent<Enemy>();
         }
     }
 

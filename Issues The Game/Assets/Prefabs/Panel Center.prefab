@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7219774868679182042}
   - component: {fileID: 7219774868679182043}
+  - component: {fileID: 7682107939511406455}
   m_Layer: 0
   m_Name: Panel Center
   m_TagString: panel
@@ -58,3 +59,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 13.217899, y: 10.066147}
   m_EdgeRadius: 0
+--- !u!114 &7682107939511406455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7219774868679182044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daef83477506ef94b8f2a5dd668daeb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
