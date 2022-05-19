@@ -50,14 +50,9 @@ public class Dash : MonoBehaviour
         {
             case DashState.DashStart:
                 initialPlayerPos = transform.position;
-                finalPlayerPos = transform.position + new Vector3(dashDistance, 0, 0);
+                finalPlayerPos = transform.position + new Vector3(playerControls.Main.Move.ReadValue<float>() * dashDistance, 0, 0);
                 dashState = DashState.Dashing;
-                RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, playerControls.Main.Move.ReadValue<float>() * Vector2.right, dashDistance);
                 fractionTravelled = 1f;
-               // if (raycastHit2D.distance != 0)
-                 //   {
-                   //     fractionTravelled = raycastHit2D.distance / dashDistance;
-                   // }
                 
                 break;
             case DashState.Dashing:

@@ -12,10 +12,11 @@ public class InkMovement : MonoBehaviour
     public GameObject target;
     private Spline spline;
     public float numberOfPoints = 20;
-    private float radius = 5;
+    public float radius = 1;
     private float smoothness = 0.2f;
-    public float offset = 0.2f;
-
+    public float noiseSize = 2f;
+    public float waveMax=10;
+    public float waveMin = 3;
     void Start()
     {
         numberOfPoints = numberOfPoints - 4;
@@ -58,12 +59,44 @@ public class InkMovement : MonoBehaviour
         {
             spline.SetTangentMode(i, ShapeTangentMode.Continuous); 
         }
-     
+
+        double[] offsetsFlat = new double[(int)numberOfPoints + 4];
+        double[] offsetsBumpy = new double[(int)numberOfPoints + 4];
+        double[] offsetsAverage = new double[(int)numberOfPoints + 4];
+
+        for (int i = 0; i < offsetsFlat.Length; i++)
+        {
+            offsetsFlat[i] = Mathf.PerlinNoise((float)i / (offsetsFlat.Length*2), 0.0f);
+            offsetsBumpy[i] = (Mathf.Pow(Mathf.PerlinNoise((float)i / (offsetsFlat.Length), 0.0f),4))*10;
+            offsetsAverage[i] = (offsetsBumpy[i] + offsetsFlat[i]) / 2;
+            offsetsAverage[i] = (2 * offsetsAverage[i]) - 1;
+            offsetsAverage[i] = System.Math.Pow(offsetsAverage[i],noiseSize);
+            
+        }
+        double max = float.MinValue;
+        double min = float.MaxValue;
+        for(int i = 0; i < offsetsAverage.Length; i++)
+        {
+            if (offsetsAverage[i] > max)
+                max = offsetsAverage[i];
+            if (offsetsAverage[i] < min)
+                min = offsetsAverage[i];
+        }
+        double OldRange = max - min;
+        double NewRange = waveMax - waveMin;
+        for(int i=0; i < offsetsAverage.Length; i++)
+        {
+            offsetsAverage[i] = (((offsetsAverage[i] - min) * NewRange) / OldRange)+waveMin;
+            Debug.Log(offsetsAverage[i]);
+
+        }
+
+
         //put the points on a circle
         float angle = TAU / (numberOfPoints+4);   
         for (int i = 0; i < spline.GetPointCount(); i++)
         {
-            spline.SetPosition(i,((new Vector3(Mathf.Sin(angle*i), Mathf.Cos(angle*i), 0))*radius));
+            spline.SetPosition(i,((new Vector3(Mathf.Sin(angle*i), Mathf.Cos(angle*i), 0))*radius*(float)offsetsAverage[i]));
         }
 
 
@@ -89,13 +122,9 @@ public class InkMovement : MonoBehaviour
         }
         
 
-        float[] offsets = new float[(int)numberOfPoints + 4];
-        for(int i = 0; i < offsets.Length; i++)
-        {
-            offsets[i] = Mathf.PerlinNoise(i, 1);
-            Debug.Log(offsets[i] + " ");
-        }
+        
 
+        
 
     }
 
