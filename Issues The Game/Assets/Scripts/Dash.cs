@@ -15,6 +15,7 @@ public class Dash : MonoBehaviour
     [SerializeField] private float dashSpeed;
     private DashState dashState;
     private Movement playerMovement;
+    private Rigidbody2D rb;
     private PlayerControls playerControls;
     private Vector3 initialPlayerPos;
     private Vector3 finalPlayerPos;
@@ -25,6 +26,7 @@ public class Dash : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerControls();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Start()
@@ -52,16 +54,16 @@ public class Dash : MonoBehaviour
                 dashState = DashState.Dashing;
                 RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, playerControls.Main.Move.ReadValue<float>() * Vector2.right, dashDistance);
                 fractionTravelled = 1f;
-                if (raycastHit2D.distance != 0)
-                    {
-                        fractionTravelled = raycastHit2D.distance / dashDistance;
-                    }
+               // if (raycastHit2D.distance != 0)
+                 //   {
+                   //     fractionTravelled = raycastHit2D.distance / dashDistance;
+                   // }
                 
                 break;
             case DashState.Dashing:
                     playerMovement.enabled = false;
                     Debug.Log("dashdistance " + fractionTravelled);
-                    transform.position = Vector3.Lerp(initialPlayerPos, finalPlayerPos, t);
+                    rb.MovePosition(Vector3.Lerp(initialPlayerPos, finalPlayerPos, t));
                     t += dashSpeed * Time.deltaTime;
                 if (t >= fractionTravelled)
                 {
