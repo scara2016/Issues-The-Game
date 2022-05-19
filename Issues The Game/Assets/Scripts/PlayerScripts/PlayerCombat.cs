@@ -37,7 +37,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Awake()
     {
-        controller = new AnimationController();
+        controller = this.GetComponent<AnimationController>();
 
         playerControls = new PlayerControls();
         weaponsList = new Collider2D[1];
