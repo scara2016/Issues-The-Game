@@ -8,6 +8,7 @@ public class InkMovement : MonoBehaviour
     // Start is called before the first frame update
 
     private SpriteShapeController spriteShapeController;
+    private PolygonCollider2D shapeCollider;
     private float TAU = Mathf.PI*2;
     public GameObject target;
     private Spline spline;
@@ -17,12 +18,16 @@ public class InkMovement : MonoBehaviour
     public float noiseSize = 2f;
     public float waveMax=10;
     public float waveMin = 3;
+    private int numberOfPointsThatFollow;
+    List<int> followingPoints = new List<int>();
+    private Vector3 goal;
     void Start()
     {
         numberOfPoints = numberOfPoints - 4;
         spriteShapeController = GetComponent<SpriteShapeController>();
+        shapeCollider = GetComponent<PolygonCollider2D>();
         spline = spriteShapeController.spline;
-
+        numberOfPointsThatFollow = ((int)numberOfPoints+4) / 2;
         //   spline.InsertPointAt(1, Vector3.Lerp(spline.GetPosition(0), spline.GetPosition(1), 0.5f));
         Vector3 firstNodePos = spline.GetPosition(0);
         Vector3 secondNodePos = spline.GetPosition(1);
@@ -71,7 +76,6 @@ public class InkMovement : MonoBehaviour
             offsetsAverage[i] = (offsetsBumpy[i] + offsetsFlat[i]) / 2;
             offsetsAverage[i] = (2 * offsetsAverage[i]) - 1;
             offsetsAverage[i] = System.Math.Pow(offsetsAverage[i],noiseSize);
-            
         }
         double max = float.MinValue;
         double min = float.MaxValue;
@@ -91,7 +95,7 @@ public class InkMovement : MonoBehaviour
 
         }
 
-
+       
         //put the points on a circle
         float angle = TAU / (numberOfPoints+4);   
         for (int i = 0; i < spline.GetPointCount(); i++)
@@ -120,18 +124,14 @@ public class InkMovement : MonoBehaviour
             spline.SetRightTangent(i, rightTangent);
             */
         }
-        
 
-        
-
-        
-
+       // goal = target.transform.position - shapeCollider.bounds.center;  
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.localScale += Vector3.one * Time.deltaTime;
 
     }
 }
