@@ -79,4 +79,8 @@ public class AnimationController : MonoBehaviour
         animator.SetTrigger("Dead");
     }
 
+    public void DashState()
+    {
+        animator.SetTrigger("Dash");
+    }
 }
