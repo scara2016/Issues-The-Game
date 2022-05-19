@@ -3875,7 +3875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051616625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.35577, y: 12.041247, z: 0}
+  m_LocalPosition: {x: -0.9, y: 42.6, z: 0}
   m_LocalScale: {x: 2.7854, y: 2.7854, z: 2.7854}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3896,7 +3896,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   numberOfPoints: 100
-  offset: 0.2
+  radius: 1
+  noiseSize: 2
+  waveMax: 10
+  waveMin: 3
 --- !u!4 &1056867562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3599541823199480543, guid: 8d9184139ba5a294c87e9daeb5e8f99d, type: 3}
