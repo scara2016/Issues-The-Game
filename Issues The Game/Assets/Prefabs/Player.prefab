@@ -243,7 +243,6 @@ MonoBehaviour:
   inkDragMoveSpeed: 2
   wallTransferCooldownTime: 0.2
   dashSpeed: 125
-  ButtonPrompt: {fileID: 0}
 --- !u!114 &6217983382483752865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashDistance: 5
+  dashSpeed: 1
 --- !u!1001 &3659856823999507850
 PrefabInstance:
   m_ObjectHideFlags: 0
