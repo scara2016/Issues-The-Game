@@ -108,9 +108,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 25
-        y: 372
+        y: 363
         width: 46
-        height: 115
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eec1bb3cdf4859748868c9add60ac771
-      internalID: 1068880214
+      spriteID: ee814fe06f8cc524eb346eab1c6070d0
+      internalID: -1379343993
       vertices: []
       indices: 
       edges: []
@@ -128,10 +128,10 @@ TextureImporter:
       name: Sword Swing 1_1
       rect:
         serializedVersion: 2
-        x: 156
-        y: 371
-        width: 88
-        height: 112
+        x: 185
+        y: 362
+        width: 97
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47ce1a004db4dd743b410e7070c018c6
-      internalID: 360479840
+      spriteID: d1365ed8544c74b4ca29d3204050e2c2
+      internalID: -1687275356
       vertices: []
       indices: 
       edges: []
@@ -149,10 +149,10 @@ TextureImporter:
       name: Sword Swing 1_2
       rect:
         serializedVersion: 2
-        x: 296
-        y: 371
-        width: 88
-        height: 112
+        x: 354
+        y: 362
+        width: 97
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4084efe735585284582a4d293de96712
-      internalID: 1235206901
+      spriteID: 8f2c0db5998e9304fa67fe9cdfaeeafe
+      internalID: 669837127
       vertices: []
       indices: 
       edges: []
@@ -170,10 +170,10 @@ TextureImporter:
       name: Sword Swing 1_3
       rect:
         serializedVersion: 2
-        x: 435
-        y: 371
-        width: 98
-        height: 115
+        x: 522
+        y: 362
+        width: 110
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d2eaceec9e880c429201e0027d6aad5
-      internalID: 871660237
+      spriteID: 47c271d18d7a62748afd7a096a89a635
+      internalID: 914852082
       vertices: []
       indices: 
       edges: []
@@ -191,10 +191,10 @@ TextureImporter:
       name: Sword Swing 1_4
       rect:
         serializedVersion: 2
-        x: 566
-        y: 373
-        width: 119
-        height: 113
+        x: 682
+        y: 364
+        width: 134
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,8 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 134383923ff3b4143a12a61354c68071
-      internalID: -1331971884
+      spriteID: e64c0349ed5b0db458980cfbea185600
+      internalID: -1771769497
       vertices: []
       indices: 
       edges: []
@@ -212,10 +212,10 @@ TextureImporter:
       name: Sword Swing 1_5
       rect:
         serializedVersion: 2
-        x: 705
-        y: 373
-        width: 124
-        height: 114
+        x: 850
+        y: 363
+        width: 146
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1edcca7a746b2fe43a3348ef5c5a913b
-      internalID: 306720584
+      spriteID: d943101eeb5cf26419342c44b7e96a22
+      internalID: -553216263
       vertices: []
       indices: 
       edges: []
@@ -233,10 +233,10 @@ TextureImporter:
       name: Sword Swing 1_6
       rect:
         serializedVersion: 2
-        x: 845
-        y: 373
-        width: 124
-        height: 114
+        x: 5
+        y: 202
+        width: 146
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,8 +244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fe14d0a1a594c344ad030285af18d90
-      internalID: -1868921621
+      spriteID: ae3056624ec06094483e7946294c0087
+      internalID: -725097776
       vertices: []
       indices: 
       edges: []
@@ -254,10 +254,10 @@ TextureImporter:
       name: Sword Swing 1_7
       rect:
         serializedVersion: 2
-        x: 5
-        y: 227
-        width: 124
-        height: 114
+        x: 174
+        y: 202
+        width: 146
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,8 +265,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 099d1ab8a3916404586b0c3b0b855b94
-      internalID: 2063297931
+      spriteID: f6245e43ab9c1214e93fc71d807766b1
+      internalID: -1371435625
       vertices: []
       indices: 
       edges: []
@@ -275,10 +275,10 @@ TextureImporter:
       name: Sword Swing 1_8
       rect:
         serializedVersion: 2
-        x: 145
-        y: 227
-        width: 124
-        height: 114
+        x: 343
+        y: 202
+        width: 146
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,8 +286,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1893a7cc866aa474e8c2d0235a51136f
-      internalID: 136459846
+      spriteID: 3959be227acd99d458ca6a233ed7168c
+      internalID: -1961323790
       vertices: []
       indices: 
       edges: []
@@ -296,10 +296,10 @@ TextureImporter:
       name: Sword Swing 1_9
       rect:
         serializedVersion: 2
-        x: 285
-        y: 227
-        width: 124
-        height: 114
+        x: 512
+        y: 202
+        width: 146
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,8 +307,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4bf919197df5334cbde8907e520d741
-      internalID: -321448089
+      spriteID: 3f74d43ac4955eb4c908f780140d8917
+      internalID: 1917446182
       vertices: []
       indices: 
       edges: []
@@ -317,10 +317,10 @@ TextureImporter:
       name: Sword Swing 1_10
       rect:
         serializedVersion: 2
-        x: 425
-        y: 227
-        width: 115
-        height: 114
+        x: 681
+        y: 202
+        width: 140
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,8 +328,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 336abc8b14d02cc4c96cbd4cc1cd742d
-      internalID: 871440326
+      spriteID: a466ee00420364145b1d768934c146a1
+      internalID: 845272732
       vertices: []
       indices: 
       edges: []
@@ -338,10 +338,10 @@ TextureImporter:
       name: Sword Swing 1_11
       rect:
         serializedVersion: 2
-        x: 565
-        y: 227
-        width: 115
-        height: 114
+        x: 850
+        y: 202
+        width: 140
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,8 +349,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f88e34ea4f6413942be92b8a61ca17d3
-      internalID: 711192627
+      spriteID: d90baa4edc8f2c6489c5b901e160ed59
+      internalID: 822789010
       vertices: []
       indices: 
       edges: []
@@ -359,10 +359,10 @@ TextureImporter:
       name: Sword Swing 1_12
       rect:
         serializedVersion: 2
-        x: 705
-        y: 227
-        width: 115
-        height: 114
+        x: 5
+        y: 41
+        width: 140
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,8 +370,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9788c37d1bf3ed4f9e622a459273030
-      internalID: -754785510
+      spriteID: b3a70170972146547bdff4b8e9c45283
+      internalID: -1158765637
       vertices: []
       indices: 
       edges: []
@@ -380,10 +380,10 @@ TextureImporter:
       name: Sword Swing 1_13
       rect:
         serializedVersion: 2
-        x: 845
-        y: 227
-        width: 115
-        height: 114
+        x: 174
+        y: 41
+        width: 140
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -391,8 +391,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51d1200b8f143004b9fbba3f68ce6982
-      internalID: 1976087920
+      spriteID: 57a8e049f1c65a449a1ec5fdf83ed226
+      internalID: 2090338876
       vertices: []
       indices: 
       edges: []
@@ -401,10 +401,10 @@ TextureImporter:
       name: Sword Swing 1_14
       rect:
         serializedVersion: 2
-        x: 5
-        y: 81
-        width: 115
-        height: 114
+        x: 343
+        y: 41
+        width: 140
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,8 +412,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08292fa751bfb69469ffb823a1695d90
-      internalID: -48656319
+      spriteID: 68c54e04d87863840aeb542ee32aaff6
+      internalID: 1357821221
       vertices: []
       indices: 
       edges: []
@@ -429,21 +429,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sword Swing 1_11: 711192627
-      Sword Swing 1_2: 1235206901
-      Sword Swing 1_3: 871660237
-      Sword Swing 1_5: 306720584
-      Sword Swing 1_0: 1068880214
-      Sword Swing 1_14: -48656319
-      Sword Swing 1_12: -754785510
-      Sword Swing 1_4: -1331971884
-      Sword Swing 1_7: 2063297931
-      Sword Swing 1_9: -321448089
-      Sword Swing 1_1: 360479840
-      Sword Swing 1_13: 1976087920
-      Sword Swing 1_6: -1868921621
-      Sword Swing 1_10: 871440326
-      Sword Swing 1_8: 136459846
+      Sword Swing 1_11: 822789010
+      Sword Swing 1_2: 669837127
+      Sword Swing 1_3: 914852082
+      Sword Swing 1_5: -553216263
+      Sword Swing 1_0: -1379343993
+      Sword Swing 1_14: 1357821221
+      Sword Swing 1_12: -1158765637
+      Sword Swing 1_4: -1771769497
+      Sword Swing 1_7: -1371435625
+      Sword Swing 1_9: 1917446182
+      Sword Swing 1_1: -1687275356
+      Sword Swing 1_13: 2090338876
+      Sword Swing 1_6: -725097776
+      Sword Swing 1_10: 845272732
+      Sword Swing 1_8: -1961323790
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
