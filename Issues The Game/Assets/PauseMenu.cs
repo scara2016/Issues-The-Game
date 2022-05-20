@@ -11,7 +11,30 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+        
         playerControls = new PlayerControls();
+
+    }
+
+    private static PauseMenu instance;
+    public static PauseMenu Instance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                Debug.LogError("");
+            }
+            return instance;
+        }
     }
 
     private void OnEnable()
@@ -40,7 +63,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    void Resume()
+    public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -52,6 +75,16 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
 }

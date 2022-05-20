@@ -124,7 +124,8 @@ public class InkMovement : MonoBehaviour
         }
 
         FindNextTarget();
-       // goal = target.transform.position - shapeCollider.bounds.center;  
+        FollowTransform();
+        // goal = target.transform.position - shapeCollider.bounds.center;  
     }
 
     private void FindNextTarget()
@@ -133,26 +134,27 @@ public class InkMovement : MonoBehaviour
         SetMovingPoints();
     }
     private Vector3 goalVector;
-    int min = int.MaxValue;
+    int min;
 
     private void SetMovingPoints()
     {
-        int min = int.MaxValue;
+        float minDistance = float.MaxValue;
         for(int i = 0; i < spline.GetPointCount(); i++)
         {
-            if(Vector3.Distance(goal,spline.GetPosition(i)) < min)
+            if(Vector3.Distance(goal,spline.GetPosition(i)) < minDistance)
             {
+                minDistance = Vector3.Distance(goal, transform.position + spline.GetPosition(i));
                 min = i;
             }
         }
-        goalVector = goal - spline.GetPosition(min);
+        goalVector = goal - (transform.position + spline.GetPosition(min));
 
         numberOfPointsThatFollow = ((int)numberOfPoints / 2) + 1;
         for(int i = 0; i < numberOfPointsThatFollow; i++)
         {
             followingPoints.Insert(i, i + ((numberOfPointsThatFollow - 1) / 2));
         }
-
+        
     }
 
     /*      
@@ -162,26 +164,30 @@ public class InkMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localScale += Vector3.one * Time.deltaTime * generalExpandSpeed;
-        FollowTransform();
+        //transform.localScale += Vector3.one * Time.deltaTime * generalExpandSpeed;
+        
 
 
     }
 
     private void FollowTransform()
     {
-        for(int i = 0; i < followingPoints.Count; i++)
-        {
-            StartCoroutine(InkMoveCoroutine(followingPoints[i]));
-        }    
+        //StartCoroutine(InkMoveCoroutine(followingPoints[0]));
+
+         for(int i = 0; i < followingPoints.Count; i++)
+         {
+             StartCoroutine(InkMoveCoroutine(followingPoints[i]));
+         }
+        
     }
-    float t = 0;
+    float t = 1;
     IEnumerator InkMoveCoroutine(int indexToMove)
     {
-        Vector3 placeToGo = spline.GetPosition(indexToMove)+goalVector;
-        for (int i = 0; Vector3.Distance(spline.GetPosition(min), goal) < 0.05; i++) {
-            spline.SetPosition(indexToMove, Vector3.Lerp(spline.GetPosition(indexToMove), placeToGo, t));
-            t += Time.deltaTime;
+        Vector3 initialPosition = spline.GetPosition(indexToMove);
+        Vector3 placeToGo = (transform.position + spline.GetPosition(indexToMove))+goalVector;
+        while(Vector3.Distance(spline.GetPosition(min), placeToGo) > 0.05) {
+            spline.SetPosition(indexToMove, Vector3.Lerp(initialPosition, goal+transform.position, t*Time.deltaTime));
+            
             yield return null;
 
         }
