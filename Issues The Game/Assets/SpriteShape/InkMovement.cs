@@ -97,8 +97,6 @@ public class InkMovement : MonoBehaviour
         for(int i=0; i < offsetsAverage.Length; i++)
         {
             offsetsAverage[i] = (((offsetsAverage[i] - min) * NewRange) / OldRange)+waveMin;
-            Debug.Log(offsetsAverage[i]);
-
         }
 
        
@@ -164,9 +162,7 @@ public class InkMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.localScale += Vector3.one * Time.deltaTime * generalExpandSpeed;
-        
-
+       transform.localScale += Vector3.one * Time.deltaTime * generalExpandSpeed;       
 
     }
 
@@ -186,7 +182,7 @@ public class InkMovement : MonoBehaviour
         Vector3 initialPosition = spline.GetPosition(indexToMove);
         Vector3 placeToGo = (transform.position + spline.GetPosition(indexToMove))+goalVector;
         while(Vector3.Distance(spline.GetPosition(min), placeToGo) > 0.05) {
-            spline.SetPosition(indexToMove, Vector3.Lerp(initialPosition, goal+transform.position, t*Time.deltaTime));
+            spline.SetPosition(indexToMove, Vector3.Lerp(initialPosition, placeToGo, t*Time.deltaTime));
             
             yield return null;
 

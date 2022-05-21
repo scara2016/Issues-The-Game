@@ -54,7 +54,6 @@ public class Movement : MonoBehaviour
     private AnimationController controller;
 
     private PlayerHealth pHealth;
-
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -92,8 +91,8 @@ public class Movement : MonoBehaviour
         Friction();
         Jump();
         WallJump();
-        Crouch();     
-
+        Crouch();
+        
         if (wallTransferCooldownStart) //cooldown for walltransfer added here so it runs everyframe;
         {
             wallTransferCooldownTimer += Time.deltaTime;
@@ -384,6 +383,8 @@ public class Movement : MonoBehaviour
         }
 */
     }
+
+    
 
     public void Dash()
     {

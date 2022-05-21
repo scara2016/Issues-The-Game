@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,10 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100;
     public float health;
     private Rigidbody2D rb;
+
+    public Gradient playerColourHealthGradient;
+
+    private SpriteRenderer playerSpriteRenderer;
 
     [HideInInspector]
     public bool isDead;
@@ -27,12 +32,11 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private float cancelMovementTime;
 
+    InkParticleSpawner inkParticleSpawner;
+
     [HideInInspector]
     public Enemy enemy;
     private AnimationController controller;
-    public AnimationClip clip;
-    private AnimationEvent evt1; 
-    private Animator anim;
     private Movement movement;
 
     // void OnEnable() {
@@ -49,18 +53,8 @@ public class PlayerHealth : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
         controller = GetComponent<AnimationController>();
-        // movement = this.GetComponent<Movement>();
-        // playerControls = new PlayerControls();
-        evt1 = new AnimationEvent();
-
-        //Parameters for AnimationEvent.
-        //Make sure the Die Animation Clip is referenced in PlayerHealth component
-        evt1.time = 1f; //Sets the avent on the last frame
-        evt1.functionName = "DestroyPlayer";
-
-        //This assigns the event to the Animation Clip
-        anim = gameObject.GetComponent<Animator>();
-        clip.AddEvent(evt1);
+        inkParticleSpawner = GetComponentInChildren<InkParticleSpawner>();
+        playerSpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void InkDamage(float inkDamage)
@@ -70,19 +64,28 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+        ChangeColour();
+
     }
 
     public void TakeDamage(float damage)
     {
         if(!hit)
         {
+            inkParticleSpawner.SpurtInk();
             hit = true;
             health -= damage;
             if (health <= 0)
             {
                 Die();
             }
+            ChangeColour();
         }
+    }
+
+    private void ChangeColour()
+    {
+        playerSpriteRenderer.color = playerColourHealthGradient.Evaluate(health / maxHealth);
     }
 
     private void FixedUpdate()
