@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Bayleigh Test Scenes/Bayleigh Dee Level 1 (Tutorial).unity
+    guid: 84803cdf7dbdc954dbbd35c2e11ebe98
+  - enabled: 1
     path: Assets/Scenes/Bayleigh Test Scenes/Bayleigh Dee Level 2.unity
     guid: fa963fd53caa3bc4a8deb3a6b246ae5a
-  - enabled: 1
-    path: Assets/Scenes/Bayleigh Test Scenes/Bayleigh Dee Level 1 (Tutorial).unity
-    guid: 0753ce274695adc4889743f96cbb306a
   - enabled: 1
     path: Assets/Scenes/Bayleigh Test Scenes/Bayleigh Dee Level 3.unity
     guid: eb71010dd007a834a89675b5e1e020c3
