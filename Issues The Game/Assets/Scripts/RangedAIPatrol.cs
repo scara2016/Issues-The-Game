@@ -170,7 +170,6 @@ public class RangedAIPatrol : MonoBehaviour
     public bool IsGrounded()
     {
         float extraHeight = 0.3f;
-        Color rayColor;
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size * 2f, 0f, Vector2.down, extraHeight, platformLayerMask);
         return raycastHit.collider != null;
     }
