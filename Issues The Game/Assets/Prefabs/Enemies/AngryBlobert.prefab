@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3072820739494948594}
   - component: {fileID: 6358214840464296553}
   - component: {fileID: 8546251576407626320}
-  - component: {fileID: 1118713961997500445}
+  - component: {fileID: 7848789875777723395}
   m_Layer: 3
   m_Name: AngryBlobert
   m_TagString: Enemy
@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4164988ce04c1d46b606f216b932558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRadius: 2
---- !u!114 &1118713961997500445
+  visionRadius: 5
+--- !u!114 &7848789875777723395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,11 +185,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8232332004358485191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fd9275581163a54c951fceb1fd5fe08, type: 3}
+  m_Script: {fileID: 11500000, guid: 61dc5835cc224e041862de4c111ddf35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  flipCooldown: 0
+  flipCooldown: 1
+  rushSpeed: 5
+  rushCoolDown: 2
