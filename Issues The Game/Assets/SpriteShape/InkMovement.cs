@@ -97,8 +97,6 @@ public class InkMovement : MonoBehaviour
         for(int i=0; i < offsetsAverage.Length; i++)
         {
             offsetsAverage[i] = (((offsetsAverage[i] - min) * NewRange) / OldRange)+waveMin;
-            Debug.Log(offsetsAverage[i]);
-
         }
 
        
