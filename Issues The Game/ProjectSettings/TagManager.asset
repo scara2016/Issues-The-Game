@@ -11,6 +11,8 @@ TagManager:
   - PassableObject
   - InkDrop
   - NextLevel
+  - panel
+  - InkTarget
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - Player
+  - Bullet
   - 
   - 
   - 

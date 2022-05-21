@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,11 +19,16 @@ public class InkMovement : MonoBehaviour
     public float noiseSize = 2f;
     public float waveMax=10;
     public float waveMin = 3;
+    public float generalExpandSpeed = 0.2f;
     private int numberOfPointsThatFollow;
     List<int> followingPoints = new List<int>();
+    List<GameObject> targets = new List<GameObject>();
+    private int currentTargetIndex=0;
     private Vector3 goal;
     void Start()
     {
+        
+        targets.AddRange(GameObject.FindGameObjectsWithTag("InkTarget"));
         numberOfPoints = numberOfPoints - 4;
         spriteShapeController = GetComponent<SpriteShapeController>();
         shapeCollider = GetComponent<PolygonCollider2D>();
@@ -91,8 +97,6 @@ public class InkMovement : MonoBehaviour
         for(int i=0; i < offsetsAverage.Length; i++)
         {
             offsetsAverage[i] = (((offsetsAverage[i] - min) * NewRange) / OldRange)+waveMin;
-            Debug.Log(offsetsAverage[i]);
-
         }
 
        
@@ -115,23 +119,77 @@ public class InkMovement : MonoBehaviour
             rightTangent = new Vector3(-Mathf.Sin((angle*i - TAU / 4)), -Mathf.Cos((angle*i - TAU / 4)), 0).normalized*smoothness;
             spline.SetLeftTangent(i, leftTangent);
             spline.SetRightTangent(i, rightTangent);
-
-
-            /*
-            leftTangent = Quaternion.Euler(0, 0, Mathf.Rad2Deg*angle) * (spline.GetPosition(i));
-            rightTangent = Quaternion.Euler(0, 0, Mathf.Rad2Deg*angle) * (spline.GetPosition(i));
-            spline.SetLeftTangent(i, leftTangent);
-            spline.SetRightTangent(i, rightTangent);
-            */
         }
 
-       // goal = target.transform.position - shapeCollider.bounds.center;  
+        FindNextTarget();
+        FollowTransform();
+        // goal = target.transform.position - shapeCollider.bounds.center;  
     }
+
+    private void FindNextTarget()
+    {
+        targets[currentTargetIndex].transform.position = goal;
+        SetMovingPoints();
+    }
+    private Vector3 goalVector;
+    int min;
+
+    private void SetMovingPoints()
+    {
+        float minDistance = float.MaxValue;
+        for(int i = 0; i < spline.GetPointCount(); i++)
+        {
+            if(Vector3.Distance(goal,spline.GetPosition(i)) < minDistance)
+            {
+                minDistance = Vector3.Distance(goal, transform.position + spline.GetPosition(i));
+                min = i;
+            }
+        }
+        goalVector = goal - (transform.position + spline.GetPosition(min));
+
+        numberOfPointsThatFollow = ((int)numberOfPoints / 2) + 1;
+        for(int i = 0; i < numberOfPointsThatFollow; i++)
+        {
+            followingPoints.Insert(i, i + ((numberOfPointsThatFollow - 1) / 2));
+        }
+        
+    }
+
+    /*      
+                                                                                                                            pepesmile
+     */
 
     // Update is called once per frame
     void Update()
     {
-        transform.localScale += Vector3.one * Time.deltaTime;
+       transform.localScale += Vector3.one * Time.deltaTime * generalExpandSpeed;       
 
     }
+
+    private void FollowTransform()
+    {
+        //StartCoroutine(InkMoveCoroutine(followingPoints[0]));
+
+         for(int i = 0; i < followingPoints.Count; i++)
+         {
+             StartCoroutine(InkMoveCoroutine(followingPoints[i]));
+         }
+        
+    }
+    float t = 1;
+    IEnumerator InkMoveCoroutine(int indexToMove)
+    {
+        Vector3 initialPosition = spline.GetPosition(indexToMove);
+        Vector3 placeToGo = (transform.position + spline.GetPosition(indexToMove))+goalVector;
+        while(Vector3.Distance(spline.GetPosition(min), placeToGo) > 0.05) {
+            spline.SetPosition(indexToMove, Vector3.Lerp(initialPosition, placeToGo, t*Time.deltaTime));
+            
+            yield return null;
+
+        }
+
+        yield return new WaitForSeconds(2f);
+    }
+
+
 }

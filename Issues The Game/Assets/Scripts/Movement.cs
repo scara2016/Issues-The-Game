@@ -54,9 +54,6 @@ public class Movement : MonoBehaviour
     private AnimationController controller;
 
     private PlayerHealth pHealth;
-
-    public GameObject ButtonPrompt;
-
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -95,8 +92,7 @@ public class Movement : MonoBehaviour
         Jump();
         WallJump();
         Crouch();
-        ButtonPromptShow();       
-
+        
         if (wallTransferCooldownStart) //cooldown for walltransfer added here so it runs everyframe;
         {
             wallTransferCooldownTimer += Time.deltaTime;
@@ -388,17 +384,7 @@ public class Movement : MonoBehaviour
 */
     }
 
-    private void ButtonPromptShow()
-    {
-        if (wallTransferState)
-        {
-            ButtonPrompt.SetActive(true);
-        }
-        if (!wallTransferState)
-        {
-            ButtonPrompt.SetActive(false);
-        }
-    }
+    
 
     public void Dash()
     {
