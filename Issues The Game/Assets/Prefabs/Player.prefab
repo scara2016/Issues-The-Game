@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 8786989015115453860}
   - component: {fileID: 6217983382483752865}
   - component: {fileID: 4499346221470167105}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashDistance: 5
+  dashSpeed: 0
 --- !u!1001 &3659856823999507850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -333,6 +334,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 1605183361221117232, guid: 62b0bfcb43031a7428a503096feb2354, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62b0bfcb43031a7428a503096feb2354, type: 3}
 --- !u!4 &4402185639789329987 stripped
@@ -350,6 +355,10 @@ PrefabInstance:
     - target: {fileID: 5962250889129732273, guid: 903c4e2139cbdf64ebef771ffeafbd11, type: 3}
       propertyPath: m_Name
       value: Attack Point
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962250889129732273, guid: 903c4e2139cbdf64ebef771ffeafbd11, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7004775348148356881, guid: 903c4e2139cbdf64ebef771ffeafbd11, type: 3}
       propertyPath: m_RootOrder
