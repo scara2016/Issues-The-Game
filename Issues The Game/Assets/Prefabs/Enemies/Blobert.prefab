@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6238662374816229140}
   - component: {fileID: 2597485148806398863}
   - component: {fileID: 8338005850910689787}
+  - component: {fileID: 8032247723068294929}
   m_Layer: 3
   m_Name: Blobert
   m_TagString: Enemy
@@ -178,3 +179,24 @@ MonoBehaviour:
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  flipCooldown: 1
+--- !u!95 &8032247723068294929
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013285836429819169}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd31f2ed3a0ffc943b694202dec3a118, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

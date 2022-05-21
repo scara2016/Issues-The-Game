@@ -30,9 +30,6 @@ public class PlayerHealth : MonoBehaviour
     [HideInInspector]
     public Enemy enemy;
     private AnimationController controller;
-    public AnimationClip clip;
-    private AnimationEvent evt1; 
-    private Animator anim;
     private Movement movement;
 
     // void OnEnable() {
@@ -49,18 +46,6 @@ public class PlayerHealth : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
         controller = GetComponent<AnimationController>();
-        // movement = this.GetComponent<Movement>();
-        // playerControls = new PlayerControls();
-        evt1 = new AnimationEvent();
-
-        //Parameters for AnimationEvent.
-        //Make sure the Die Animation Clip is referenced in PlayerHealth component
-        evt1.time = 1f; //Sets the avent on the last frame
-        evt1.functionName = "DestroyPlayer";
-
-        //This assigns the event to the Animation Clip
-        anim = gameObject.GetComponent<Animator>();
-        clip.AddEvent(evt1);
     }
 
     public void InkDamage(float inkDamage)

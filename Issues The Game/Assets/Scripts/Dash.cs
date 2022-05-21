@@ -21,12 +21,14 @@ public class Dash : MonoBehaviour
     private Vector3 finalPlayerPos;
     private float t = 0;
     private float fractionTravelled = 1;
+    private AnimationController controller;
     // Start is called before the first frame update
 
     private void Awake()
     {
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
+        controller = this.GetComponent<AnimationController>();
     }
 
     void Start()
@@ -66,6 +68,7 @@ public class Dash : MonoBehaviour
                     t = 0; 
                     dashState = DashState.Moving;
                 }
+                    controller.DashState();
                 break;
 
             case DashState.Moving:
