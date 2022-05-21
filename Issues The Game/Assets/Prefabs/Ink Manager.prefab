@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9804ce4bdc6381f4abe1c3352b24c636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkDripRate: 100
+  inkDripRate: 5
   inkShadows: {fileID: 1128168106218597760, guid: 7ace9fd04e1032f49b4b959aab68e497, type: 3}
   inkDrips: {fileID: 1300215344175919845, guid: 2293156a82ecfe84e89261f4b6558a5d, type: 3}
