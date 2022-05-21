@@ -13,6 +13,7 @@ TagManager:
   - NextLevel
   - panel
   - InkTarget
+  - UICanvas
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Ground
   - Player
   - Bullet
-  - 
+  - Particles
   - 
   - 
   - 
