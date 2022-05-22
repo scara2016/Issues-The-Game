@@ -1020,6 +1020,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5851228095594252662, guid: 9c72c47637d13054a95e5055cdb53749, type: 3}
   m_PrefabInstance: {fileID: 223717632}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &224993208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2176965554264351637, guid: aeaab0ca4113e51469b4ff98861b2c11, type: 3}
+  m_PrefabInstance: {fileID: 936445484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &233691129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2047,7 +2052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7682107939511406455, guid: a650d19861b1f1744aea413e9f1ec178, type: 3}
       propertyPath: passableSurfaces.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7682107939511406455, guid: a650d19861b1f1744aea413e9f1ec178, type: 3}
       propertyPath: passableSurfaces.Array.data[0]
@@ -2056,11 +2061,11 @@ PrefabInstance:
     - target: {fileID: 7682107939511406455, guid: a650d19861b1f1744aea413e9f1ec178, type: 3}
       propertyPath: passableSurfaces.Array.data[1]
       value: 
-      objectReference: {fileID: 1633422113}
+      objectReference: {fileID: 1010475544}
     - target: {fileID: 7682107939511406455, guid: a650d19861b1f1744aea413e9f1ec178, type: 3}
       propertyPath: passableSurfaces.Array.data[2]
       value: 
-      objectReference: {fileID: 1010475544}
+      objectReference: {fileID: 1633422113}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a650d19861b1f1744aea413e9f1ec178, type: 3}
 --- !u!1001 &459938871
@@ -5698,6 +5703,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 96014309}
     m_Modifications:
+    - target: {fileID: 1747955797040550186, guid: cd48d01e9e37cdb49a67dcce8345f1a3, type: 3}
+      propertyPath: passableSurfaces.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1747955797040550186, guid: cd48d01e9e37cdb49a67dcce8345f1a3, type: 3}
+      propertyPath: passableSurfaces.Array.data[0]
+      value: 
+      objectReference: {fileID: 224993208}
     - target: {fileID: 6250578888606902058, guid: cd48d01e9e37cdb49a67dcce8345f1a3, type: 3}
       propertyPath: m_Name
       value: Square Panel Thin (3)
