@@ -196,5 +196,5 @@ MonoBehaviour:
   noticeTimer: 1
   reloadTimer: 1
   lostTimer: 3
-  bulletLobHeight: 10
+  bulletLobHeight: 5.1
   flipCooldown: 1
