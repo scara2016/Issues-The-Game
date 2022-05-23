@@ -94,6 +94,7 @@ public class RangedAIPatrol : MonoBehaviour
                 }
                 
                 controller.ReloadState(false);
+                controller.MoveState(true);
                 break;
             case AIState.SpottedPlayer:
 
@@ -110,12 +111,10 @@ public class RangedAIPatrol : MonoBehaviour
                     noticeT = 0;
                     aiState = AIState.Moving;
                     Debug.Log("State: Moving");
-                    controller.MoveState(true);
                 }
-
+                controller.MoveState(false);
                 break;
             case AIState.Attacking:
-                controller.AtkState();
                 GameObject bullet = Instantiate(bulletPrefab);
                 bullet.transform.position = transform.position;
                 Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();
@@ -123,6 +122,7 @@ public class RangedAIPatrol : MonoBehaviour
                 Debug.Log("State: Shot and Reloading");
                 aiState = AIState.Reloading;
 
+                controller.AtkState();
                 controller.ReloadState(false);
                 controller.MoveState(false);
                 
@@ -162,7 +162,8 @@ public class RangedAIPatrol : MonoBehaviour
                     Debug.Log("State: Attacking");
                 }
 
-                
+                controller.ReloadState(false);                
+                controller.MoveState(false);
                 break;
         }
     }
