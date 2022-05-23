@@ -9,7 +9,8 @@ public class Dash : MonoBehaviour
     {
         DashStart,
         Dashing,
-        Moving
+        Moving,
+        
     }
     [SerializeField] private float dashDistance;
     [SerializeField] private float dashSpeed;
@@ -22,6 +23,11 @@ public class Dash : MonoBehaviour
     private float t = 0;
     private float fractionTravelled = 1;
     private AnimationController controller;
+
+    public float dashCoolDown;
+    private float dashT;
+    private bool dashCoolDownStart;
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -73,9 +79,17 @@ public class Dash : MonoBehaviour
 
             case DashState.Moving:
                     playerMovement.enabled = true;
-                    if(playerControls.Main.Dash.ReadValue<float>() == 1)
+                if(dashCoolDownStart)
+                    dashT += Time.deltaTime;
+                if (dashT > dashCoolDown)
+                {
+                    dashCoolDownStart = false;
+                    dashT = 0;
+                }
+                    if(playerControls.Main.Dash.ReadValue<float>() == 1 && !dashCoolDownStart)
                     {
                         dashState = DashState.DashStart;
+                    dashCoolDownStart = true;
                     }
                 break;
         }
