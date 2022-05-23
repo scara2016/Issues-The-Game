@@ -54,6 +54,8 @@ public class Movement : MonoBehaviour
     private AnimationController controller;
 
     private PlayerHealth pHealth;
+    private bool dashSlideHappening = false;
+
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -137,7 +139,7 @@ public class Movement : MonoBehaviour
     {
 
         moveInput = playerControls.Main.Move.ReadValue<float>(); // Reads and stores movement input from inputManager
-        if (!wallJumpCooldownStart)
+        if (!wallJumpCooldownStart && !dashSlideHappening)
         {
             jumpInput = playerControls.Main.Jump.ReadValue<float>(); // Reads and stores movement input from inputManager
             float targetSpeed = moveInput * moveSpeed; // when the player wants to move then the target speed is 1*movespeed and when they want to stop it is 0*moveSpeed
@@ -367,6 +369,14 @@ public class Movement : MonoBehaviour
     private void Crouch()
     {
         crouchInput = playerControls.Main.Crouch.ReadValue<float>();
+        if (crouchInput != 0)
+        {
+            Debug.Log("happened");
+            dashSlideHappening = true;
+        }
+        
+
+
 /*
        if (crouchInput >= 0.5 && IsGrounded() && moveInput == 0)
         {
@@ -388,7 +398,7 @@ public class Movement : MonoBehaviour
 
     public void Dash()
     {
-        
+       
 
         //rb.AddForce(dashInput * Vector2.right*dashSpeed, ForceMode2D.Impulse);
     }
