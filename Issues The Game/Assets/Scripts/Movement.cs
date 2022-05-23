@@ -50,6 +50,7 @@ public class Movement : MonoBehaviour
     private bool wallTransferState = false;
     private float dashInput;
     public float dashSpeed=10f;
+    private bool isCrouched;
 
     private AnimationController controller;
 
@@ -141,7 +142,7 @@ public class Movement : MonoBehaviour
     {
 
         moveInput = playerControls.Main.Move.ReadValue<float>(); // Reads and stores movement input from inputManager
-        if (!wallJumpCooldownStart)
+        if (!wallJumpCooldownStart && !isCrouched)
         {
             jumpInput = playerControls.Main.Jump.ReadValue<float>(); // Reads and stores movement input from inputManager
             float targetSpeed = moveInput * moveSpeed; // when the player wants to move then the target speed is 1*movespeed and when they want to stop it is 0*moveSpeed
@@ -161,7 +162,7 @@ public class Movement : MonoBehaviour
     {
         crouchInput = playerControls.Main.Crouch.ReadValue<float>();
         // Reads Input Value to change state
-        if (IsGrounded() && !isWallSliding)
+        if (IsGrounded() && !isWallSliding && !isCrouched)
         {
             controller.WallSlideState(false);
             if (moveInput != 0)
@@ -210,8 +211,16 @@ public class Movement : MonoBehaviour
             rb.transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        if(crouchInput != 0) { controller.CrouchState(true); }
-        else { controller.CrouchState(false); }
+        if(crouchInput != 0) 
+        { 
+            controller.CrouchState(true);
+            isCrouched = true; //Prevents moving when crouched
+        }
+        else 
+        { 
+            controller.CrouchState(false);
+            isCrouched = false;
+        }
 
     }
 
