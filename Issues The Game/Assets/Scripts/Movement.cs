@@ -142,7 +142,7 @@ public class Movement : MonoBehaviour
     {
 
         moveInput = playerControls.Main.Move.ReadValue<float>(); // Reads and stores movement input from inputManager
-        if (!wallJumpCooldownStart && !isCrouched)
+        if (!wallJumpCooldownStart && !isCrouched) // Movement is locked when player is crouching
         {
             jumpInput = playerControls.Main.Jump.ReadValue<float>(); // Reads and stores movement input from inputManager
             float targetSpeed = moveInput * moveSpeed; // when the player wants to move then the target speed is 1*movespeed and when they want to stop it is 0*moveSpeed
@@ -211,7 +211,7 @@ public class Movement : MonoBehaviour
             rb.transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        if(crouchInput != 0) 
+        if(crouchInput != 0 && IsGrounded()) 
         { 
             controller.CrouchState(true);
             isCrouched = true; //Prevents moving when crouched
