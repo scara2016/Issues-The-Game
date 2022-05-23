@@ -13,6 +13,8 @@ TagManager:
   - NextLevel
   - panel
   - UICanvas
+  - InkTarget
+  - Fall
   layers:
   - Default
   - TransparentFX
