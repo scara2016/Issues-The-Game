@@ -159,6 +159,7 @@ public class Movement : MonoBehaviour
 
     private void AnimateMovement()
     {
+        crouchInput = playerControls.Main.Crouch.ReadValue<float>();
         // Reads Input Value to change state
         if (IsGrounded() && !isWallSliding)
         {
@@ -208,6 +209,10 @@ public class Movement : MonoBehaviour
         {
             rb.transform.localScale = new Vector3(-1, 1, 1);
         }
+
+        if(crouchInput != 0) { controller.CrouchState(true); }
+        else { controller.CrouchState(false); }
+
     }
 
     private void Friction()
