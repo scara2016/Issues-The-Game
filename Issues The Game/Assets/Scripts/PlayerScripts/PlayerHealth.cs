@@ -70,7 +70,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if(!hit)
+        health -= damage;
+        if (health <= 0)
         {
             inkParticleSpawner.SpurtInk();
             hit = true;

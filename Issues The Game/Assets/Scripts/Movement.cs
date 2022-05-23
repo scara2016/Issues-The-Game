@@ -150,7 +150,18 @@ public class Movement : MonoBehaviour
              
         }
 
+        
+        jumpInput = playerControls.Main.Jump.ReadValue<float>(); // Reads and stores movement input from inputManager
 
+        if(pHealth.isTakingDamage)
+        {
+            moveInput = 0;
+        }
+        float targetSpeed = moveInput * moveSpeed; // when the player wants to move then the target speed is 1*movespeed and when they want to stop it is 0*moveSpeed
+        float speedDif = targetSpeed - rb.velocity.x; //finds difference between current velocity and target velocity
+        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration; // calculates if accel needs to be applied positive or negative
+        float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
+        rb.AddForce(movement * Vector2.right);
     }
 
     private void AnimateMovement()
