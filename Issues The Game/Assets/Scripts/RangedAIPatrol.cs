@@ -113,6 +113,7 @@ public class RangedAIPatrol : MonoBehaviour
                     Debug.Log("State: Moving");
                 }
                 controller.MoveState(false);
+                controller.ReloadState(true);
                 break;
             case AIState.Attacking:
                 GameObject bullet = Instantiate(bulletPrefab);
@@ -161,8 +162,7 @@ public class RangedAIPatrol : MonoBehaviour
                     aiState = AIState.Attacking;
                     Debug.Log("State: Attacking");
                 }
-
-                controller.ReloadState(false);                
+               
                 controller.MoveState(false);
                 break;
         }
