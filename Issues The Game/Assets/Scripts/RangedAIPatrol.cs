@@ -174,6 +174,7 @@ public class RangedAIPatrol : MonoBehaviour
         float xDisplacement = player.transform.position.x - bullet.transform.position.x;
         Vector2 yVelocity = Vector2.up * Mathf.Sqrt(-2 * Physics2D.gravity.y * bulletLobHeight);
         Vector2 xVelocity = new Vector2(xDisplacement / (Mathf.Sqrt(-2 * bulletLobHeight / Physics2D.gravity.y) + Mathf.Sqrt(2 * (yDisplacement - bulletLobHeight) / Physics2D.gravity.y)),0);
+        Debug.Log("grav:- " + Physics2D.gravity);
         return xVelocity + yVelocity;
     }
 
@@ -185,9 +186,11 @@ public class RangedAIPatrol : MonoBehaviour
     public bool IsGrounded()
     {
         float extraHeight = 0.3f;
-        Color rayColor;
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size * 2f, 0f, Vector2.down, extraHeight, platformLayerMask);
-        return raycastHit.collider != null;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(transform.position, boxCollider.bounds.size * 2f, 0f, Vector2.down, extraHeight, platformLayerMask);
+        RaycastHit2D raycastHitNew = Physics2D.Raycast(transform.position, Vector2.down, 3f, platformLayerMask);
+        Debug.DrawRay(transform.position, Vector2.down, Color.green);
+
+        return raycastHitNew.collider != null;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

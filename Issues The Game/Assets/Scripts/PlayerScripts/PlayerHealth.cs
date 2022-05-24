@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100;
     public float health;
     private Rigidbody2D rb;
+
+    private SpriteRenderer playerSpriteRenderer;
 
     [HideInInspector]
     public bool isDead;
@@ -26,6 +29,8 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField]
     private float cancelMovementTime;
+
+    InkParticleSpawner inkParticleSpawner;
 
     [HideInInspector]
     public Enemy enemy;
@@ -46,6 +51,8 @@ public class PlayerHealth : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
         controller = GetComponent<AnimationController>();
+        inkParticleSpawner = GetComponentInChildren<InkParticleSpawner>();
+        playerSpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void InkDamage(float inkDamage)
@@ -61,6 +68,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(!hit)
         {
+            inkParticleSpawner.SpurtInk();
             hit = true;
             health -= damage;
             if (health <= 0)
@@ -69,6 +77,8 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
+
+    
 
     private void FixedUpdate()
     {

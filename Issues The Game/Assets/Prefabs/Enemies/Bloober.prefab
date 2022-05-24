@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4164988ce04c1d46b606f216b932558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRadius: 2
+  visionRadius: 5
 --- !u!114 &-2495452828980742859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,14 +193,14 @@ MonoBehaviour:
   moveSpeed: 1
   platformLayerMask:
     serializedVersion: 2
-    m_Bits: 0
-  bulletPrefab: {fileID: 0}
+    m_Bits: 64
+  bulletPrefab: {fileID: 7085383327003989035, guid: 96bb05bad8033224298e1c27f875c0a6, type: 3}
   noticeTimer: 1
   reloadTimer: 1
-  lostTimer: 3
+  lostTimer: 1
   bulletLobHeight: 3
   flipCooldown: 1
---- !u!95 &5423225909406812556
+--- !u!95 &1539235810
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0

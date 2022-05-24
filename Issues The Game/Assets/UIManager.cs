@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     private PlayerControls playerControls;
-    public GameObject pauseMenuUI;
+    private GameObject canvas;
+    private PauseMenu pauseMenuUI;
 
     private void Awake()
     {
+        //DontDestroyOnLoad(transform.gameObject);
+        //DontDestroyOnLoad(pauseMenuUI.gameObject);
         if (instance != null)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
         else
         {
@@ -24,8 +27,8 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-    private static PauseMenu instance;
-    public static PauseMenu Instance
+    private static UIManager instance;
+    public static UIManager Instance
     {
         get
         {
@@ -37,6 +40,18 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if(canvas==null)
+        canvas = GameObject.FindGameObjectWithTag("UICanvas");
+        if (pauseMenuUI == null)
+        {
+            pauseMenuUI = canvas.GetComponentInChildren<PauseMenu>();
+            pauseMenuUI.gameObject.SetActive(false);
+        }
+    }
+
+    
     private void OnEnable()
     {
         playerControls.Enable();
@@ -65,14 +80,14 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
+        pauseMenuUI.gameObject.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
 
     void Pause()
     {
-        pauseMenuUI.SetActive(true);
+        pauseMenuUI.gameObject.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
@@ -80,6 +95,7 @@ public class PauseMenu : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 
     public void Quit()
