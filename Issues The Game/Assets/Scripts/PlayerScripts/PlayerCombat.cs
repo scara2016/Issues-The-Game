@@ -23,6 +23,7 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
 
+    public GameObject hitVFX;
 
     [SerializeField]
     private Weapon weapon;
@@ -89,6 +90,9 @@ public class PlayerCombat : MonoBehaviour
             {
                 Debug.Log("We hit " + enemy.name);
                 enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+                GameObject hitVFXinstance = Instantiate(hitVFX);
+                hitVFXinstance.transform.position = attackPoint.position;
+
             }
     }
 
