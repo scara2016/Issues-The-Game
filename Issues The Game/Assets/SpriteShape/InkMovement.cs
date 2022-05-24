@@ -11,7 +11,6 @@ public class InkMovement : MonoBehaviour
     private SpriteShapeController spriteShapeController;
     private PolygonCollider2D shapeCollider;
     private float TAU = Mathf.PI*2;
-    public GameObject target;
     private Spline spline;
     public float numberOfPoints = 20;
     public float radius = 1;
@@ -162,8 +161,7 @@ public class InkMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       transform.localScale += Vector3.one * Time.deltaTime * generalExpandSpeed;       
-
+      
     }
 
     private void FollowTransform()
