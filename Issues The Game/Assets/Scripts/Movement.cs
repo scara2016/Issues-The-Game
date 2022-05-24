@@ -51,6 +51,10 @@ public class Movement : MonoBehaviour
     private float dashInput;
     public float dashSpeed=10f;
     private bool isCrouched;
+    public float dashDuration;
+    private float dashT = 0;
+    private bool dashStart =false;
+    public float crouchSlideForce;
 
     private AnimationController controller;
 
@@ -114,6 +118,9 @@ public class Movement : MonoBehaviour
         {
             moveInput = 0;
         }
+
+
+
     }
 
     public bool IsGrounded()
@@ -145,8 +152,8 @@ public class Movement : MonoBehaviour
             jumpInput = playerControls.Main.Jump.ReadValue<float>(); // Reads and stores movement input from inputManager
             float targetSpeed = moveInput * moveSpeed; // when the player wants to move then the target speed is 1*movespeed and when they want to stop it is 0*moveSpeed
             float speedDif = targetSpeed - rb.velocity.x; //finds difference between current velocity and target velocity
-            float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration; // calculates if accel needs to be applied positive or negative
-            float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
+           // float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration; // calculates if accel needs to be applied positive or negative
+            float movement = Mathf.Pow(Mathf.Abs(speedDif) * acceleration, velPower) * Mathf.Sign(speedDif);
             rb.AddForce(movement * Vector2.right);
 
          
@@ -383,10 +390,21 @@ public class Movement : MonoBehaviour
     private void Crouch()
     {
         crouchInput = playerControls.Main.Crouch.ReadValue<float>();
-        if (crouchInput != 0)
+        if (dashStart)
+        {
+            dashT += Time.deltaTime;
+            if (dashT >= dashDuration)
+            {
+                dashStart = false;
+                dashT = 0;
+            }
+        }
+        if (crouchInput != 0 && !dashStart && IsGrounded())
         {
             Debug.Log("happened");
-            dashSlideHappening = true;
+            isCrouched = true;
+            dashStart = true;
+            rb.AddForce(Vector2.right * playerControls.Main.Move.ReadValue<float>() * crouchSlideForce, ForceMode2D.Impulse);
         }
         
 
