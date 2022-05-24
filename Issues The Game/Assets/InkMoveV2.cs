@@ -14,9 +14,12 @@ public class InkMoveV2 : MonoBehaviour
 
     private float highestPoint=0;
     private float lowestPoint=0;
+    private PolygonCollider2D collider2D;
     // Start is called before the first frame update
     void Start()
     {
+        collider2D = GetComponent<PolygonCollider2D>();
+
         waveSpeedPerPoint = new float[numberOfPoints];
         for(int i=0; i < numberOfPoints; i++)
         {
@@ -68,7 +71,11 @@ public class InkMoveV2 : MonoBehaviour
             }
         }
     }
+    private void LateUpdate()
+    {
+        Debug.Log(collider2D.bounds.size.x + " / " + collider2D.bounds.size.y);
+    }
 
-    
+
 
 }
