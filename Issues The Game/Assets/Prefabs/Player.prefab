@@ -281,7 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashDistance: 5
   dashSpeed: 1
-  dashCoolDown: 0
+  dashCoolDown: 2
 --- !u!1001 &1043178923747488883
 PrefabInstance:
   m_ObjectHideFlags: 0
