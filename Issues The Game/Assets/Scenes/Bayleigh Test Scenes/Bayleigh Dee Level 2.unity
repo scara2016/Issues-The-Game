@@ -404,6 +404,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2176965554264351638, guid: aeaab0ca4113e51469b4ff98861b2c11, type: 3}
   m_PrefabInstance: {fileID: 1913246281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &203264907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8786989015115453862, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+  m_PrefabInstance: {fileID: 759911123}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &203264919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203264907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133bd712de52e8844bbba7bdd62a03ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 0
+  isDead: 0
+  isTakingDamage: 0
+  hit: 0
+  verticalKnockbackForce: 100
+  horizontalKnockbackForce: 50
+  invulnerabilityTime: 1
+  cancelMovementTime: 1
+  enemy: {fileID: 0}
 --- !u!1001 &275808856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1691,6 +1718,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6217983382483752865, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: hitVFX
+      value: 
+      objectReference: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
     - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: gameManager
       value: 
