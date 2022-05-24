@@ -10,8 +10,6 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     private Rigidbody2D rb;
 
-    public Gradient playerColourHealthGradient;
-
     private SpriteRenderer playerSpriteRenderer;
 
     [HideInInspector]
@@ -64,8 +62,6 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
-        ChangeColour();
-
     }
 
     public void TakeDamage(float damage)
@@ -79,14 +75,10 @@ public class PlayerHealth : MonoBehaviour
             {
                 Die();
             }
-            ChangeColour();
         }
     }
 
-    private void ChangeColour()
-    {
-        playerSpriteRenderer.color = playerColourHealthGradient.Evaluate(health / maxHealth);
-    }
+    
 
     private void FixedUpdate()
     {
