@@ -61,13 +61,18 @@ public class InkMoving : MonoBehaviour
 
     float FindNextAndScale(Vector2 incomingDirection)
     {
-        float scaleRatio;
+        float scaleRatio =1;
         panelNumber++;
 
         if (Mathf.Abs(incomingDirection.x) > Mathf.Abs(incomingDirection.y))
         {
             scaleRatio = panels[panelNumber].GetComponent<Collider2D>().bounds.size.y / collider2D.bounds.size.x;
         }
+        else if(Mathf.Abs(incomingDirection.x) <= Mathf.Abs(incomingDirection.y))
+        {
+            scaleRatio = panels[panelNumber].GetComponent<Collider2D>().bounds.size.x / collider2D.bounds.size.x;
+        }
+        transform.localScale = new Vector3(scaleRatio, scaleRatio);
         return 0;
     }
 
