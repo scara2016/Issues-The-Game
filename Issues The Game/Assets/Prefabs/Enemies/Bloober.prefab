@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3990022675087613599}
   - component: {fileID: 1871773725188294310}
   - component: {fileID: -2495452828980742859}
+  - component: {fileID: 1539235810}
+  - component: {fileID: 1539235811}
   m_Layer: 3
   m_Name: Bloober
   m_TagString: Enemy
@@ -195,6 +197,38 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7085383327003989035, guid: 96bb05bad8033224298e1c27f875c0a6, type: 3}
   noticeTimer: 1
   reloadTimer: 1
-  lostTimer: 3
+  lostTimer: 1
   bulletLobHeight: 3
   flipCooldown: 1
+--- !u!95 &1539235810
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115738106739679281}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d355b8576000a54b9998bcbf0157121, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1539235811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115738106739679281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c16f0f0cadb114ca4f0cc592aa7260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
