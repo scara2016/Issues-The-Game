@@ -98,6 +98,12 @@ public class UIManager : MonoBehaviour
         
     }
 
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+        Time.timeScale = 1f;
+    }
+
     public void Quit()
     {
         Application.Quit();
