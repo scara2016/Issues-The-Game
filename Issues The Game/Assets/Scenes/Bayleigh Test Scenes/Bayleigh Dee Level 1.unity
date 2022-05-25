@@ -1529,6 +1529,10 @@ PrefabInstance:
       propertyPath: crouchSlideForce
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: crouchSlideDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453862, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1539,11 +1543,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453866, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6
+      value: -3.97
       objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453866, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -42.22
+      value: -7.91
       objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453866, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5275,7 +5279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5851228095594252662, guid: 9c72c47637d13054a95e5055cdb53749, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.22
+      value: -10.85
       objectReference: {fileID: 0}
     - target: {fileID: 5851228095594252662, guid: 9c72c47637d13054a95e5055cdb53749, type: 3}
       propertyPath: m_LocalPosition.z
