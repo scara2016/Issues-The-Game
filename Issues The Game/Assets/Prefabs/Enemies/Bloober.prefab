@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 3990022675087613599}
   - component: {fileID: 1871773725188294310}
   - component: {fileID: -2495452828980742859}
-  - component: {fileID: 1539235810}
-  - component: {fileID: 1539235811}
+  - component: {fileID: 5423225909406812556}
+  - component: {fileID: -464184535974882097}
   m_Layer: 3
   m_Name: Bloober
   m_TagString: Enemy
@@ -220,7 +220,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1539235811
+--- !u!114 &-464184535974882097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

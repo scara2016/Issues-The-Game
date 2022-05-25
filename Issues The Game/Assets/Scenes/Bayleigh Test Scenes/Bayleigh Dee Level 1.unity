@@ -351,6 +351,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2176965554264351638, guid: aeaab0ca4113e51469b4ff98861b2c11, type: 3}
   m_PrefabInstance: {fileID: 1913246281}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &245173396 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5679788520594114850, guid: cf8303640d0bfb24abb5e84295fdafab, type: 3}
+  m_PrefabInstance: {fileID: 5679788521345939132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151f3f9f8191c4d4183b2bc46be65e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &275808856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1506,6 +1517,10 @@ PrefabInstance:
       propertyPath: dashCoolDown
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6217983382483752865, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: hitVFX
+      value: 
+      objectReference: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
     - target: {fileID: 8786989015115453860, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: dashDuration
       value: 0.7
@@ -1524,11 +1539,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453866, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.75
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453866, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.84
+      value: -42.22
       objectReference: {fileID: 0}
     - target: {fileID: 8786989015115453866, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1562,6 +1577,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8786989015115453871, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: lvlTransition
+      value: 
+      objectReference: {fileID: 245173396}
+    - target: {fileID: 8786989015115453871, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
+      propertyPath: victoryDanceClip
+      value: 
+      objectReference: {fileID: 7400000, guid: 583395106b356144391978ab6e5f2ad0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c78e6f1db6cc3c04ba15d8e5d0c8e14b, type: 3}
 --- !u!4 &775638023 stripped

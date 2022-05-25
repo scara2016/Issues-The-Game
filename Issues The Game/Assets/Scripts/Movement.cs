@@ -40,6 +40,9 @@ public class Movement : MonoBehaviour
     private bool isWallSliding = false;
     public float inkDragVert = 3f;
     public float inkDragMoveSpeed = 2f;
+    public float crouchSlideDuration;
+    private bool crouchSlideHappening = false;
+    private float crouchT = 0f;
 
     RaycastHit2D wallCheckHitLeft;
     RaycastHit2D wallCheckHitRight;
@@ -48,19 +51,14 @@ public class Movement : MonoBehaviour
     private float wallTransferCooldownTimer=0;
     private bool wallTransferCooldownStart = false;
     private bool wallTransferState = false;
-    private float dashInput;
-    public float dashSpeed=10f;
     private bool isCrouched;
-    public float dashDuration;
-    private float dashT = 0;
-    private bool dashStart =false;
     public float crouchSlideForce;
+    private float crouchSlideT=0f;
 
     private AnimationController controller;
 
     private PlayerHealth pHealth;
-    private bool dashSlideHappening = false;
-
+    
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -389,51 +387,52 @@ public class Movement : MonoBehaviour
 
     private void Crouch()
     {
+     
         crouchInput = playerControls.Main.Crouch.ReadValue<float>();
-        if (dashStart)
-        {
-            dashT += Time.deltaTime;
-            if (dashT >= dashDuration)
-            {
-                dashStart = false;
-                dashT = 0;
-            }
-        }
-        if (crouchInput != 0 && !dashStart && IsGrounded())
+       
+        if (crouchInput != 0 && IsGrounded())
         {
             Debug.Log("happened");
             isCrouched = true;
-            dashStart = true;
-            rb.AddForce(Vector2.right * playerControls.Main.Move.ReadValue<float>() * crouchSlideForce, ForceMode2D.Impulse);
+            if (moveInput != 0 && !crouchSlideHappening)
+            {
+                crouchSlideHappening = true;
+                rb.AddForce(Vector2.right * playerControls.Main.Move.ReadValue<float>() * crouchSlideForce, ForceMode2D.Impulse);
+                
+            }
+        }
+        if (crouchSlideHappening)
+        {
+            crouchSlideT += Time.deltaTime;
+            if (crouchSlideT >= crouchSlideDuration)
+            {
+                crouchSlideT = 0;
+                crouchSlideHappening = false;
+            }
         }
         
 
 
-/*
-       if (crouchInput >= 0.5 && IsGrounded() && moveInput == 0)
-        {
-            Debug.Log("Crouching");
-            boxCollider.size = new Vector2(1, 0.7f);
-            boxCollider.offset = new Vector2(0, -0.2f);
-            controller.CrouchState(true);
-        }
-        else
-        {
-            boxCollider.size = new Vector2(1, 1);
-            boxCollider.offset = new Vector2(0, 0);
-            controller.CrouchState(false);
-        }
-*/
+        
+
+
+        /*
+               if (crouchInput >= 0.5 && IsGrounded() && moveInput == 0)
+                {
+                    Debug.Log("Crouching");
+                    boxCollider.size = new Vector2(1, 0.7f);
+                    boxCollider.offset = new Vector2(0, -0.2f);
+                    controller.CrouchState(true);
+                }
+                else
+                {
+                    boxCollider.size = new Vector2(1, 1);
+                    boxCollider.offset = new Vector2(0, 0);
+                    controller.CrouchState(false);
+                }
+        */
     }
 
-    
-
-    public void Dash()
-    {
-       
-
-        //rb.AddForce(dashInput * Vector2.right*dashSpeed, ForceMode2D.Impulse);
-    }
 
 
 }

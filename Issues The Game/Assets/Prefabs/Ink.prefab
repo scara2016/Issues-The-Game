@@ -148,8 +148,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2375335995355928232}
-  - component: {fileID: 7856165584177873125}
   - component: {fileID: 797306911975720747}
+  - component: {fileID: 4155848141425496928}
   m_Layer: 0
   m_Name: Single Ink
   m_TagString: Untagged
@@ -172,7 +172,19 @@ Transform:
   m_Father: {fileID: 2353372471400574950}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7856165584177873125
+--- !u!114 &797306911975720747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211383232016778673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e242d48c0ca0844ae8ae4fcc1c918e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &4155848141425496928
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,21 +230,9 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8, y: 8}
+  m_Size: {x: 6, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &797306911975720747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5211383232016778673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51e242d48c0ca0844ae8ae4fcc1c918e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
