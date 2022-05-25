@@ -1470,6 +1470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel Center
       objectReference: {fileID: 0}
+    - target: {fileID: 7682107939511406455, guid: a650d19861b1f1744aea413e9f1ec178, type: 3}
+      propertyPath: passableSurfaces.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a650d19861b1f1744aea413e9f1ec178, type: 3}
 --- !u!1001 &1048046316
