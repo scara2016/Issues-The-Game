@@ -61,6 +61,8 @@ public class Movement : MonoBehaviour
     private PlayerHealth pHealth;
     private bool dashSlideHappening = false;
 
+    [SerializeField] AudioSource jumpsfx;
+
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -145,6 +147,7 @@ public class Movement : MonoBehaviour
 
     private void PlayerMovement()
     {
+        
 
         moveInput = playerControls.Main.Move.ReadValue<float>(); // Reads and stores movement input from inputManager
         if (!wallJumpCooldownStart && !isCrouched) // Movement is locked when player is crouching
@@ -242,6 +245,7 @@ public class Movement : MonoBehaviour
 
     private void Jump()
     {
+        
         if (jumpCooldownStart) // so the player cannot jump in rapid succsesion
         {
             jumpCooldownTimer += Time.deltaTime;
@@ -258,6 +262,8 @@ public class Movement : MonoBehaviour
                 rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
                 jumpCooldownStart = true; //cooldown has started
                 wallJumpCooldownStart = true;
+                // jump sound
+                jumpsfx.Play();
             }
         }
         else if(isWallSliding && jumpInput!=0 && !wallJumpCooldownStart && !IsGrounded())
