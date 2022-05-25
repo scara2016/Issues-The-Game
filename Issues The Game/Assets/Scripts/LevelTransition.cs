@@ -14,7 +14,6 @@ public class LevelTransition : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //LoadScene();
             controller = other.GetComponent<AnimationController>();
             controller.GoalState();
         }
