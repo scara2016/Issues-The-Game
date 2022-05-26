@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
   m_Name: Ink
   m_EditorClassIdentifier: 
-  m_AnimatedSprites: []
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: d28b305decd53324884269943328ce5c, type: 3}
+  - {fileID: 21300000, guid: 5c1dc034ef49dd54ea66e1bb63672b8a, type: 3}
+  - {fileID: 21300000, guid: 221ed3c8c688fd14c9a94da66c515171, type: 3}
+  - {fileID: 21300000, guid: 690d572b76e5d844aa1cff0998e4a913, type: 3}
+  - {fileID: 21300000, guid: 5cf6546ee74f9a941b37189beeb53c40, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
