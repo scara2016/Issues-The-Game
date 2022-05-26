@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class TileMapMove : MonoBehaviour
 {
@@ -11,20 +12,23 @@ public class TileMapMove : MonoBehaviour
         expandingOverPanel,
         waitingMenacingly
     }
-
+    private InkStartObject inkStartObject;
     public List<StopPointData> StopPoints;
     public bool vertical;
     private float startPosition;
-    private float currentPosition;
+    private float gridStartPosition;
+    private float startObjectStartPosition;
     private float finalPosition;
+    private float distance;
     private InkState inkState;
     private int currentTarget = 0;
-    private float t;
+    private float t = 0;
     private float waitT=0;
     // Start is called before the first frame update
     void Start()
     {
         inkState = InkState.findingNext;
+        inkStartObject = FindObjectOfType<InkStartObject>();
     }
 
     // Update is called once per frame
@@ -34,39 +38,72 @@ public class TileMapMove : MonoBehaviour
         switch (inkState)
         {
             case InkState.findingNext:
+                    Debug.Log("FindingNext");
                 if (vertical)
                 {
-                    startPosition = transform.position.y;
+                    startPosition = inkStartObject.transform.position.y;
                     finalPosition = StopPoints[currentTarget].transform.position.y;
-                }
+                        distance = finalPosition - startPosition;
+                        gridStartPosition = transform.position.y;
+                        startObjectStartPosition = inkStartObject.transform.position.y;
+                    }
                 else
                 {
-                    startPosition = transform.position.x;
+                    startPosition = inkStartObject.transform.position.x;
                     finalPosition = StopPoints[currentTarget].transform.position.x;
-                }
-                
-                inkState = InkState.waitingMenacingly;
+                        distance = finalPosition - startPosition;
+                        gridStartPosition = transform.position.x;
+                        startObjectStartPosition = inkStartObject.transform.position.x;
+                    }
+
+                    inkState = InkState.waitingMenacingly;
                 break;
+
             case InkState.waitingMenacingly:
-                waitT+=Time.deltaTime;
+                    Debug.Log("Waiting");
+                    waitT +=Time.deltaTime;
                 if (waitT >= StopPoints[currentTarget].TimerToReach)
                 {
                     waitT = 0;
+
                     inkState = InkState.movingToNext;
                 }
                 break;
+
             case InkState.movingToNext:
-                currentPosition = Mathf.Lerp(startPosition, finalPosition, t);
-                if (vertical)
-                    transform.position = new Vector3(transform.position.x, currentPosition, transform.position.z);
-                else
-                    transform.position = new Vector3(currentPosition, transform.position.y, transform.position.z);
-                t += Time.deltaTime*0.1f;
-                if (t >= 1)
-                {
-                        currentTarget++;
-                    inkState = InkState.findingNext;
-                }
+                    Debug.Log("Moving");
+                    if (distance >= 0)
+                        t += Time.deltaTime;
+                    else
+                        t -= Time.deltaTime;
+                    if (vertical)
+                    {
+                        transform.position = new Vector3(transform.position.x, gridStartPosition + t, transform.position.z);
+                       inkStartObject.transform.position = new Vector3(transform.position.x, startObjectStartPosition + t, transform.position.z);
+
+                    }
+                    else
+                    {
+                       transform.position = new Vector3(gridStartPosition + t, transform.position.y, transform.position.z);
+                        inkStartObject.transform.position = new Vector3(startObjectStartPosition + t, transform.position.y, transform.position.z);
+                    }
+                    if (distance >= 0) {
+                        if (t >= distance)
+                        {
+                            t = 0;
+                            currentTarget++;
+                            inkState = InkState.findingNext;
+                        }
+                    }
+                    else
+                    {
+                        if (t <= distance)
+                        {
+                            t = 0;
+                            currentTarget++;
+                            inkState = InkState.findingNext;
+                        }
+                    }
                 break;
 
         }
