@@ -31,6 +31,8 @@ public class TileMapMove : MonoBehaviour
         timer = FindObjectOfType<Timer>();
         inkState = InkState.findingNext;
         inkStartObject = FindObjectOfType<InkStartObject>();
+        timer.StartTimer();
+
     }
 
     // Update is called once per frame
@@ -39,9 +41,9 @@ public class TileMapMove : MonoBehaviour
         if(currentTarget<StopPoints.Count)
         switch (inkState)
         {
+
             case InkState.findingNext:
                     timer.StartTimer();
-                    
                     timer.timeRemaining = StopPoints[currentTarget].TimerToReach;
                     Debug.Log("FindingNext");
                 if (vertical)
