@@ -41,6 +41,7 @@ public class TileMapMove : MonoBehaviour
         {
             case InkState.findingNext:
                     timer.StartTimer();
+                    
                     timer.timeRemaining = StopPoints[currentTarget].TimerToReach;
                     Debug.Log("FindingNext");
                 if (vertical)
