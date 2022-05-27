@@ -14,6 +14,8 @@ TagManager:
   - panel
   - InkTarget
   - UICanvas
+  - FxTemporaire
+  - TimeDial
   layers:
   - Default
   - TransparentFX

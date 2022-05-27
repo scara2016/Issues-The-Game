@@ -24,9 +24,11 @@ public class TileMapMove : MonoBehaviour
     private int currentTarget = 0;
     private float t = 0;
     private float waitT=0;
+    private Timer timer;
     // Start is called before the first frame update
     void Start()
     {
+        timer = FindObjectOfType<Timer>();
         inkState = InkState.findingNext;
         inkStartObject = FindObjectOfType<InkStartObject>();
     }
@@ -38,6 +40,8 @@ public class TileMapMove : MonoBehaviour
         switch (inkState)
         {
             case InkState.findingNext:
+                    timer.StartTimer();
+                    timer.timeRemaining = StopPoints[currentTarget].TimerToReach;
                     Debug.Log("FindingNext");
                 if (vertical)
                 {
