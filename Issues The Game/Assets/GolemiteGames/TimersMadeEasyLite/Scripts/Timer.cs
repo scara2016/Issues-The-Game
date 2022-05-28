@@ -62,7 +62,8 @@ public class Timer : MonoBehaviour
     bool timerRunning = false;
     bool timerPaused = false;
     public double timeRemaining;
-    
+
+    private TileMapMove tileMapMove;
 
     private void Awake()
     {
@@ -112,6 +113,8 @@ public class Timer : MonoBehaviour
     }
     void Start()
     {
+        tileMapMove = FindObjectOfType<TileMapMove>();
+
         if(startAtRuntime)
         {
             StartTimer();
@@ -383,6 +386,7 @@ public class Timer : MonoBehaviour
     public void AddTime(float timeToAdd)
     {
         timeRemaining += timeToAdd;
+        tileMapMove.UpdateWaitT(timeToAdd);
     }
 
     private static void RemainingSecondsToHHMMSSMMM(double totalSeconds, out float hours, out float minutes, out float seconds)

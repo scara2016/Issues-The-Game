@@ -10,7 +10,8 @@ public class TileMapMove : MonoBehaviour
         findingNext,
         movingToNext,
         expandingOverPanel,
-        waitingMenacingly
+        waitingMenacingly,
+        stop
     }
     private InkStartObject inkStartObject;
     public List<StopPointData> StopPoints;
@@ -25,6 +26,8 @@ public class TileMapMove : MonoBehaviour
     private float t = 0;
     private float waitT=0;
     private Timer timer;
+    private TilemapCollider2D tilemapCollider2D;
+    private PlayerHealth playerHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +35,8 @@ public class TileMapMove : MonoBehaviour
         inkState = InkState.findingNext;
         inkStartObject = FindObjectOfType<InkStartObject>();
         timer.StartTimer();
-
+        tilemapCollider2D = GetComponent<TilemapCollider2D>();
+        playerHealth = FindObjectOfType<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -112,7 +116,19 @@ public class TileMapMove : MonoBehaviour
                         }
                     }
                 break;
+            case InkState.stop:
+                 break;
 
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        playerHealth.health = 0;
+        inkState = InkState.stop;
+        
+    }
+    public void UpdateWaitT(float timeTodAdd)
+    {
+        waitT -= timeTodAdd;
     }
 }

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class KillPlayer : MonoBehaviour
 {
-    PlayerHealth playerHealth;
-
+    [SerializeField] Transform spawnPoint;
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        playerHealth = FindObjectOfType<PlayerHealth>();
-        playerHealth.health = 0;
+        if (col.transform.CompareTag("Player"))
+        {
+            col.transform.position = spawnPoint.position;
+        }
     }
 
 }

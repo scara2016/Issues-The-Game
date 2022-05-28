@@ -94,6 +94,10 @@ public class PlayerHealth : MonoBehaviour
         {
             HandleKnockBack();
         }
+        if (health <= 0)
+        {
+            Die();
+        }
     }
 
     private void Die()

@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherSide: {fileID: 2176965555004765380}
+  bonusTime: 5
   horizontal: 0
   vertical: 1
 --- !u!1 &2176965555004765387
@@ -180,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherSide: {fileID: 2176965554413758830}
+  bonusTime: 5
   horizontal: 0
   vertical: 1
 --- !u!1001 &8130774623999021268

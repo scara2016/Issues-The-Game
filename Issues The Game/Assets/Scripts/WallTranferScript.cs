@@ -5,6 +5,7 @@ using UnityEngine;
 public class WallTranferScript : MonoBehaviour
 {
     public WallTranferScript otherSide;
+    public float bonusTime;
     private Collider2D otherSideCollider;
     private Collider2D initialCollider;
     private Timer timer;
@@ -28,7 +29,7 @@ public class WallTranferScript : MonoBehaviour
     {
         if (!gaveBonusTime)
         {
-            timer.AddTime(5);
+            timer.AddTime(bonusTime);
             gaveBonusTime = true;
         }
         
