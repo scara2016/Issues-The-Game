@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
   m_Name: Ink256
   m_EditorClassIdentifier: 
-  m_AnimatedSprites: []
-  m_MinSpeed: 1
-  m_MaxSpeed: 1
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: 91986257d3c4f3244b13cece0824d7ef, type: 3}
+  - {fileID: 21300000, guid: 1de422d95a0c43343ba8034f6e67b4a6, type: 3}
+  - {fileID: 21300000, guid: 659cd35885a44a048ae1c426faf76d35, type: 3}
+  - {fileID: 21300000, guid: ab8b8f8cc7ad4f5419ba45622bb97ee6, type: 3}
+  - {fileID: 21300000, guid: 7b45496a42d4b8f4cbd127d19240fc08, type: 3}
+  m_MinSpeed: 10
+  m_MaxSpeed: 10
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
-  m_TileColliderType: 0
+  m_TileColliderType: 2
