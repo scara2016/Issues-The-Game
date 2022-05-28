@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b3977d6f3f8f3478642b31ee893171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  victoryDanceClip: {fileID: 7400000, guid: 583395106b356144391978ab6e5f2ad0, type: 2}
 --- !u!114 &2339204883490925889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,9 +242,8 @@ MonoBehaviour:
   slideCooldown: 0.5
   inkDragVert: 1.4
   inkDragMoveSpeed: 2
+  crouchSlideDuration: 1
   wallTransferCooldownTime: 0.2
-  dashSpeed: 125
-  dashDuration: 0.7
   crouchSlideForce: 15
 --- !u!114 &6217983382483752865
 MonoBehaviour:

@@ -16,6 +16,8 @@ public class TileMapMove : MonoBehaviour
     private InkStartObject inkStartObject;
     public List<StopPointData> StopPoints;
     public bool vertical;
+    public float inkSpeed;
+
     private float startPosition;
     private float gridStartPosition;
     private float startObjectStartPosition;
@@ -52,16 +54,17 @@ public class TileMapMove : MonoBehaviour
                     Debug.Log("FindingNext");
                 if (vertical)
                 {
-                    startPosition = inkStartObject.transform.position.y;
-                    finalPosition = StopPoints[currentTarget].transform.position.y;
+                    startPosition = inkStartObject.transform.localPosition.y;
+                        
+                    finalPosition = StopPoints[currentTarget].transform.localPosition.y;
                         distance = finalPosition - startPosition;
                         gridStartPosition = transform.position.y;
                         startObjectStartPosition = inkStartObject.transform.position.y;
                     }
                 else
                 {
-                    startPosition = inkStartObject.transform.position.x;
-                    finalPosition = StopPoints[currentTarget].transform.position.x;
+                    startPosition = inkStartObject.transform.localPosition.x;
+                    finalPosition = StopPoints[currentTarget].transform.localPosition.x;
                         distance = finalPosition - startPosition;
                         gridStartPosition = transform.position.x;
                         startObjectStartPosition = inkStartObject.transform.position.x;
@@ -84,9 +87,9 @@ public class TileMapMove : MonoBehaviour
             case InkState.movingToNext:
                     Debug.Log("Moving");
                     if (distance >= 0)
-                        t += Time.deltaTime;
+                        t += Time.deltaTime * inkSpeed;
                     else
-                        t -= Time.deltaTime;
+                        t -= Time.deltaTime * inkSpeed;
                     if (vertical)
                     {
                         transform.position = new Vector3(transform.position.x, gridStartPosition + t, transform.position.z);
@@ -124,11 +127,17 @@ public class TileMapMove : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         playerHealth.health = 0;
-        inkState = InkState.stop;
+        StopInk();
         
     }
     public void UpdateWaitT(float timeTodAdd)
     {
         waitT -= timeTodAdd;
     }
+
+    public void StopInk()
+    {
+        inkState = InkState.stop;
+    }
+
 }

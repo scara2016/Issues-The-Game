@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 3990022675087613599}
   - component: {fileID: 1871773725188294310}
   - component: {fileID: -2495452828980742859}
-  - component: {fileID: 5423225909406812556}
   - component: {fileID: -464184535974882097}
+  - component: {fileID: 1539235810}
+  - component: {fileID: 1539235811}
   m_Layer: 3
   m_Name: Bloober
   m_TagString: Enemy
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 893737d4904de574a889888ceec13bfd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -200,6 +201,18 @@ MonoBehaviour:
   lostTimer: 1
   bulletLobHeight: 3
   flipCooldown: 1
+--- !u!114 &-464184535974882097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115738106739679281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c16f0f0cadb114ca4f0cc592aa7260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1539235810
 Animator:
   serializedVersion: 4
@@ -220,7 +233,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-464184535974882097
+--- !u!114 &1539235811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -53,12 +53,20 @@ public class Movement : MonoBehaviour
     private bool wallTransferState = false;
     private bool isCrouched;
     public float crouchSlideForce;
-    private float crouchSlideT=0f;
+    private float crouchSlideT = 0f;
 
     private AnimationController controller;
 
     private PlayerHealth pHealth;
-    
+    private bool dashMovement = false;
+    public bool DashMovement
+    {
+        set
+        {
+            dashMovement = value;
+        }
+    }
+
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -145,7 +153,7 @@ public class Movement : MonoBehaviour
     {
 
         moveInput = playerControls.Main.Move.ReadValue<float>(); // Reads and stores movement input from inputManager
-        if (!wallJumpCooldownStart && !isCrouched) // Movement is locked when player is crouching
+        if (!wallJumpCooldownStart && !isCrouched && !dashMovement) // Movement is locked when player is crouching
         {
             jumpInput = playerControls.Main.Jump.ReadValue<float>(); // Reads and stores movement input from inputManager
             float targetSpeed = moveInput * moveSpeed; // when the player wants to move then the target speed is 1*movespeed and when they want to stop it is 0*moveSpeed
