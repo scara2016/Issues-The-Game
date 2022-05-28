@@ -265,7 +265,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  hitVFX: {fileID: 0}
+  hitVFX: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   weapon: {fileID: 0}
 --- !u!114 &4499346221470167105
 MonoBehaviour:
