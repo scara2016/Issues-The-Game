@@ -37,6 +37,9 @@ public class PlayerHealth : MonoBehaviour
     private AnimationController controller;
     private Movement movement;
 
+    private MeterScript healthMeter;
+
+
     // void OnEnable() {
     //     playerControls.Enable();
     // }
@@ -47,7 +50,9 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         movement = GetComponent<Movement>();
+        healthMeter = FindObjectOfType<MeterScript>();
         health = maxHealth;
+        healthMeter.SetMaxHealth(maxHealth);
         rb = gameObject.GetComponent<Rigidbody2D>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
         controller = GetComponent<AnimationController>();
@@ -58,6 +63,7 @@ public class PlayerHealth : MonoBehaviour
     public void InkDamage(float inkDamage)
     {
         health -= inkDamage*Time.deltaTime;
+        healthMeter.SetHealth(health);
         if (health <= 0)
         {
             Die();
@@ -71,6 +77,7 @@ public class PlayerHealth : MonoBehaviour
             inkParticleSpawner.SpurtInk();
             hit = true;
             health -= damage;
+            healthMeter.SetHealth(health);
             if (health <= 0)
             {
                 Die();
