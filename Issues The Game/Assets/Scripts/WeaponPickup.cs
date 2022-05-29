@@ -62,22 +62,8 @@ public class WeaponPickup : MonoBehaviour {
 
     void Update (){
         pickUpInput = playerControls.Main.PickUp.ReadValue<float>();
-        dashInput = playerControls.Main.Dash.ReadValue<float>();
+        
 
-        if (dashCoolDownStart)
-        {
-            dashCoolDownTimer += Time.deltaTime;
-        }
-        if(dashCoolDownStart && dashCoolDownTimer >= dashCoolDown)
-        {
-            dashCoolDownStart = false;
-            dashCoolDownTimer = 0f;
-        }
-        if (dashInput != 0 && !dashCoolDownStart)
-        {
-            dashCoolDownStart = true;
-            playerMovement.Dash();
-        }
 
         if (pickUpAllowed && pickUpInput != 0) {
             PickUp();

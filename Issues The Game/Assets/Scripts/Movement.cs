@@ -40,6 +40,9 @@ public class Movement : MonoBehaviour
     private bool isWallSliding = false;
     public float inkDragVert = 3f;
     public float inkDragMoveSpeed = 2f;
+    public float crouchSlideDuration;
+    private bool crouchSlideHappening = false;
+    private float crouchT = 0f;
 
     RaycastHit2D wallCheckHitLeft;
     RaycastHit2D wallCheckHitRight;
@@ -48,18 +51,21 @@ public class Movement : MonoBehaviour
     private float wallTransferCooldownTimer = 0;
     private bool wallTransferCooldownStart = false;
     private bool wallTransferState = false;
-    private float dashInput;
-    public float dashSpeed = 10f;
     private bool isCrouched;
-    public float dashDuration;
-    private float dashT = 0;
-    private bool dashStart = false;
     public float crouchSlideForce;
+    private float crouchSlideT = 0f;
 
     private AnimationController controller;
 
     private PlayerHealth pHealth;
-    private bool dashSlideHappening = false;
+    private bool dashMovement = false;
+    public bool DashMovement
+    {
+        set
+        {
+            dashMovement = value;
+        }
+    }
 
     [SerializeField] AudioSource jumpsfx;
     [SerializeField] AudioSource walksfx;
@@ -151,7 +157,7 @@ public class Movement : MonoBehaviour
         
 
         moveInput = playerControls.Main.Move.ReadValue<float>(); // Reads and stores movement input from inputManager
-        if (!wallJumpCooldownStart && !isCrouched) // Movement is locked when player is crouching
+        if (!wallJumpCooldownStart && !isCrouched && !dashMovement) // Movement is locked when player is crouching
         {
             jumpInput = playerControls.Main.Jump.ReadValue<float>(); // Reads and stores movement input from inputManager
             float targetSpeed = moveInput * moveSpeed; // when the player wants to move then the target speed is 1*movespeed and when they want to stop it is 0*moveSpeed
@@ -399,24 +405,32 @@ public class Movement : MonoBehaviour
 
     private void Crouch()
     {
+     
         crouchInput = playerControls.Main.Crouch.ReadValue<float>();
-        if (dashStart)
-        {
-            dashT += Time.deltaTime;
-            if (dashT >= dashDuration)
-            {
-                dashStart = false;
-                dashT = 0;
-            }
-        }
-        if (crouchInput != 0 && !dashStart && IsGrounded())
+       
+        if (crouchInput != 0 && IsGrounded())
         {
             Debug.Log("happened");
             isCrouched = true;
-            dashStart = true;
-            rb.AddForce(Vector2.right * playerControls.Main.Move.ReadValue<float>() * crouchSlideForce, ForceMode2D.Impulse);
+            if (moveInput != 0 && !crouchSlideHappening)
+            {
+                crouchSlideHappening = true;
+                rb.AddForce(Vector2.right * playerControls.Main.Move.ReadValue<float>() * crouchSlideForce, ForceMode2D.Impulse);
+                
+            }
+        }
+        if (crouchSlideHappening)
+        {
+            crouchSlideT += Time.deltaTime;
+            if (crouchSlideT >= crouchSlideDuration)
+            {
+                crouchSlideT = 0;
+                crouchSlideHappening = false;
+            }
         }
 
+
+        
 
 
         /*
@@ -436,14 +450,6 @@ public class Movement : MonoBehaviour
         */
     }
 
-
-
-    public void Dash()
-    {
-
-
-        //rb.AddForce(dashInput * Vector2.right*dashSpeed, ForceMode2D.Impulse);
-    }
 
 
 }

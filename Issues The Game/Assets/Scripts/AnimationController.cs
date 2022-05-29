@@ -7,6 +7,9 @@ public class AnimationController : MonoBehaviour
     private Animator animator;
     private Movement move;
     private string currentState;
+    public AnimationClip victoryDanceClip;
+    private AnimationEvent evt1;
+    private LevelTransition lvlTransition;
 
     // private WeaponPickup wp;
 
@@ -15,8 +18,17 @@ public class AnimationController : MonoBehaviour
 
     void Awake()
     {
+        lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
         animator = GetComponent<Animator>();
         move = GetComponent<Movement>();
+
+        evt1 = new AnimationEvent();
+        evt1.time = 6f;
+        evt1.functionName = "WinProcess";
+        // Adds animation event to GoalDance clip which MUST be public.
+        // Should add an event that disables the player controls, then start the dance animation. 
+
+        victoryDanceClip.AddEvent(evt1);
     }
 
     public void PlayState(string stateName)
@@ -82,5 +94,16 @@ public class AnimationController : MonoBehaviour
     public void DashState()
     {
         animator.SetTrigger("Dash");
+    }
+
+    public void GoalState()
+    {
+        move.DisableControls();
+        animator.SetTrigger("Win");
+    }
+
+    private void WinProcess()
+    {
+        lvlTransition.LoadScene();
     }
 }

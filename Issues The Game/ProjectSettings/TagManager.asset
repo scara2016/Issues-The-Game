@@ -12,9 +12,10 @@ TagManager:
   - InkDrop
   - NextLevel
   - panel
-  - UICanvas
   - InkTarget
-  - Fall
+  - UICanvas
+  - FxTemporaire
+  - TimeDial
   layers:
   - Default
   - TransparentFX
@@ -23,11 +24,11 @@ TagManager:
   - Water
   - UI
   - Ground
-  - Ink
+  - Player
   - Bullet
   - Particles
-  - Player
-  - 
+  - TileMap
+  - LevelTransition
   - 
   - 
   - 
