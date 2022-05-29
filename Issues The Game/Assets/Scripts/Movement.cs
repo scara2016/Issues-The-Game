@@ -158,6 +158,7 @@ public class Movement : MonoBehaviour
            // float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration; // calculates if accel needs to be applied positive or negative
             float movement = Mathf.Pow(Mathf.Abs(speedDif) * acceleration, velPower) * Mathf.Sign(speedDif);
             rb.AddForce(movement * Vector2.right);
+            
 
          
              

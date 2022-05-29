@@ -2005,6 +2005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blobert
       objectReference: {fileID: 0}
+    - target: {fileID: 1672550408722469400, guid: 4cd31e4891f21164592725b6176c619e, type: 3}
+      propertyPath: m_Volume
+      value: 0.142
+      objectReference: {fileID: 0}
     - target: {fileID: 3243516135121272976, guid: 4cd31e4891f21164592725b6176c619e, type: 3}
       propertyPath: m_RootOrder
       value: 1
