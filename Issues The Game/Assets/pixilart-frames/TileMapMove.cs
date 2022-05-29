@@ -126,6 +126,7 @@ public class TileMapMove : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         playerHealth.health = 0;
         StopInk();
         

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5679788520594114850}
   - component: {fileID: 6856618328079342040}
   - component: {fileID: 6925763197903766523}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LevelTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 8743061126932033502}
   - component: {fileID: 5596102442586449508}
   - component: {fileID: 6772542278262302089}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

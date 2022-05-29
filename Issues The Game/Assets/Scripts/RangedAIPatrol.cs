@@ -45,7 +45,6 @@ public class RangedAIPatrol : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         controller = GetComponent<EnemyAnimationController>(); //Separate Animation Controller than player's
         aiState = AIState.Moving;
-        Debug.Log("State: Moving");
     }
     private float noticeT;
     private float reloadT;
@@ -90,7 +89,6 @@ public class RangedAIPatrol : MonoBehaviour
                 if (detectionCircle.PlayerSeen)
                 {
                     aiState = AIState.SpottedPlayer;
-                    Debug.Log("State: SpottedPlayer");
                 }
                 
                 controller.ReloadState(false);
@@ -103,14 +101,12 @@ public class RangedAIPatrol : MonoBehaviour
                 {
                     noticeT = 0;
                     aiState = AIState.Attacking;
-                    Debug.Log("State: Attacking");
                     
                 }
                 if (!detectionCircle.PlayerSeen)
                 {
                     noticeT = 0;
                     aiState = AIState.Moving;
-                    Debug.Log("State: Moving");
                 }
                 controller.MoveState(false);
                 controller.ReloadState(true);
@@ -120,7 +116,6 @@ public class RangedAIPatrol : MonoBehaviour
                 bullet.transform.position = transform.position;
                 Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();
                 LaunchBullet(CalculateLaunchVelocity(bullet), bulletRB);
-                Debug.Log("State: Shot and Reloading");
                 aiState = AIState.Reloading;
 
                 controller.AtkState();
@@ -134,13 +129,11 @@ public class RangedAIPatrol : MonoBehaviour
                 {
                     reloadT = 0;
                     aiState = AIState.Attacking;
-                    Debug.Log("State: Attacking");
                 }
                 if (!detectionCircle.PlayerSeen)
                 {
                     reloadT = 0;
                     aiState = AIState.LostPlayer;
-                    Debug.Log("State: Lost");
                 }
 
                 controller.ReloadState(true);
@@ -153,14 +146,12 @@ public class RangedAIPatrol : MonoBehaviour
                 {
                     lostT = 0;
                     aiState = AIState.Moving;
-                    Debug.Log("State: Moving");
                     controller.MoveState(true);
                 }
                 if (detectionCircle.PlayerSeen)
                 {
                     lostT = 0;
                     aiState = AIState.Attacking;
-                    Debug.Log("State: Attacking");
                 }
                
                 controller.MoveState(false);
@@ -174,7 +165,6 @@ public class RangedAIPatrol : MonoBehaviour
         float xDisplacement = player.transform.position.x - bullet.transform.position.x;
         Vector2 yVelocity = Vector2.up * Mathf.Sqrt(-2 * Physics2D.gravity.y * bulletLobHeight);
         Vector2 xVelocity = new Vector2(xDisplacement / (Mathf.Sqrt(-2 * bulletLobHeight / Physics2D.gravity.y) + Mathf.Sqrt(2 * (yDisplacement - bulletLobHeight) / Physics2D.gravity.y)),0);
-        Debug.Log("grav:- " + Physics2D.gravity);
         return xVelocity + yVelocity;
 
     }
