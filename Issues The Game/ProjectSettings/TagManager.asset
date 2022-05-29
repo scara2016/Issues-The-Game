@@ -12,8 +12,9 @@ TagManager:
   - InkDrop
   - NextLevel
   - panel
-  - InkTarget
   - UICanvas
+  - InkTarget
+  - Fall
   layers:
   - Default
   - TransparentFX
@@ -22,10 +23,10 @@ TagManager:
   - Water
   - UI
   - Ground
-  - Player
+  - Ink
   - Bullet
   - Particles
-  - 
+  - Player
   - 
   - 
   - 
