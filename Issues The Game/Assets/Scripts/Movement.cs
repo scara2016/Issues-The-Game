@@ -62,6 +62,7 @@ public class Movement : MonoBehaviour
     private bool dashSlideHappening = false;
 
     [SerializeField] AudioSource jumpsfx;
+    [SerializeField] AudioSource walksfx;
 
     private void Awake()
     {
@@ -177,11 +178,13 @@ public class Movement : MonoBehaviour
             if (moveInput != 0)
             {
                 controller.RunState(true);
+                walksfx.UnPause();
             }
             else
             {
                 controller.RunState(false);
                 controller.WalkState(false);
+                walksfx.Pause();
             }
         }
 
