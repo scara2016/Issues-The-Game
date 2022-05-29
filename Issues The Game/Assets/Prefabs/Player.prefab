@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ea5cd35c78ef7498f599a302bd9f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashDistance: 2
+  dashDistance: 3
   dashSpeed: 5
   dashCoolDown: 3
 --- !u!82 &1064335772
