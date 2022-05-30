@@ -16,6 +16,7 @@ TagManager:
   - UICanvas
   - FxTemporaire
   - TimeDial
+  - Fall
   layers:
   - Default
   - TransparentFX
