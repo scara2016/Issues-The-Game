@@ -107,7 +107,7 @@ public class Movement : MonoBehaviour
         Friction();
         Jump();
         WallJump();
-        Crouch();
+        //Crouch();
 
         if (wallTransferCooldownStart) //cooldown for walltransfer added here so it runs everyframe;
         {
@@ -176,7 +176,7 @@ public class Movement : MonoBehaviour
 
     private void AnimateMovement()
     {
-        crouchInput = playerControls.Main.Crouch.ReadValue<float>();
+      //  crouchInput = playerControls.Main.Crouch.ReadValue<float>();
         // Reads Input Value to change state
         if (IsGrounded() && !isWallSliding && !isCrouched)
         {
@@ -403,10 +403,10 @@ public class Movement : MonoBehaviour
         rb.drag = 0;
     }
 
-    private void Crouch()
+   /* private void Crouch()
     {
      
-        crouchInput = playerControls.Main.Crouch.ReadValue<float>();
+      //  crouchInput = playerControls.Main.Crouch.ReadValue<float>();
        
         if (crouchInput != 0 && IsGrounded())
         {
@@ -427,8 +427,9 @@ public class Movement : MonoBehaviour
                 crouchSlideT = 0;
                 crouchSlideHappening = false;
             }
+   
         }
-
+   
 
         
 
@@ -448,7 +449,7 @@ public class Movement : MonoBehaviour
                     controller.CrouchState(false);
                 }
         */
-    }
+    
 
 
 

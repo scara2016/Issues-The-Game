@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4164988ce04c1d46b606f216b932558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRadius: 2
+  visionRadius: 5
 --- !u!114 &-7271081758039183889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
     m_Bits: 64
   flipCooldown: 1
   rushSpeed: 10
-  rushCoolDown: 1
+  rushCoolDown: 3
 --- !u!82 &-6617721736765040560
 AudioSource:
   m_ObjectHideFlags: 0
