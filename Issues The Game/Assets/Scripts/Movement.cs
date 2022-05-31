@@ -203,7 +203,7 @@ public class Movement : MonoBehaviour
                 controller.JumpState(true);
                 controller.WallSlideState(false);
                 walksfx.Pause();
-                wallslidesfx.Pause();
+                walksfx.Pause();
             }
 
             if (rb.velocity.y < 0)
@@ -212,6 +212,7 @@ public class Movement : MonoBehaviour
                 controller.AirState(true);
                 controller.WallSlideState(false);
                 walksfx.Pause();
+                wallslidesfx.Pause();
             }
         }
         else
@@ -223,7 +224,7 @@ public class Movement : MonoBehaviour
         if (!IsGrounded() && isWallSliding)
         {
             controller.WallSlideState(true);
-            wallslidesfx.Play();
+            wallslidesfx.UnPause();
         }
 
         if (moveInput > 0) //When running to the right
@@ -321,6 +322,7 @@ public class Movement : MonoBehaviour
         {
             slideCooldownStart = true;
             isWallSliding = true;
+            wallslidesfx.UnPause();
             jumpCooldownTimer = float.MaxValue;
         }
         else if (slideTimer > slideCooldown && (!wallCheckHitLeft || !wallCheckHitRight)) //ends the slide
@@ -328,10 +330,12 @@ public class Movement : MonoBehaviour
             slideTimer = 0;
             slideCooldownStart = false;
             isWallSliding = false;
+            wallslidesfx.Pause();
         }
         if (isWallSliding) // movement condition for sliding
         {
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlideSpeed, float.MaxValue));
+            wallslidesfx.UnPause();
 
         }
         if (wallJumpCooldownStart) // so the player cannot jump in rapid succsesion

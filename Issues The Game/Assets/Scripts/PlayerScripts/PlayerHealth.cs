@@ -38,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
     private Movement movement;
 
     private MeterScript healthMeter;
+    [SerializeField] AudioSource deadsfx;
 
 
     // void OnEnable() {
@@ -58,6 +59,7 @@ public class PlayerHealth : MonoBehaviour
         controller = GetComponent<AnimationController>();
         inkParticleSpawner = GetComponentInChildren<InkParticleSpawner>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        deadsfx.Pause();
     }
 
     public void InkDamage(float inkDamage)
@@ -67,6 +69,7 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             Die();
+            deadsfx.UnPause();
         }
     }
 
@@ -81,6 +84,7 @@ public class PlayerHealth : MonoBehaviour
             if (health <= 0)
             {
                 Die();
+                deadsfx.UnPause();
             }
         }
     }
@@ -89,6 +93,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void FixedUpdate()
     {
+        deadsfx.Pause();
         // hit bool is set to true, changed to false after knockback
         if(hit)
         {
@@ -97,6 +102,7 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             Die();
+            deadsfx.UnPause();
         }
     }
 
@@ -147,6 +153,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!isDead)
         {
+            deadsfx.Pause();
             isTakingDamage = false;
         }
     }
@@ -164,6 +171,7 @@ public class PlayerHealth : MonoBehaviour
         if(other.CompareTag("Fall"))
         {
             Die();
+            deadsfx.UnPause();
         }
     }
 

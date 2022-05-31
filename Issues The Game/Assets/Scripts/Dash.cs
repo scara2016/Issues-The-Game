@@ -63,6 +63,7 @@ public class Dash : MonoBehaviour
                 finalPlayerPos = transform.position + new Vector3(playerControls.Main.Move.ReadValue<float>() * dashDistance, 0, 0);
                 dashState = DashState.Dashing;
                 fractionTravelled = 1f;
+                dashsfx.Play();
                 
                 break;
             case DashState.Dashing:
@@ -70,7 +71,7 @@ public class Dash : MonoBehaviour
                     Debug.Log("dashdistance " + fractionTravelled);
                     rb.MovePosition(Vector3.Lerp(initialPlayerPos, finalPlayerPos, t));
                     t += dashSpeed * Time.deltaTime;
-                    dashsfx.Play();
+                    
                 if (t >= fractionTravelled)
                 {
                     fractionTravelled = 1;
