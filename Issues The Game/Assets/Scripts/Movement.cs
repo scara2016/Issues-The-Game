@@ -69,6 +69,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] AudioSource jumpsfx;
     [SerializeField] AudioSource walksfx;
+    [SerializeField] AudioSource wallslidesfx;
 
     private void Awake()
     {
@@ -181,6 +182,7 @@ public class Movement : MonoBehaviour
         if (IsGrounded() && !isWallSliding && !isCrouched)
         {
             controller.WallSlideState(false);
+            wallslidesfx.Pause();
             if (moveInput != 0)
             {
                 controller.RunState(true);
@@ -200,6 +202,8 @@ public class Movement : MonoBehaviour
             {
                 controller.JumpState(true);
                 controller.WallSlideState(false);
+                walksfx.Pause();
+                wallslidesfx.Pause();
             }
 
             if (rb.velocity.y < 0)
@@ -207,6 +211,7 @@ public class Movement : MonoBehaviour
                 controller.JumpState(false);
                 controller.AirState(true);
                 controller.WallSlideState(false);
+                walksfx.Pause();
             }
         }
         else
@@ -218,6 +223,7 @@ public class Movement : MonoBehaviour
         if (!IsGrounded() && isWallSliding)
         {
             controller.WallSlideState(true);
+            wallslidesfx.Play();
         }
 
         if (moveInput > 0) //When running to the right

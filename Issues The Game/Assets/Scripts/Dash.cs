@@ -28,6 +28,8 @@ public class Dash : MonoBehaviour
     private float dashT;
     private bool dashCoolDownStart;
 
+    [SerializeField] private AudioSource dashsfx;
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -68,6 +70,7 @@ public class Dash : MonoBehaviour
                     Debug.Log("dashdistance " + fractionTravelled);
                     rb.MovePosition(Vector3.Lerp(initialPlayerPos, finalPlayerPos, t));
                     t += dashSpeed * Time.deltaTime;
+                    dashsfx.Play();
                 if (t >= fractionTravelled)
                 {
                     fractionTravelled = 1;
