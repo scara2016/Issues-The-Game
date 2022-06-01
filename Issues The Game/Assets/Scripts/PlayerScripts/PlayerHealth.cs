@@ -39,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
 
     private MeterScript healthMeter;
     [SerializeField] AudioSource deadsfx;
+    [SerializeField] AudioSource hitsfx;
 
 
     // void OnEnable() {
@@ -66,6 +67,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= inkDamage*Time.deltaTime;
         healthMeter.SetHealth(health);
+        hitsfx.Play();
         if (health <= 0)
         {
             Die();
@@ -77,6 +79,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(!hit)
         {
+            hitsfx.Play();
             inkParticleSpawner.SpurtInk();
             hit = true;
             health -= damage;

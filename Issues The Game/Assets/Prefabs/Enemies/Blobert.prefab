@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   harm: 10
+  hitsfx: {fileID: 0}
 --- !u!50 &6238662374816229140
 Rigidbody2D:
   serializedVersion: 4

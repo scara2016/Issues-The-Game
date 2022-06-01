@@ -70,6 +70,7 @@ public class Movement : MonoBehaviour
     [SerializeField] AudioSource jumpsfx;
     [SerializeField] AudioSource walksfx;
     [SerializeField] AudioSource wallslidesfx;
+    [SerializeField] AudioSource transfersfx;
 
     private void Awake()
     {
@@ -398,6 +399,7 @@ public class Movement : MonoBehaviour
         {
             this.transform.position = InitialSide.returnNewPosition(this.transform.position);
             wallTransferCooldownStart = true;
+            transfersfx.Play();
         }
     }
 
