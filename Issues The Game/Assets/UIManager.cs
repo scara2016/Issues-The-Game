@@ -12,8 +12,6 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        //DontDestroyOnLoad(transform.gameObject);
-        //DontDestroyOnLoad(pauseMenuUI.gameObject);
         if (instance != null)
         {
             Destroy(this.gameObject);
@@ -95,7 +93,14 @@ public class UIManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Resume();
         
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+        Time.timeScale = 1f;
     }
 
     public void Quit()

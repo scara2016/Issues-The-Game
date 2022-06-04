@@ -33,6 +33,8 @@ public class PlayerCombat : MonoBehaviour
     private Collider2D[] hitEnemies;
 
     private AnimationController controller;
+
+    [SerializeField] private AudioSource swordSwingSound;
    
 
 
@@ -81,6 +83,8 @@ public class PlayerCombat : MonoBehaviour
     {
         // play animation
         controller.SwingAttack();
+        // Play sound effect
+        swordSwingSound.Play();
         //Detect enemies in range 
         
         //Damage them 

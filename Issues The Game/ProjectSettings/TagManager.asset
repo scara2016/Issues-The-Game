@@ -14,6 +14,8 @@ TagManager:
   - panel
   - InkTarget
   - UICanvas
+  - FxTemporaire
+  - TimeDial
   layers:
   - Default
   - TransparentFX
@@ -25,8 +27,8 @@ TagManager:
   - Player
   - Bullet
   - Particles
-  - 
-  - 
+  - TileMap
+  - LevelTransition
   - 
   - 
   - 

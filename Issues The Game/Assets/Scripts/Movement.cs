@@ -26,11 +26,11 @@ public class Movement : MonoBehaviour
     public float jumpCooldown = 5f;
     private float jumpCooldownTimer = 0f;
     public float jumpVelocity = 1f;
-    
+
     private bool wallJumpCooldownStart = false;
     public float wallJumpCooldown = 5f;
     private float wallJumpCooldownTimer = 0f;
-    
+
     public float wallJumpTime = 0.2f;
     public float wallSlideSpeed = 0.3f;
     public float wallDistance = 0.5f;
@@ -40,26 +40,35 @@ public class Movement : MonoBehaviour
     private bool isWallSliding = false;
     public float inkDragVert = 3f;
     public float inkDragMoveSpeed = 2f;
+    public float crouchSlideDuration;
+    private bool crouchSlideHappening = false;
+    private float crouchT = 0f;
 
     RaycastHit2D wallCheckHitLeft;
     RaycastHit2D wallCheckHitRight;
 
     public float wallTransferCooldownTime = 0.2f;
-    private float wallTransferCooldownTimer=0;
+    private float wallTransferCooldownTimer = 0;
     private bool wallTransferCooldownStart = false;
     private bool wallTransferState = false;
-    private float dashInput;
-    public float dashSpeed=10f;
     private bool isCrouched;
-    public float dashDuration;
-    private float dashT = 0;
-    private bool dashStart =false;
     public float crouchSlideForce;
+    private float crouchSlideT = 0f;
 
     private AnimationController controller;
 
     private PlayerHealth pHealth;
-    private bool dashSlideHappening = false;
+    private bool dashMovement = false;
+    public bool DashMovement
+    {
+        set
+        {
+            dashMovement = value;
+        }
+    }
+
+    [SerializeField] AudioSource jumpsfx;
+    [SerializeField] AudioSource walksfx;
 
     private void Awake()
     {
@@ -87,7 +96,7 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -99,7 +108,7 @@ public class Movement : MonoBehaviour
         Jump();
         WallJump();
         Crouch();
-        
+
         if (wallTransferCooldownStart) //cooldown for walltransfer added here so it runs everyframe;
         {
             wallTransferCooldownTimer += Time.deltaTime;
@@ -110,11 +119,11 @@ public class Movement : MonoBehaviour
             wallTransferCooldownStart = false;
         }
 
-        if(moveInput != 0 && !pHealth.isTakingDamage)
+        if (moveInput != 0 && !pHealth.isTakingDamage)
         {
             moveInput = playerControls.Main.Move.ReadValue<float>();
         }
-        else 
+        else
         {
             moveInput = 0;
         }
@@ -145,19 +154,21 @@ public class Movement : MonoBehaviour
 
     private void PlayerMovement()
     {
+        
 
         moveInput = playerControls.Main.Move.ReadValue<float>(); // Reads and stores movement input from inputManager
-        if (!wallJumpCooldownStart && !isCrouched) // Movement is locked when player is crouching
+        if (!wallJumpCooldownStart && !isCrouched && !dashMovement) // Movement is locked when player is crouching
         {
             jumpInput = playerControls.Main.Jump.ReadValue<float>(); // Reads and stores movement input from inputManager
             float targetSpeed = moveInput * moveSpeed; // when the player wants to move then the target speed is 1*movespeed and when they want to stop it is 0*moveSpeed
             float speedDif = targetSpeed - rb.velocity.x; //finds difference between current velocity and target velocity
-           // float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration; // calculates if accel needs to be applied positive or negative
+                                                          // float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration; // calculates if accel needs to be applied positive or negative
             float movement = Mathf.Pow(Mathf.Abs(speedDif) * acceleration, velPower) * Mathf.Sign(speedDif);
             rb.AddForce(movement * Vector2.right);
+            
 
-         
-             
+
+
         }
 
 
@@ -173,11 +184,13 @@ public class Movement : MonoBehaviour
             if (moveInput != 0)
             {
                 controller.RunState(true);
+                walksfx.UnPause();
             }
             else
             {
                 controller.RunState(false);
                 controller.WalkState(false);
+                walksfx.Pause();
             }
         }
 
@@ -192,7 +205,7 @@ public class Movement : MonoBehaviour
             if (rb.velocity.y < 0)
             {
                 controller.JumpState(false);
-                controller.AirState(true); 
+                controller.AirState(true);
                 controller.WallSlideState(false);
             }
         }
@@ -216,13 +229,13 @@ public class Movement : MonoBehaviour
             rb.transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        if(crouchInput != 0 && IsGrounded()) 
-        { 
+        if (crouchInput != 0 && IsGrounded())
+        {
             controller.CrouchState(true);
             isCrouched = true; //Prevents moving when crouched
         }
-        else 
-        { 
+        else
+        {
             controller.CrouchState(false);
             isCrouched = false;
         }
@@ -242,6 +255,7 @@ public class Movement : MonoBehaviour
 
     private void Jump()
     {
+        
         if (jumpCooldownStart) // so the player cannot jump in rapid succsesion
         {
             jumpCooldownTimer += Time.deltaTime;
@@ -258,9 +272,11 @@ public class Movement : MonoBehaviour
                 rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
                 jumpCooldownStart = true; //cooldown has started
                 wallJumpCooldownStart = true;
+                // jump sound
+                jumpsfx.Play();
             }
         }
-        else if(isWallSliding && jumpInput!=0 && !wallJumpCooldownStart && !IsGrounded())
+        else if (isWallSliding && jumpInput != 0 && !wallJumpCooldownStart && !IsGrounded())
         {
             if (wallCheckHitLeft)
             {
@@ -275,11 +291,11 @@ public class Movement : MonoBehaviour
         }
         if (rb.velocity.y < 0) // if the player has started to fall then we apply the fall multiplier
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime ;
-        } 
-        else if(rb.velocity.y>0 && jumpInput == 0) // if the player hasd let go early of jump button then we increase
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb.velocity.y > 0 && jumpInput == 0) // if the player hasd let go early of jump button then we increase
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime; 
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
     }
 
@@ -310,7 +326,7 @@ public class Movement : MonoBehaviour
         if (isWallSliding) // movement condition for sliding
         {
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlideSpeed, float.MaxValue));
-            
+
         }
         if (wallJumpCooldownStart) // so the player cannot jump in rapid succsesion
         {
@@ -324,7 +340,7 @@ public class Movement : MonoBehaviour
     }
 
 
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("InkDrop"))
@@ -334,7 +350,7 @@ public class Movement : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+
         if (collision.CompareTag("InkDrop"))
         {
             InkDragReset();
@@ -343,7 +359,7 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-           
+
         if (collision.CompareTag("PassableObject"))
         {
             wallTransfer(collision.gameObject.GetComponent<WallTranferScript>());
@@ -353,14 +369,14 @@ public class Movement : MonoBehaviour
         {
             wallTransferState = false;
         }
-        
+
         if (collision.CompareTag("InkDrop"))
         {
-       
+
         }
         else
         {
-        
+
         }
     }
 
@@ -389,51 +405,51 @@ public class Movement : MonoBehaviour
 
     private void Crouch()
     {
+     
         crouchInput = playerControls.Main.Crouch.ReadValue<float>();
-        if (dashStart)
-        {
-            dashT += Time.deltaTime;
-            if (dashT >= dashDuration)
-            {
-                dashStart = false;
-                dashT = 0;
-            }
-        }
-        if (crouchInput != 0 && !dashStart && IsGrounded())
+       
+        if (crouchInput != 0 && IsGrounded())
         {
             Debug.Log("happened");
             isCrouched = true;
-            dashStart = true;
-            rb.AddForce(Vector2.right * playerControls.Main.Move.ReadValue<float>() * crouchSlideForce, ForceMode2D.Impulse);
+            if (moveInput != 0 && !crouchSlideHappening)
+            {
+                crouchSlideHappening = true;
+                rb.AddForce(Vector2.right * playerControls.Main.Move.ReadValue<float>() * crouchSlideForce, ForceMode2D.Impulse);
+                
+            }
         }
+        if (crouchSlideHappening)
+        {
+            crouchSlideT += Time.deltaTime;
+            if (crouchSlideT >= crouchSlideDuration)
+            {
+                crouchSlideT = 0;
+                crouchSlideHappening = false;
+            }
+        }
+
+
         
 
 
-/*
-       if (crouchInput >= 0.5 && IsGrounded() && moveInput == 0)
-        {
-            Debug.Log("Crouching");
-            boxCollider.size = new Vector2(1, 0.7f);
-            boxCollider.offset = new Vector2(0, -0.2f);
-            controller.CrouchState(true);
-        }
-        else
-        {
-            boxCollider.size = new Vector2(1, 1);
-            boxCollider.offset = new Vector2(0, 0);
-            controller.CrouchState(false);
-        }
-*/
+        /*
+               if (crouchInput >= 0.5 && IsGrounded() && moveInput == 0)
+                {
+                    Debug.Log("Crouching");
+                    boxCollider.size = new Vector2(1, 0.7f);
+                    boxCollider.offset = new Vector2(0, -0.2f);
+                    controller.CrouchState(true);
+                }
+                else
+                {
+                    boxCollider.size = new Vector2(1, 1);
+                    boxCollider.offset = new Vector2(0, 0);
+                    controller.CrouchState(false);
+                }
+        */
     }
 
-    
-
-    public void Dash()
-    {
-       
-
-        //rb.AddForce(dashInput * Vector2.right*dashSpeed, ForceMode2D.Impulse);
-    }
 
 
 }

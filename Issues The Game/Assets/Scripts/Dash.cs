@@ -64,7 +64,7 @@ public class Dash : MonoBehaviour
                 
                 break;
             case DashState.Dashing:
-                    playerMovement.enabled = false;
+                    playerMovement.DashMovement = true;
                     Debug.Log("dashdistance " + fractionTravelled);
                     rb.MovePosition(Vector3.Lerp(initialPlayerPos, finalPlayerPos, t));
                     t += dashSpeed * Time.deltaTime;
@@ -78,7 +78,7 @@ public class Dash : MonoBehaviour
                 break;
 
             case DashState.Moving:
-                    playerMovement.enabled = true;
+                    playerMovement.DashMovement = false;
                 if(dashCoolDownStart)
                     dashT += Time.deltaTime;
                 if (dashT > dashCoolDown)
