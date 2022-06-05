@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4164988ce04c1d46b606f216b932558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRadius: 2
+  visionRadius: 5
 --- !u!114 &-7271081758039183889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,9 +193,10 @@ MonoBehaviour:
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  enemysfx: {fileID: -6617721736765040560}
   flipCooldown: 1
   rushSpeed: 10
-  rushCoolDown: 1
+  rushCoolDown: 3
 --- !u!82 &-6617721736765040560
 AudioSource:
   m_ObjectHideFlags: 0
@@ -203,12 +204,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8232332004358485191}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3f79fe0e23884bf4fbcdbde9945f5917, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.006
+  m_Volume: 0.022
   m_Pitch: 2.25
   Loop: 1
   Mute: 0

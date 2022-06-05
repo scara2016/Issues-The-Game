@@ -196,6 +196,7 @@ MonoBehaviour:
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  enemysfx: {fileID: 280499864111316441}
   bulletPrefab: {fileID: 7085383327003989035, guid: 96bb05bad8033224298e1c27f875c0a6, type: 3}
   noticeTimer: 1
   reloadTimer: 1
@@ -253,12 +254,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115738106739679281}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3f79fe0e23884bf4fbcdbde9945f5917, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.006
+  m_Volume: 0.022
   m_Pitch: 2.25
   Loop: 1
   Mute: 0

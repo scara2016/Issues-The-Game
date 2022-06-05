@@ -8,6 +8,7 @@ public class RushAIPatrol : MonoBehaviour
 
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] private LayerMask platformLayerMask;
+    [SerializeField] private AudioSource enemysfx;
 
     Rigidbody2D myRigidbody;
     BoxCollider2D boxCollider;
@@ -53,6 +54,14 @@ public class RushAIPatrol : MonoBehaviour
         else if(!rushCoolDownStart)
         {
             RushMovement();
+        }
+        if(Time.timeScale == 0f)
+        {
+            enemysfx.Pause();
+        }
+        else
+        {
+            enemysfx.UnPause();
         }
     }
 

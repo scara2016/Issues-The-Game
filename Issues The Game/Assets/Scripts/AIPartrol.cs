@@ -7,6 +7,7 @@ public class AIPartrol : MonoBehaviour
   
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] private LayerMask platformLayerMask;
+    [SerializeField] private AudioSource enemysfx;
 
     Rigidbody2D myRigidbody;
     BoxCollider2D boxCollider;
@@ -53,6 +54,14 @@ public class AIPartrol : MonoBehaviour
             {
                 right = true;
             }
+        }
+        if(Time.timeScale == 0f)
+        {
+            enemysfx.Pause();
+        }
+        else
+        {
+            enemysfx.UnPause();
         }
     }
     public bool IsGrounded()
