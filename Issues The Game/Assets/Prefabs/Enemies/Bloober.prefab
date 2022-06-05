@@ -196,6 +196,7 @@ MonoBehaviour:
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  enemysfx: {fileID: 280499864111316441}
   bulletPrefab: {fileID: 7085383327003989035, guid: 96bb05bad8033224298e1c27f875c0a6, type: 3}
   noticeTimer: 1
   reloadTimer: 1

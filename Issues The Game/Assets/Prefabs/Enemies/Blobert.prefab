@@ -116,7 +116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   harm: 10
-  hitsfx: {fileID: 0}
 --- !u!50 &6238662374816229140
 Rigidbody2D:
   serializedVersion: 4
@@ -180,6 +179,7 @@ MonoBehaviour:
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  enemysfx: {fileID: -2209548457018787043}
   flipCooldown: 1
 --- !u!82 &-2209548457018787043
 AudioSource:
