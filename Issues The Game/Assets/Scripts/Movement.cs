@@ -111,7 +111,7 @@ public class Movement : MonoBehaviour
 
         if (wallTransferCooldownStart) //cooldown for walltransfer added here so it runs everyframe;
         {
-            wallTransferCooldownTimer += Time.deltaTime;
+            wallTransferCooldownTimer += Time.fixedDeltaTime;
         }
         if (wallTransferCooldownTimer >= wallTransferCooldownTime)
         {
@@ -157,7 +157,7 @@ public class Movement : MonoBehaviour
         
 
         moveInput = playerControls.Main.Move.ReadValue<float>(); // Reads and stores movement input from inputManager
-        if (!wallJumpCooldownStart && !isCrouched && !dashMovement) // Movement is locked when player is crouching
+        if (!isCrouched && !dashMovement) // Movement is locked when player is crouching
         {
             jumpInput = playerControls.Main.Jump.ReadValue<float>(); // Reads and stores movement input from inputManager
             float targetSpeed = moveInput * moveSpeed; // when the player wants to move then the target speed is 1*movespeed and when they want to stop it is 0*moveSpeed
@@ -256,18 +256,18 @@ public class Movement : MonoBehaviour
     private void Jump()
     {
         
-        if (jumpCooldownStart) // so the player cannot jump in rapid succsesion
+        /*if (jumpCooldownStart) // so the player cannot jump in rapid succsesion
         {
-            jumpCooldownTimer += Time.deltaTime;
+            jumpCooldownTimer += Time.fixedDeltaTime;
             if (jumpCooldownTimer >= jumpCooldown)
             {
                 jumpCooldownStart = false;
                 jumpCooldownTimer = 0f;
             }
-        }
+        }*/
         if (!isWallSliding)
         {
-            if (jumpInput != 0 && IsGrounded() && !jumpCooldownStart || (isWallSliding && jumpInput != 0 && !jumpCooldownStart)) //true if player is going to jump
+            if (jumpInput != 0 && IsGrounded() || (isWallSliding && jumpInput != 0 )) //true if player is going to jump
             {
                 rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
                 jumpCooldownStart = true; //cooldown has started
@@ -276,26 +276,27 @@ public class Movement : MonoBehaviour
                 jumpsfx.Play();
             }
         }
-        else if (isWallSliding && jumpInput != 0 && !wallJumpCooldownStart && !IsGrounded())
+        else if (isWallSliding && jumpInput != 0 && !IsGrounded())
         {
             if (wallCheckHitLeft)
             {
                 rb.AddForce(new Vector2(1, 1) * jumpVelocity, ForceMode2D.Impulse);
+               
             }
             else if (wallCheckHitRight)
             {
                 rb.AddForce(new Vector2(-1, 1) * jumpVelocity, ForceMode2D.Impulse);
             }
             jumpCooldownStart = true; //cooldown has started
-            wallJumpCooldownStart = true;
+            isWallSliding = false;
         }
         if (rb.velocity.y < 0) // if the player has started to fall then we apply the fall multiplier
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
         }
         else if (rb.velocity.y > 0 && jumpInput == 0) // if the player hasd let go early of jump button then we increase
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
         }
     }
 
@@ -308,10 +309,10 @@ public class Movement : MonoBehaviour
         Debug.DrawRay(transform.position, new Vector2(-wallDistance, 0), Color.blue);
         if (slideCooldownStart) // cooldown timer
         {
-            slideTimer += Time.deltaTime;
+            slideTimer += Time.fixedDeltaTime;
         }
 
-        if ((wallCheckHitLeft || wallCheckHitRight) && !IsGrounded() && moveInput != 0 && !isWallSliding) // if either ray is triggered and the player is set to start sliding
+     /* if ((wallCheckHitLeft || wallCheckHitRight) && !IsGrounded() && moveInput != 0 && !isWallSliding) // if either ray is triggered and the player is set to start sliding
         {
             slideCooldownStart = true;
             isWallSliding = true;
@@ -323,23 +324,43 @@ public class Movement : MonoBehaviour
             slideCooldownStart = false;
             isWallSliding = false;
         }
+       */
         if (isWallSliding) // movement condition for sliding
         {
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlideSpeed, float.MaxValue));
 
         }
-        if (wallJumpCooldownStart) // so the player cannot jump in rapid succsesion
+ /*       if (wallJumpCooldownStart) // so the player cannot jump in rapid succsesion
         {
-            wallJumpCooldownTimer += Time.deltaTime;
+            wallJumpCooldownTimer += Time.fixedDeltaTime;
             if (wallJumpCooldownTimer >= wallJumpCooldown)
             {
                 wallJumpCooldownStart = false;
                 wallJumpCooldownTimer = 0f;
             }
         }
+ */
+      
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Debug.Log("AAAAAAA");
+            isWallSliding = true;
+        }
 
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Debug.Log("AAAAAAA");
+            isWallSliding = false;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -421,7 +442,7 @@ public class Movement : MonoBehaviour
         }
         if (crouchSlideHappening)
         {
-            crouchSlideT += Time.deltaTime;
+            crouchSlideT += Time.fixedDeltaTime;
             if (crouchSlideT >= crouchSlideDuration)
             {
                 crouchSlideT = 0;
