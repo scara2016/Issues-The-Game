@@ -103,6 +103,12 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("Level 1 (Tutorial)");
+        Resume();
+    }
+
     public void Quit()
     {
         Application.Quit();

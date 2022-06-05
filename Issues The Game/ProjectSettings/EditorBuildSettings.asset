@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Bayleigh Test Scenes/Main Menu.unity
     guid: 578164eb338b51e4c9cb2ec03b3c7741
   - enabled: 1
-    path: Assets/Scenes/Bayleigh Test Scenes/Level 1 (Tutorial)).unity
+    path: Assets/Scenes/Bayleigh Test Scenes/Level 1 (Tutorial).unity
     guid: d384ef06fc9c189448e7040a135f0785
   - enabled: 1
     path: Assets/Scenes/Bayleigh Test Scenes/Level in development.unity
