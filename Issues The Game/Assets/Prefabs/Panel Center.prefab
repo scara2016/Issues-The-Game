@@ -71,3 +71,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daef83477506ef94b8f2a5dd668daeb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passableSurfaces: []
