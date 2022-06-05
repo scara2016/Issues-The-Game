@@ -346,18 +346,18 @@ MonoBehaviour:
       m_ExpandedIDs: f6bdfaff00befaff06befaff72bffaffecc6faff8037fbff623afbff6c3afbff723afbfff23bfbffa056fbffba5dfbff407efbffd481fbfffc8ffbffc295fbff989bfbff7ca4fbff30b3fbffb0b4fbffe0b7fbff96bdfbff96c9fbff2ae0fbffc6fafbffde10fcffc01afcffba1bfcffd023fcff96a4fcff52fafcff54fafcffa4fffcff0400fdff1201fdffe003fdff7209fdff800afdff4010fdffca11fdffcc11fdff7017fdff7e18fdff8e1afdff2c1bfdffc226fdff8627fdffb033fdff963bfdff6247fdff744afdffca4ffdffb852fdff0858fdff285dfdff7e62fdffda67fdff346dfdff9672fdffbe75fdff507bfdff7480fdff8685fdff008bfdfffc8dfdffa0b4fdff54b5fdff54bafdff48c7fdfffecbfdffecd0fdff96d5fdfffce4fdff8cf0fdff6ef7fdff92fdfdffa62cfeff9a3bfeff9040feff6443feff5a48feff2e4bfeff2650feff8456feff2e5bfeff2460feffce64feffc669feffb06ffeff6274feff0a79feff007efeffac82feff0888fefffe8cfeffa891feff9e96feff669cfeff18a1feffc2a5feff74aafeff6aaffeff1cb4feffc4b8feff6cbdfeffd63effffdc3effff943fffff0e41ffff2241ffff6870ffffcc70ffffd083ffffd683ffff0486ffffcc88ffff628dfffff291ffff8896ffff189bffff0e9effff30c6ffffa2caffffc0edffff2afbffff786d0000ce9400004cbb00002cf5000090250100c88101007082010012d70100fc56020026b102009ab70200b6b70200f0b70200
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: crumpled paper
+        m_OriginalName: crumpled paper
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -109954
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
