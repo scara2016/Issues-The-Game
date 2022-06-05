@@ -35,7 +35,6 @@ public class Movement : MonoBehaviour
     public float wallSlideSpeed = 0.3f;
     public float wallDistance = 0.5f;
     private float slideTimer = 0f;
-    public float slideCooldown = 0.5f;
     private bool slideCooldownStart = false;
     private bool isWallSliding = false;
     public float inkDragVert = 3f;
