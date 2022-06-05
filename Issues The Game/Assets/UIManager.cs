@@ -63,7 +63,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerControls.Main.Pause.ReadValue<float>() != 0)
+        if (playerControls.Main.Pause.triggered)
         {
             if (GameIsPaused)
             {

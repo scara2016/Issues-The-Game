@@ -23,6 +23,7 @@ public class Dash : MonoBehaviour
     private float t = 0;
     private float fractionTravelled = 1;
     private AnimationController controller;
+    private TrailRenderer tr; //For Dash Trail
 
     public float dashCoolDown;
     private float dashT;
@@ -43,6 +44,7 @@ public class Dash : MonoBehaviour
     {
         dashState = DashState.Moving;
         playerMovement = GetComponent<Movement>();   
+        tr = GetComponent<TrailRenderer>();
     }
     private void OnEnable()
     {
@@ -79,10 +81,12 @@ public class Dash : MonoBehaviour
                     dashState = DashState.Moving;
                 }
                     controller.DashState();
+                    tr.emitting = true; //Shows trail when dashing. Turns off in DashState.moving
                 break;
 
             case DashState.Moving:
                     playerMovement.DashMovement = false;
+                    tr.emitting = false;
                 if(dashCoolDownStart)
                     dashT += Time.deltaTime;
                 if (dashT > dashCoolDown)

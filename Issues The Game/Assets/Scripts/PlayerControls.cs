@@ -64,6 +64,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""81f74847-c231-4e90-88f0-a18ab9e36b0d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""WallTransfer"",
                     ""type"": ""PassThrough"",
                     ""id"": ""e5c4aa43-439c-445b-b694-8b4663367d5f"",
@@ -159,39 +168,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Sideways"",
-                    ""id"": ""286fc3c9-59f7-4b42-a295-31dca3a5611d"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""93f75aff-dc3f-4c81-978d-ce0f96f03199"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""a1cc5c33-9d6c-4fe8-a484-2cb2c91ee768"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""1091c934-9dd1-4618-9ee9-9bff0b740f3e"",
                     ""path"": ""<XInputController>/buttonSouth"",
@@ -206,17 +182,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""0a2c6c01-a10c-4056-87c8-95469312c132"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2ee30207-4db8-446b-8704-b8bd551acaab"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -248,17 +213,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""aeda1d49-d4ca-4779-8b9c-e7e82baf26ea"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PickUp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""ceada642-62ac-4042-b8f7-8292717acc8f"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
@@ -281,12 +235,23 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2d82bc4d-0bd6-4a9c-9033-5efb2c01c1ab"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""id"": ""5b33929a-d7c0-4cae-81a8-ac550b3047ba"",
+                    ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Attack"",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9e27ee18-911c-48a9-8f85-f4b19ae148df"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -325,7 +290,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fa3514b9-0b03-49ab-ac84-33854ccad94a"",
+                    ""id"": ""d1ee76d8-6f6f-47d5-946c-10ed422f2175"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -367,6 +332,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Main_Jump = m_Main.FindAction("Jump", throwIfNotFound: true);
         m_Main_PickUp = m_Main.FindAction("PickUp", throwIfNotFound: true);
         m_Main_Attack = m_Main.FindAction("Attack", throwIfNotFound: true);
+        m_Main_Crouch = m_Main.FindAction("Crouch", throwIfNotFound: true);
         m_Main_WallTransfer = m_Main.FindAction("WallTransfer", throwIfNotFound: true);
         m_Main_Pause = m_Main.FindAction("Pause", throwIfNotFound: true);
         m_Main_Dash = m_Main.FindAction("Dash", throwIfNotFound: true);
@@ -433,6 +399,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Main_Jump;
     private readonly InputAction m_Main_PickUp;
     private readonly InputAction m_Main_Attack;
+    private readonly InputAction m_Main_Crouch;
     private readonly InputAction m_Main_WallTransfer;
     private readonly InputAction m_Main_Pause;
     private readonly InputAction m_Main_Dash;
@@ -444,6 +411,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Main_Jump;
         public InputAction @PickUp => m_Wrapper.m_Main_PickUp;
         public InputAction @Attack => m_Wrapper.m_Main_Attack;
+        public InputAction @Crouch => m_Wrapper.m_Main_Crouch;
         public InputAction @WallTransfer => m_Wrapper.m_Main_WallTransfer;
         public InputAction @Pause => m_Wrapper.m_Main_Pause;
         public InputAction @Dash => m_Wrapper.m_Main_Dash;
@@ -468,6 +436,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_MainActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnAttack;
+                @Crouch.started -= m_Wrapper.m_MainActionsCallbackInterface.OnCrouch;
+                @Crouch.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnCrouch;
+                @Crouch.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnCrouch;
                 @WallTransfer.started -= m_Wrapper.m_MainActionsCallbackInterface.OnWallTransfer;
                 @WallTransfer.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnWallTransfer;
                 @WallTransfer.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnWallTransfer;
@@ -493,6 +464,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @Crouch.started += instance.OnCrouch;
+                @Crouch.performed += instance.OnCrouch;
+                @Crouch.canceled += instance.OnCrouch;
                 @WallTransfer.started += instance.OnWallTransfer;
                 @WallTransfer.performed += instance.OnWallTransfer;
                 @WallTransfer.canceled += instance.OnWallTransfer;
@@ -512,6 +486,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnPickUp(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnCrouch(InputAction.CallbackContext context);
         void OnWallTransfer(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);

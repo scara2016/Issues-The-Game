@@ -41,6 +41,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] AudioSource deadsfx;
     [SerializeField] AudioSource hitsfx;
 
+    private GameManager gameManager;
+
 
     // void OnEnable() {
     //     playerControls.Enable();
@@ -117,12 +119,14 @@ public class PlayerHealth : MonoBehaviour
         // GetComponent<Collider2D>().enabled = false;
         // this.enabled = false;
         controller.DieState();
+        Invoke("Respawn", 3f);
     }
 
-    private void DestroyPlayer()
+    private void Respawn()
     {
-        Destroy(gameObject); //Needs to be separate cause of animation event timing
+        GameManager.instance.Restart();
     }
+    
 
     private void HandleKnockBack()
     {
