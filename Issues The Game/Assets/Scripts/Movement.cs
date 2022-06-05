@@ -69,6 +69,8 @@ public class Movement : MonoBehaviour
 
     [SerializeField] AudioSource jumpsfx;
     [SerializeField] AudioSource walksfx;
+    [SerializeField] AudioSource wallslidesfx;
+    [SerializeField] AudioSource transfersfx;
 
     private void Awake()
     {
@@ -107,7 +109,7 @@ public class Movement : MonoBehaviour
         Friction();
         Jump();
         WallJump();
-        Crouch();
+        //Crouch();
 
         if (wallTransferCooldownStart) //cooldown for walltransfer added here so it runs everyframe;
         {
@@ -176,11 +178,12 @@ public class Movement : MonoBehaviour
 
     private void AnimateMovement()
     {
-        crouchInput = playerControls.Main.Crouch.ReadValue<float>();
+      //  crouchInput = playerControls.Main.Crouch.ReadValue<float>();
         // Reads Input Value to change state
         if (IsGrounded() && !isWallSliding && !isCrouched)
         {
             controller.WallSlideState(false);
+            wallslidesfx.Pause();
             if (moveInput != 0)
             {
                 controller.RunState(true);
@@ -200,6 +203,8 @@ public class Movement : MonoBehaviour
             {
                 controller.JumpState(true);
                 controller.WallSlideState(false);
+                walksfx.Pause();
+                walksfx.Pause();
             }
 
             if (rb.velocity.y < 0)
@@ -207,6 +212,8 @@ public class Movement : MonoBehaviour
                 controller.JumpState(false);
                 controller.AirState(true);
                 controller.WallSlideState(false);
+                walksfx.Pause();
+                wallslidesfx.Pause();
             }
         }
         else
@@ -218,6 +225,7 @@ public class Movement : MonoBehaviour
         if (!IsGrounded() && isWallSliding)
         {
             controller.WallSlideState(true);
+            wallslidesfx.UnPause();
         }
 
         if (moveInput > 0) //When running to the right
@@ -316,6 +324,7 @@ public class Movement : MonoBehaviour
         {
             slideCooldownStart = true;
             isWallSliding = true;
+            wallslidesfx.UnPause();
             jumpCooldownTimer = float.MaxValue;
         }
         else if (slideTimer > slideCooldown && (!wallCheckHitLeft || !wallCheckHitRight)) //ends the slide
@@ -323,11 +332,13 @@ public class Movement : MonoBehaviour
             slideTimer = 0;
             slideCooldownStart = false;
             isWallSliding = false;
+            wallslidesfx.Pause();
         }
        */
         if (isWallSliding) // movement condition for sliding
         {
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlideSpeed, float.MaxValue));
+            wallslidesfx.UnPause();
 
         }
  /*       if (wallJumpCooldownStart) // so the player cannot jump in rapid succsesion
@@ -409,6 +420,7 @@ public class Movement : MonoBehaviour
         {
             this.transform.position = InitialSide.returnNewPosition(this.transform.position);
             wallTransferCooldownStart = true;
+            transfersfx.Play();
         }
     }
 
@@ -424,10 +436,10 @@ public class Movement : MonoBehaviour
         rb.drag = 0;
     }
 
-    private void Crouch()
+   /* private void Crouch()
     {
      
-        crouchInput = playerControls.Main.Crouch.ReadValue<float>();
+      //  crouchInput = playerControls.Main.Crouch.ReadValue<float>();
        
         if (crouchInput != 0 && IsGrounded())
         {
@@ -448,8 +460,9 @@ public class Movement : MonoBehaviour
                 crouchSlideT = 0;
                 crouchSlideHappening = false;
             }
+   
         }
-
+   
 
         
 
@@ -469,7 +482,7 @@ public class Movement : MonoBehaviour
                     controller.CrouchState(false);
                 }
         */
-    }
+    
 
 
 
