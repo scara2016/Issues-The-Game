@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             player.TakeDamage(harm);
+
         }
     }
     

@@ -17,7 +17,6 @@ public class RangedAIPatrol : MonoBehaviour
     private AIState aiState;
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] private LayerMask platformLayerMask;
-    [SerializeField] private AudioSource enemysfx;
 
     Rigidbody2D myRigidbody;
     BoxCollider2D boxCollider;
@@ -157,14 +156,6 @@ public class RangedAIPatrol : MonoBehaviour
                
                 controller.MoveState(false);
                 break;
-        }
-        if(Time.timeScale == 0f)
-        {
-            enemysfx.Pause();
-        }
-        else
-        {
-            enemysfx.UnPause();
         }
     }
 
